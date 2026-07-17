@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5 Portable) (preloaded format=pdflatex 2026.7.17)  17 JUL 2026 11:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5 Portable) (preloaded format=pdflatex 2026.7.17)  17 JUL 2026 12:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/Quacky/projects/latex/physics/Grade10 - 01 - Dao động điều hoà.tex"
-(d:/Quacky/projects/latex/physics/Grade10 - 01 - Dao động điều hoà.tex
+**"d:/Quacky/projects/latex/physics/Grade11 - 01 - Dao động điều hoà.tex"
+(d:/Quacky/projects/latex/physics/Grade11 - 01 - Dao động điều hoà.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
 (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/base\article.cls
@@ -309,11 +309,20 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\graphicx.sty
+)) (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\enitkv@toks@=\toks24
+\labelindent=\skip54
+\enit@outerparindent=\dimen161
+\enit@toks=\toks25
+\enit@inbox=\box55
+\enit@count@id=\count298
+\enitdp@description=\count299
+) (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\graphicx.sty
 Package: graphicx 2026-05-17 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
  (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\keyval.sty
 Package: keyval 2026-05-17 v1.15 key=value parser (DPC)
-\KV@toks@=\toks24
+\KV@toks@=\toks26
 ) (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\graphics.sty
 Package: graphics 2026-05-17 v1.4h Standard LaTeX Graphics (DPC,SPQR)
  (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\trig.sty
@@ -325,12 +334,12 @@ Package graphics Info: Driver file: pdftex.def on input line 106.
  (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen161
-\Gin@req@width=\dimen162
+\Gin@req@height=\dimen162
+\Gin@req@width=\dimen163
 ) (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count298
-) (Grade10 - 01 - Dao động điều hoà.aux
+\l__color_backend_stack_int=\count300
+) (Grade11 - 01 - Dao động điều hoà.aux
 LaTeX Font Info:    Trying to load font information for T5+cmr on input line 5.
  (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/vntex\t5cmr.fd
 File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -338,37 +347,37 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 Package babel Info: 'vietnamese' activates 'vietnamese' shorthands.
 (babel)             Reported on input line 5.
 )
-\openout1 = `"Grade10 - 01 - Dao động điều hoà.aux"'.
+\openout1 = `"Grade11 - 01 - Dao động điều hoà.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
  (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count299
-\scratchdimen=\dimen163
-\scratchbox=\box55
-\nofMPsegments=\count300
-\nofMParguments=\count301
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count302
-\MPscratchDim=\dimen164
-\MPnumerator=\count303
-\makeMPintoPDFobject=\count304
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count301
+\scratchdimen=\dimen164
+\scratchbox=\box56
+\nofMPsegments=\count302
+\nofMParguments=\count303
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count304
+\MPscratchDim=\dimen165
+\MPnumerator=\count305
+\makeMPintoPDFobject=\count306
+\everyMPtoPDFconversion=\toks28
 ) (D:\Quacky\software\scoop\apps\miktex\current\texmfs\install\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -378,24 +387,24 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package babel Info: Main language set to 'vietnamese'.
  [1
 
-{D:/Quacky/software/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex.map}] [1] (Grade10 - 01 - Dao động điều hoà.aux)
+{D:/Quacky/software/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex.map}] [1] (Grade11 - 01 - Dao động điều hoà.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4137 strings out of 467510
- 66728 string characters out of 5401486
- 476481 words of memory out of 5000000
- 33353 multiletter control sequences out of 15000+600000
- 635688 words of font info for 49 fonts, out of 8000000 for 9000
+ 4475 strings out of 467510
+ 72631 string characters out of 5401486
+ 487166 words of memory out of 5000000
+ 33685 multiletter control sequences out of 15000+600000
+ 636846 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,5n,65p,453b,355s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<D:/Quacky/software/scoop/apps/miktex/current/texmfs/install/fonts/type1/vntex/vnr/vnbx12.pfb><D:/Quacky/software/scoop/apps/miktex/current/texmfs/install/fonts/type1/vntex/vnr/vnbxti10.pfb><D:/Quacky/software/scoop/apps/miktex/current/texmfs/install/fonts/type1/vntex/vnr/vnr12.pfb>
-Output written on "Grade10 - 01 - Dao động điều hoà.pdf" (2 pages, 24287 bytes).
+ <D:\Quacky\software\scoop\apps\miktex\current\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><D:/Quacky/software/scoop/apps/miktex/current/texmfs/install/fonts/type1/vntex/vnr/vnbx12.pfb><D:/Quacky/software/scoop/apps/miktex/current/texmfs/install/fonts/type1/vntex/vnr/vnbxti10.pfb><D:/Quacky/software/scoop/apps/miktex/current/texmfs/install/fonts/type1/vntex/vnr/vnr12.pfb><D:/Quacky/software/scoop/apps/miktex/current/texmfs/install/fonts/type1/vntex/vnr/vnti12.pfb>
+Output written on "Grade11 - 01 - Dao động điều hoà.pdf" (2 pages, 50011 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
+ 35 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
