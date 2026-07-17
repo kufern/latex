@@ -6,7 +6,7 @@
 \usepackage{enumitem}
 \usepackage{graphicx}
 
-\graphicspath{../images/}
+\graphicspath{{../images/}}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
@@ -23,29 +23,44 @@
 {\LARGE\bfseries Dao động điều hoà} \\
 \vspace{14px}
 {\Large\bfseries\itshape kufern} \\
-\vspace{5cm}
-
+\vspace{7cm}
+\includegraphics{logo.png}
 \end{titlepage}
 
 \section{Những đặc điểm của dao động cơ}
-\begin{itemize}
-	\item Có một vị trí cân bằng xác định
-	\item Vật chuyển động qua lại quanh vị trí cân bằng đó
-	\item Dao động cơ của một vật có thể là \textit{tuần hoàn} hay \textit{không tuần hoàn}:
-	\begin{itemize}[label=\textopenbullet]
-		\item Dao động tuần hoàn: Sau những khoảng thời gian bằng nhau, vật trở lại vị trí cũ theo hướng cũ
-		\item Dao động không tuần hoàn
+	\begin{itemize}
+		\item Có một vị trí cân bằng xác định
+		\item Vật chuyển động qua lại quanh vị trí cân bằng đó
+		\item Dao động cơ của một vật có thể là \textit{tuần hoàn} hay \textit{không tuần hoàn}:
+		\begin{itemize}[label=\textopenbullet]
+			\item Dao động tuần hoàn: Sau những khoảng thời gian bằng nhau, vật trở lại vị trí cũ theo hướng cũ
+			\item Dao động không tuần hoàn
 	\end{itemize}
 \end{itemize}
 
+\vspace{5px}
 \section{Dao động điều hoà}
-\subsection{Đồ thị dao động điều hoà}
-\vspace{3px}
-\begin{itemize}
-	\item Đồ thị cho biết vị trí trên trục x tại những điểm khác nhau
-	\item Đường cong này có dạng hình sin
-\end{itemize}
+	\subsection{Đồ thị dao động điều hoà}
+		\vspace{4px}
+		\begin{itemize}
+			\item Đồ thị cho biết vị trí trên trục \( x \) tại những điểm khác nhau
+			\item Đường cong này có dạng hình sin
+		\end{itemize}
 
-\subsection{Phương trình của dao động điều hoà}
-\vspace{3px}
+	\subsection{Phương trình của dao động điều hoà}
+		\vspace{5px}
+		\begin{minipage}[t]{0.59\textwidth}
+			\vspace{-9px}
+			\centering
+			\fbox{\(x = A \cos \, (\omega t + \phi)\)}
+		\end{minipage}
+		\begin{minipage}[t]{0.4\textwidth}
+			\(x\): Li độ dao động (m) \\
+			\(A\): Biên độ dao động (m) \\
+			\((\omega t + \phi)\): Pha dao động (rad) \\
+			\(\phi\): Pha ban đầu (rad)
+		\end{minipage}
+
+\pagebreak
+\section{Mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
 \end{document}
