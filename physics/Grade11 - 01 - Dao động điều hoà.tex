@@ -5,8 +5,10 @@
 \usepackage{amsmath, amssymb}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\usepackage{tikz}
 
 \graphicspath{{../images/}}
+\tikzset{focus/.style={help lines,very thick}}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
@@ -63,4 +65,12 @@
 
 \pagebreak
 \section{Mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
+	\centering
+	\vspace{1cm}
+	\begin{tikzpicture}
+		\draw (-4,0) -- (4,0);
+		\draw (0,-4) -- (0,4);
+		\draw (0,0) circle [radius=85pt];
+		\draw (0,0) arc [start angle=0, end angle=20, radius=5px];
+	\end{tikzpicture}
 \end{document}
