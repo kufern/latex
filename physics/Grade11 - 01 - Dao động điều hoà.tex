@@ -69,7 +69,7 @@
 				\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=120] (\x, {sin(\x r)});
 				% labels
 				\draw [normal-dash, color=black] (-pi/2,1) node [anchor=east] {$A$} -- (pi/2,1);
-				\draw [<-] (-pi/2,-1.2) -- (pi/2,-1.2) node [anchor=north] {$T$};
+				\draw [<-] (-pi/2.1,-1.2) -- (pi/2,-1.2) node [anchor=north] {$T$};
 				\draw [->] (pi/2,-1.2) -- (3*pi/2,-1.2);
 				\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [anchor=north] {$T$};
 				\draw [->] (5*pi/2,-1.2) -- (7*pi/2,-1.2);
@@ -83,13 +83,13 @@
 		\begin{minipage}[t]{0.59\textwidth}
 			\vspace{-6.75pt}
 			\centering
-			\fbox{\(x = A \cos \, (\omega t + \phi)\)}
+			\fbox{\(x = A \cos \, (\omega t + \varphi)\)}
 		\end{minipage}
 		\begin{minipage}[t]{0.4\textwidth}
 			\(x\): Li độ dao động (m) \\
 			\(A\): Biên độ dao động (m) \\
-			\((\omega t + \phi)\): Pha dao động (rad) \\
-			\(\phi\): Pha ban đầu (rad)
+			\((\omega t + \varphi)\): Pha dao động (rad) \\
+			\(\varphi\): Pha ban đầu (rad)
 		\end{minipage}
 
 \pagebreak
@@ -102,9 +102,11 @@
 		\draw [->] (0,-4) -- (0,4);
 		\draw (0,0) circle [radius=3cm];
 		\filldraw [color=black] (0,0) circle [radius=1.5pt] node [anchor=north east] {$O$};
-		% angles
-		\draw [focus, color=gray] (10pt,0) arc [start angle=0, end angle=75, radius=10pt];
+		% angle phi
+		\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=75, radius=10pt] node [below, right] {$\phi$};
+		% angle varphi
+		\draw [focus, color=gray] (15pt,0) arc [start angle=0, end angle=35, radius=15pt] node [above=-2.5pt, right] {$\varphi$};
 		\draw [normal-dash, color=gray] (35:3cm) -- (35:3cm |- 0,0);
-		\draw [->] (0,0) -- (35:3cm);
+		\draw [focus, color=gray, ->] (0,0) -- (35:3cm);
 	\end{tikzpicture}
 \end{document}
