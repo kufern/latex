@@ -97,11 +97,14 @@
 	\centering
 	\vspace{0.25cm}
 	\begin{tikzpicture}[>=Stealth]
+		% graph
 		\draw [->] (-4,0) -- (4,0);
 		\draw [->] (0,-4) -- (0,4);
 		\draw (0,0) circle [radius=3cm];
 		\filldraw [color=black] (0,0) circle [radius=1.5pt] node [anchor=north east] {$O$};
-		\draw [focus, color=gray] (10pt,0) arc [start angle=0, end angle=35, radius=10pt];
+		% angles
+		\draw [focus, color=gray] (10pt,0) arc [start angle=0, end angle=75, radius=10pt];
 		\draw [normal-dash, color=gray] (35:3cm) -- (35:3cm |- 0,0);
+		\draw [->] (0,0) -- (35:3cm);
 	\end{tikzpicture}
 \end{document}
