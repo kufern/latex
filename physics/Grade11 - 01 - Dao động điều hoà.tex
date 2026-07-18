@@ -1,29 +1,39 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[vietnamese]{babel}
 \usepackage[vietnamese=nohyphenation]{hyphsubst}
+\usepackage[vietnamese]{babel}
 \usepackage{amsmath, amssymb}
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{caption}
 
 \graphicspath{{../images/}}
-\tikzset{focus/.style={help lines,very thick}}
 
+% tikz
+\tikzset{focus/.style={help lines, very thick}}
+\tikzset{normal-dash/.style={help lines, dashed}}
+\usetikzlibrary {arrows.meta}
+
+% sections & subsections
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
+
+% CHANGE THIS WHEN YOU GET TO NEW LESSON
+\captionsetup[figure]{labelsep=period, labelfont=bf}
+\renewcommand{\thefigure}{1.\arabic{figure}}
 
 \begin{document}
 \begin{titlepage}
 \centering
 {\large\bfseries Grade 11} \\
-\vspace{12px}
+\vspace{9pt}
 {\large\bfseries Chương I: Dao động} \\
-\vspace{12px}
+\vspace{9pt}
 {\large\bfseries Bài 1} \\
-\vspace{18px}
+\vspace{13.5pt}
 {\LARGE\bfseries Dao động điều hoà} \\
-\vspace{14px}
+\vspace{10.5pt}
 {\Large\bfseries\itshape kufern} \\
 \vspace{7cm}
 \includegraphics{logo.png}
@@ -40,19 +50,38 @@
 	\end{itemize}
 \end{itemize}
 
-\vspace{5px}
+\vspace{3.75pt}
 \section{Dao động điều hoà}
 	\subsection{Đồ thị dao động điều hoà}
-		\vspace{4px}
+		\vspace{3pt}
 		\begin{itemize}
 			\item Đồ thị cho biết vị trí trên trục \( x \) tại những điểm khác nhau
 			\item Đường cong này có dạng hình sin
 		\end{itemize}
+		\vspace{-12pt}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[>=Stealth, scale=0.8]
+				% graph
+				\draw [->] (-pi/2,-2) -- (-pi/2,2) node [anchor=east] {\small $x$ (cm)};
+				\draw [->] (-pi/2,0) node [anchor=east] {$0$} -- (11.5,0) node [anchor=west] {\small $t$ (s)};
+				% sine wave
+				\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=120] (\x, {sin(\x r)});
+				% labels
+				\draw [normal-dash, color=black] (-pi/2,1) node [anchor=east] {$A$} -- (pi/2,1);
+				\draw [<-] (-pi/2,-1.2) -- (pi/2,-1.2) node [anchor=north] {$T$};
+				\draw [->] (pi/2,-1.2) -- (3*pi/2,-1.2);
+				\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [anchor=north] {$T$};
+				\draw [->] (5*pi/2,-1.2) -- (7*pi/2,-1.2);
+			\end{tikzpicture}
+			\caption{Đồ thị dao động của một con lắc lò xo}
+		\end{figure}
+		\vspace{-13pt}
 
 	\subsection{Phương trình của dao động điều hoà}
-		\vspace{5px}
+		\vspace{3pt}
 		\begin{minipage}[t]{0.59\textwidth}
-			\vspace{-9px}
+			\vspace{-6.75pt}
 			\centering
 			\fbox{\(x = A \cos \, (\omega t + \phi)\)}
 		\end{minipage}
@@ -66,11 +95,13 @@
 \pagebreak
 \section{Mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
 	\centering
-	\vspace{1cm}
-	\begin{tikzpicture}
-		\draw (-4,0) -- (4,0);
-		\draw (0,-4) -- (0,4);
-		\draw (0,0) circle [radius=85pt];
-		\draw (0,0) arc [start angle=0, end angle=20, radius=5px];
+	\vspace{0.25cm}
+	\begin{tikzpicture}[>=Stealth]
+		\draw [->] (-4,0) -- (4,0);
+		\draw [->] (0,-4) -- (0,4);
+		\draw (0,0) circle [radius=3cm];
+		\filldraw [color=black] (0,0) circle [radius=1.5pt] node [anchor=north east] {$O$};
+		\draw [focus, color=gray] (10pt,0) arc [start angle=0, end angle=35, radius=10pt];
+		\draw [normal-dash, color=gray] (35:3cm) -- (35:3cm |- 0,0);
 	\end{tikzpicture}
 \end{document}
