@@ -19,6 +19,7 @@
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
 
+% figure names
 % CHANGE THIS WHEN YOU GET TO NEW LESSON
 \captionsetup[figure]{labelsep=period, labelfont=bf}
 \renewcommand{\thefigure}{1.\arabic{figure}}
@@ -63,15 +64,18 @@
 			\centering
 			\begin{tikzpicture}[>=Stealth, scale=0.8]
 				% graph
-				\draw [->] (-pi/2,-2) -- (-pi/2,2) node [anchor=east] {\small $x$ (cm)};
-				\draw [->] (-pi/2,0) node [anchor=east] {$0$} -- (11.5,0) node [anchor=west] {\small $t$ (s)};
+				\draw [->] (-pi/2,-2) -- (-pi/2,2) node [left] {\small $x$ (cm)};
+				\draw [->] (-pi/2,0) node [left] {$0$} -- (11.5,0) node [right] {\small $t$ (s)};
 				% sine wave
 				\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=120] (\x, {sin(\x r)});
 				% labels
-				\draw [normal-dash, color=black] (-pi/2,1) node [anchor=east] {$A$} -- (pi/2,1);
-				\draw [<-] (-pi/2.1,-1.2) -- (pi/2,-1.2) node [anchor=north] {$T$};
+				\draw [normal-dash, color=black] (-pi/2,1) node [left] {$A$} -- (5*pi/2,1);
+				\draw [<->, color=blue] (pi/2,1) -- (pi/2,0);
+				\draw [<->, color=blue] (3*pi/2,0) -- (3*pi/2,-1);
+				\draw [<->, color=blue] (5*pi/2,1) -- (5*pi/2,0);
+				\draw [<-] (-pi/2.1,-1.2) -- (pi/2,-1.2) node [below] {$T$};
 				\draw [->] (pi/2,-1.2) -- (3*pi/2,-1.2);
-				\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [anchor=north] {$T$};
+				\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [below] {$T$};
 				\draw [->] (5*pi/2,-1.2) -- (7*pi/2,-1.2);
 			\end{tikzpicture}
 			\caption{Đồ thị dao động của một con lắc lò xo}
@@ -98,15 +102,16 @@
 	\vspace{0.25cm}
 	\begin{tikzpicture}[>=Stealth]
 		% graph
-		\draw [->] (-4,0) -- (4,0);
-		\draw [->] (0,-4) -- (0,4);
+		\draw [->] (-4,0) -- (4,0) node [below=3pt] {$x$};
+		\draw [->] (0,-4) -- (0,4) node [below=3pt, right=3pt] {$y$};
 		\draw (0,0) circle [radius=3cm];
-		\filldraw [color=black] (0,0) circle [radius=1.5pt] node [anchor=north east] {$O$};
+		\filldraw [color=black] (0,0) circle [radius=1.5pt] node [below left] {$O$};
 		% angle phi
-		\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=75, radius=10pt] node [below, right] {$\phi$};
+		\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=75, radius=10pt] node [below=18pt, right=-2pt] {$\phi$};
 		% angle varphi
 		\draw [focus, color=gray] (15pt,0) arc [start angle=0, end angle=35, radius=15pt] node [above=-2.5pt, right] {$\varphi$};
 		\draw [normal-dash, color=gray] (35:3cm) -- (35:3cm |- 0,0);
-		\draw [focus, color=gray, ->] (0,0) -- (35:3cm);
+		\draw [color=gray] (35:3cm |- 0,0) rectangle +(-5pt,5pt);
+		\draw [focus, color=black, ->] (0,0) -- (35:3cm);
 	\end{tikzpicture}
 \end{document}
