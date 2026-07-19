@@ -1,19 +1,32 @@
 \documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[vietnamese=nohyphenation]{hyphsubst}
+\usepackage[utf8]{inputenc} % unicode
+\usepackage[vietnamese=nohyphenation]{hyphsubst} % vietnamese
 \usepackage[vietnamese]{babel}
-\usepackage{amsmath, amssymb}
-\usepackage{enumitem}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usepackage{caption}
+\usepackage{amsmath, amssymb} % math symbol
+\usepackage{enumitem} % lists
+\usepackage{graphicx} % images
+\usepackage{tikz} % graphs
+\usepackage{caption} % captions
+\usepackage{array} % tables
+\usepackage{xcolor} % colors
 
 \graphicspath{{../images/}}
 
 % tikz
-\tikzset{focus/.style={help lines, very thick}}
-\tikzset{normal-dash/.style={help lines, dashed}}
-\usetikzlibrary {arrows.meta}
+\tikzset{focus/.style={help lines, very thick, color=black}}
+\tikzset{bsetting/.style={help lines, thick, color=black}}
+\tikzset{gsetting/.style={help lines, thick, color=gray}}
+\tikzset{normdash/.style={help lines, dashed, color=black}}
+\tikzset{>=stealth}
+\usetikzlibrary{arrows.meta}
+
+% pgf layers
+\pgfdeclarelayer{topspecial}
+\pgfdeclarelayer{plot}
+\pgfdeclarelayer{setting}
+\pgfdeclarelayer{label}
+\pgfdeclarelayer{botspecial}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial}
 
 % sections & subsections
 \renewcommand{\thesection}{\Roman{section}}
@@ -21,8 +34,14 @@
 
 % figure names
 % CHANGE THIS WHEN YOU GET TO NEW LESSON
-\captionsetup[figure]{labelsep=period, labelfont=bf}
+\captionsetup[figure]{labelsep=period, labelfont=bf, justification=centering}
 \renewcommand{\thefigure}{1.\arabic{figure}}
+
+% tables
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% aboveline
+\newcommand{\aboveline}[1]{\overline{\rule{0pt}{3.1mm}#1}}
 
 \begin{document}
 \begin{titlepage}
@@ -62,21 +81,24 @@
 		\vspace{-12pt}
 		\begin{figure}[h]
 			\centering
-			\begin{tikzpicture}[>=Stealth, scale=0.8]
-				% graph
-				\draw [->] (-pi/2,-2) -- (-pi/2,2) node [left] {\small $x$ (cm)};
-				\draw [->] (-pi/2,0) node [left] {$0$} -- (11.5,0) node [right] {\small $t$ (s)};
-				% sine wave
-				\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=120] (\x, {sin(\x r)});
-				% labels
-				\draw [normal-dash, color=black] (-pi/2,1) node [left] {$A$} -- (5*pi/2,1);
-				\draw [<->, color=blue] (pi/2,1) -- (pi/2,0);
-				\draw [<->, color=blue] (3*pi/2,0) -- (3*pi/2,-1);
-				\draw [<->, color=blue] (5*pi/2,1) -- (5*pi/2,0);
-				\draw [<-] (-pi/2.1,-1.2) -- (pi/2,-1.2) node [below] {$T$};
-				\draw [->] (pi/2,-1.2) -- (3*pi/2,-1.2);
-				\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [below] {$T$};
-				\draw [->] (5*pi/2,-1.2) -- (7*pi/2,-1.2);
+			\begin{tikzpicture}[scale=0.8]
+				\begin{pgfonlayer}{setting}
+					\draw [bsetting, ->] (-pi/2,-2) -- (-pi/2,2) node [left] {\small $x$ (cm)};
+					\draw [bsetting, ->] (-pi/2,0) node [left] {$0$} -- (11.5,0) node [right] {\small $t$ (s)};
+				\end{pgfonlayer}
+				\begin{pgfonlayer}{plot}
+					\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=100] (\x, {sin(\x r)});
+				\end{pgfonlayer}
+				\begin{pgfonlayer}{label}
+					\draw [normdash, color=black] (-pi/2,1) node [left] {$A$} -- (5*pi/2,1);
+					\draw [<->, color=blue] (pi/2,1) -- (pi/2,0);
+					\draw [<->, color=blue] (3*pi/2,0) -- (3*pi/2,-1);
+					\draw [<->, color=blue] (5*pi/2,1) -- (5*pi/2,0);
+					\draw [<-] (-pi/2.1,-1.2) -- (pi/2,-1.2) node [below] {$T$};
+					\draw [->] (pi/2,-1.2) -- (3*pi/2,-1.2);
+					\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [below] {$T$};
+					\draw [->] (5*pi/2,-1.2) -- (7*pi/2,-1.2);
+				\end{pgfonlayer}
 			\end{tikzpicture}
 			\caption{Đồ thị dao động của một con lắc lò xo}
 		\end{figure}
@@ -98,20 +120,79 @@
 
 \pagebreak
 \section{Mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
-	\centering
-	\vspace{0.25cm}
-	\begin{tikzpicture}[>=Stealth]
-		% graph
-		\draw [->] (-4,0) -- (4,0) node [below=3pt] {$x$};
-		\draw [->] (0,-4) -- (0,4) node [below=3pt, right=3pt] {$y$};
-		\draw (0,0) circle [radius=3cm];
-		\filldraw [color=black] (0,0) circle [radius=1.5pt] node [below left] {$O$};
-		% angle phi
-		\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=75, radius=10pt] node [below=18pt, right=-2pt] {$\phi$};
-		% angle varphi
-		\draw [focus, color=gray] (15pt,0) arc [start angle=0, end angle=35, radius=15pt] node [above=-2.5pt, right] {$\varphi$};
-		\draw [normal-dash, color=gray] (35:3cm) -- (35:3cm |- 0,0);
-		\draw [color=gray] (35:3cm |- 0,0) rectangle +(-5pt,5pt);
-		\draw [focus, color=black, ->] (0,0) -- (35:3cm);
-	\end{tikzpicture}
+\vspace{-15pt}
+	\begin{center}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[scale=0.9]
+				\begin{pgfonlayer}{topspecial}
+					\filldraw [color=gray] (0,0) circle [radius=1.25pt] node [below left] {$O$};
+					\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=65, radius=10pt] node [below=18pt, right=-4.5pt] {$\phi$};
+				\end{pgfonlayer}
+
+				\begin{pgfonlayer}{setting}
+					\draw [gsetting, ->] (-4,0) -- (4,0) node [below=3pt] {$x$};
+					\draw [gsetting, ->] (0,-4) -- (0,4) node [below=3pt, right=3pt] {$y$};
+					\draw [gsetting] (0,0) circle [radius=3cm];
+				\end{pgfonlayer}
+			
+				\begin{pgfonlayer}{label}
+					\draw [<-] (-29.7mm,0.15) -- (-14.8mm,0.15) node [above] {\footnotesize $A \: (= R)$};
+					\draw [->] (-14.8mm,0.15) -- (-0.2mm,0.15);
+					% angle varphi
+					\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above=-2.5pt, right] {$\varphi$};
+					\draw [normdash, color=black] (30:3cm) -- (30:3cm |- 0,5pt);
+					\draw [color=black] (30:3cm |- 0,0) rectangle +(-5pt,5pt);
+					% angle alpha
+					\draw [focus, color=blue] (30:19pt) arc [start angle=30, end angle=65, radius=19pt] node [above=1.5pt, right] {$\alpha$};
+					% angle phi
+					\draw [normdash, color=red] (65:3cm) -- (65:3cm |- 0,5pt);
+					\draw [color=red] (65:3cm |- 0,0) rectangle +(-5pt,5pt);
+				\end{pgfonlayer}
+
+				\begin{pgfonlayer}{plot}
+					% angle varphi
+					\draw [focus, ->] (0,0) -- (30:3cm);
+					\filldraw [color=black] (30:3cm) circle [radius=1.25pt] node [above=2pt, right] {\footnotesize $M \, (t=0)$};
+					\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below=10pt, right=-15pt] {\footnotesize $P \, (t=0)$};
+					% angle phi
+					\draw [focus, color=red, ->] (0,0) -- (65:3cm);
+					\filldraw [color=red] (65:3cm) circle [radius=1.25pt] node [above=5pt, right] {\footnotesize $M \, (t \neq 0)$};
+					\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below=10pt, left=-25pt] {\footnotesize $P \, (t \neq 0)$};
+				\end{pgfonlayer}
+			\end{tikzpicture}
+			\vspace{5pt}
+			\caption{Hình vẽ biểu diễn mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
+		\end{figure}
+
+		\begin{tabular}{|C{2cm}|C{4.5cm}|C{5.85cm}|}
+			\hline
+			& \vspace{2pt} \textbf{Chất điểm \(M\) chuyển động tròn đều} & \textbf{Hình chiếu \(P\) trên \(Ox\)} \\
+			\hline
+
+			\vspace{4pt} \textbf{Vị trí} \(t_0 = 0\) & \Large \(\varphi\) &
+				\vspace{-2pt}
+				\(\begin{aligned}
+					x &= \aboveline{OP}=R \cos \varphi \\
+					&= A \cos \varphi
+				\end{aligned}\) \\
+			\hline
+
+			\vspace{4pt} \textbf{Vị trí} \(t \neq 0\) &
+				\vspace{-2pt}
+				\(\begin{aligned}
+					\phi &= \textcolor{blue}{\alpha} + \varphi \\
+					&= \textcolor{blue}{\omega t} + \varphi
+				\end{aligned}\) &
+				\vspace{-2pt}
+				\(\begin{aligned}
+					x &= \aboveline{OP}=R \cos \phi \\
+					&= \textcolor{red}{A \cos \, (\omega t + \varphi)}
+				\end{aligned}\) \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	\vspace{5pt}
+	\large \textbf{Kết luận:} Hình chiếu của chất điểm \(M\) chuyển động đều trên phương đường kính \(Ox\) dao động điều hoà
 \end{document}
