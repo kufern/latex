@@ -1,0 +1,114 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc} % unicode
+\usepackage[vietnamese=nohyphenation]{hyphsubst} % vietnamese
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb} % math symbol
+\usepackage{enumitem} % lists
+\usepackage{graphicx} % images
+\usepackage{tikz} % graphs
+\usepackage{caption} % captions
+\usepackage{array} % tables
+\usepackage{xcolor} % colors
+
+\graphicspath{{../images/}}
+
+% tikz
+\tikzset{focus/.style={help lines, very thick, color=black}}
+\tikzset{bsetting/.style={help lines, thick, color=black}}
+\tikzset{gsetting/.style={help lines, thick, color=gray}}
+\tikzset{normdash/.style={help lines, dashed, color=black}}
+\tikzset{>=stealth}
+\usetikzlibrary{arrows.meta}
+
+% pgf layers
+\pgfdeclarelayer{topspecial}
+\pgfdeclarelayer{plot}
+\pgfdeclarelayer{setting}
+\pgfdeclarelayer{label}
+\pgfdeclarelayer{botspecial}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial}
+
+% sections & subsections
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+% figure names
+% CHANGE THIS WHEN YOU GET TO NEW LESSON
+\captionsetup[figure]{labelsep=period, labelfont=bf, justification=centering}
+\renewcommand{\thefigure}{2.\arabic{figure}}
+
+% tables
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% aboveline
+\newcommand{\aboveline}[1]{\overline{\rule{0pt}{3.1mm}#1}}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\large\bfseries Grade 11} \\
+\vspace{9pt}
+{\large\bfseries Chương I: Dao động} \\
+\vspace{9pt}
+{\large\bfseries Bài 2} \\
+\vspace{13.5pt}
+{\LARGE\bfseries Mô tả dao động điều hoà} \\
+\vspace{10.5pt}
+{\Large\bfseries\itshape kufern} \\
+\vspace{7cm}
+\includegraphics{logo.png}
+\end{titlepage}
+
+\section{Các đại lượng đặc trưng của dao động \\ điều hoà}
+	\subsection{Biên độ}
+		\vspace{5pt}
+		\begin{itemize}
+			\item Độ dịch chuyển cực đại của vật tính từ vị trí cân bằng
+			\item Ký hiệu: \(A\)
+			\item Luôn dương
+			\item Không phụ thuộc vào \(t\)
+			\item Phụ thuộc vào điều kiện kích thích
+			\item Đơn vị: m, cm, mm,\,\ldots
+		\end{itemize}
+
+	\subsection{Tần số góc}
+		\vspace{5pt}
+		\begin{itemize}
+			\item Ký hiệu: \(\omega\)
+			\item Luôn dương
+			\item Không phụ thuộc vào \(t\)
+			\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
+			\item Đơn vị: rad/s
+		\end{itemize}
+
+	\subsection{Chu kỳ}
+		\vspace{5pt}
+		\begin{itemize}
+			\item Khoảng thời gian để vật thực hiện một dao động toàn phần
+			\item Ký hiệu: \(T\)
+			\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
+			\item Đơn vị: s
+			\pagebreak
+			\item Công thức:
+		\end{itemize}
+				\begin{minipage}[t]{0.59\textwidth}
+					\vspace{-12pt}
+					\[ \boxed{T = \frac{\Delta t}{N} = \frac{2 \pi}{\omega}} \]
+				\end{minipage}
+				\begin{minipage}[t]{0.4\textwidth}
+					\vspace{-5pt}
+					\(\Delta t\):
+				\end{minipage}
+
+	\subsection{Tần số}
+		\vspace{5pt}
+		\begin{itemize}
+			\item Số dao động mà vật thực hiện trong một giây
+			\item Ký hiệu: \(f\)
+			\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
+			\item Đơn vị: Hz \( (= \dfrac{1}{s} = s^{-1}) \)
+			\item Công thức:
+				\vspace{6pt}
+				\[ \boxed{T = \frac{\Delta t}{N} = \frac{2 \pi}{\omega}} \]
+		\end{itemize}
+\end{document}
