@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc} % unicode
 \usepackage[vietnamese=nohyphenation]{hyphsubst} % vietnamese
 \usepackage[vietnamese]{babel}
-\usepackage{amsmath, amssymb} % math symbol
+\usepackage{amsmath, amssymb, empheq} % math
 \usepackage{enumitem} % lists
 \usepackage{graphicx} % images
 \usepackage{tikz} % graphs
@@ -43,6 +43,29 @@
 % aboveline
 \newcommand{\aboveline}[1]{\overline{\rule{0pt}{3.1mm}#1}}
 
+% boxes
+\makeatletter
+\newlength\templength
+\newsavebox\tempbox
+\newcommand\custombox{%
+	\@ifnextchar[%]
+		{\@custombox}%
+		{\@custombox[0pt]}}
+\def\@custombox[#1]{%
+	\@ifnextchar[%]
+		{\@@custombox[#1]}%
+		{\@@custombox[#1][0pt]}}
+\def\@@custombox[#1][#2]#3{
+	\sbox\tempbox{#3}%
+	\templength\ht\tempbox
+	\advance\templength #1\relax
+	\ht\tempbox\templength
+	\templength\dp\tempbox
+	\advance\templength #2\relax
+	\dp\tempbox\templength}
+\makeatother
+
+% BEGIN DOCUMENT
 \begin{document}
 \begin{titlepage}
 \centering
@@ -126,7 +149,7 @@
 			\centering
 			\begin{tikzpicture}[scale=0.9]
 				\begin{pgfonlayer}{topspecial}
-					\filldraw [color=gray] (0,0) circle [radius=1.25pt] node [below left] {$O$};
+					\filldraw [color=gray] (0,0) circle [radius=1.75pt] node [below left] {$O$};
 					\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=65, radius=10pt] node [below=18pt, right=-4.5pt] {$\phi$};
 				\end{pgfonlayer}
 

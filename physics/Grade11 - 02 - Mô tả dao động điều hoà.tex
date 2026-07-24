@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc} % unicode
 \usepackage[vietnamese=nohyphenation]{hyphsubst} % vietnamese
 \usepackage[vietnamese]{babel}
-\usepackage{amsmath, amssymb} % math symbol
+\usepackage{amsmath, amssymb, empheq} % math
 \usepackage{enumitem} % lists
 \usepackage{graphicx} % images
 \usepackage{tikz} % graphs
@@ -43,6 +43,30 @@
 % aboveline
 \newcommand{\aboveline}[1]{\overline{\rule{0pt}{3.1mm}#1}}
 
+% boxes
+\newlength\templength
+\newsavebox\tempbox
+\makeatletter
+\newcommand\custombox{%
+	\@ifnextchar[%]
+		{\@custombox}%
+		{\@custombox[0pt]}}
+\def\@custombox[#1]{%
+	\@ifnextchar[%]
+		{\@@custombox[#1]}%
+		{\@@custombox[#1][0pt]}}
+\def\@@custombox[#1][#2]#3{%
+	\sbox\tempbox{#3}%
+	\templength\ht\tempbox
+	\advance\templength #1\relax
+	\ht\tempbox\templength
+	\templength\dp\tempbox
+	\advance\templength #2\relax
+	\dp\tempbox\templength
+	\fbox{\usebox{\tempbox}}}%
+\makeatother
+
+% BEGIN DOCUMENT
 \begin{document}
 \begin{titlepage}
 \centering
@@ -93,7 +117,10 @@
 		\end{itemize}
 			\begin{minipage}[t]{0.5\textwidth}
 				\vspace{-12pt}
-				\[ \qquad\quad \boxed{T = \frac{\Delta t}{N} = \frac{2 \pi}{\omega}} \]
+				\qquad\quad
+				\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+					T = \frac{\Delta t}{N} = \frac{2 \pi}{\omega}
+				\end{empheq}
 			\end{minipage}
 			\begin{minipage}[t]{0.49\textwidth}
 				\vspace{-10pt}
@@ -110,22 +137,61 @@
 			\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
 			\item Đơn vị: Hz \( (= \dfrac{1}{s} = s^{-1}) \)
 			\item Công thức:
-				\vspace{6pt}
-				\[ \boxed{f = \frac{1}{T} = \frac{N}{\Delta t} = \frac{\omega}{2 \pi}} \]
+				\vspace{7pt}
+				\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+					f = \frac{1}{T} = \frac{N}{\Delta t} = \frac{\omega}{2 \pi}
+				\end{empheq}
 		\end{itemize}
+	\vspace{4pt}
 
 \section{Pha dao động}
 	\vspace{-13pt}
 	\begin{center}
 		\[ \boxed{\phi = \omega t + \varphi} \]
 		\(\Rightarrow \phi\) là hàm số bậc nhất theo \(t\)
-		\[ \boxed{ \: \omega = \tan \left( \frac{\phi}{t} \right)} \! \]
+		\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+			\: \omega = \tan \left( \frac{\phi}{t} \right)
+		\end{empheq}
 	\end{center}
-	\vspace{8pt}
+	\vspace{3pt}
 	\begin{center}
-		\textcolor{red}{\large \underline{\textbf{Chú ý:}} \(-\pi \leq \phi \leq \pi\)}
+		\textcolor{red}{\large \underline{\textbf{Chú ý:}} \( -\pi \leq \phi \leq \pi\)}
 	\end{center}
 
 \pagebreak
 \section{Độ lệch pha}
+	\subsection{Độ lệch pha của một dao động tại hai thời điểm}
+	\vspace{5pt}
+	\[\begin{aligned}
+		\Delta \phi &= \phi_2 - \phi_1 \\
+		&= (\omega t_2 + \varphi) - (\omega t_1 + \varphi) \\
+		&= \omega t_2 - \omega t_1 \\
+		&= \omega (t_2 - t_1) \\
+		&= \omega \times \Delta t
+	\end{aligned}\]
+	\[ \Rightarrow \boxed{\Delta \phi = \omega \times \Delta t} \qquad \]
+
+	\subsection{Độ lệch pha của hai dao động cùng phương, cùng tần số ở một thời điểm}
+	\vspace{5pt}
+	\[\begin{aligned}
+		\Delta \phi &= \phi_2 - \phi_1 \\
+		&= (\omega t + \varphi_2) - (\omega t + \varphi_1) \\
+		&= \varphi_2 - \varphi_1
+	\end{aligned}\]
+	\[ \Rightarrow \boxed{\Delta \phi = \varphi_2 - \varphi_1} \qquad \]
+	
+	\begin{center}
+		\vspace{3pt}
+		\textcolor{red}{\underline{\textbf{Chú ý:}}\hspace{5pt}
+			\(\begin{aligned}[t]
+				\varphi_1 &> \varphi_2 \Rightarrow \text{Dao động 1 sớm pha hơn dao động 2} \\
+				\varphi_1 &< \varphi_2 \Rightarrow \text{Dao động 1 trễ pha hơn dao động 2} \\
+				\varphi_1 &= \varphi_2 \Rightarrow \text{Hai dao động cùng pha (đồng pha)} \\
+				\varphi_1 &= \varphi_2 \pm \pi \Rightarrow \text{Dao động 1 ngược pha với dao động 2} \\
+			\end{aligned}\)}
+	\end{center}
+	\vspace{-1.5cm}
+	\begin{center}
+		\[ \boxed{\: \varphi = \pm \arccos \left( \frac{x_0}{A} \right)} \]
+	\end{center}
 \end{document}
