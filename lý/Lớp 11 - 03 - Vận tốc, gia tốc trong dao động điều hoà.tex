@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc} % unicode
+\usepackage[vietnamese=nohyphenation]{hyphsubst} % vietnamese
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, empheq} % math
+\usepackage{enumitem} % lists
+\usepackage{graphicx} % images
+\usepackage{tikz} % graphs
+\usepackage{caption} % captions
+\usepackage{array} % tables
+\usepackage{xcolor} % colors
+
+\graphicspath{{../images/}}
+
+% tikz
+\tikzset{focus/.style={help lines, very thick, color=black}}
+\tikzset{bsetting/.style={help lines, thick, color=black}}
+\tikzset{gsetting/.style={help lines, thick, color=gray}}
+\tikzset{normdash/.style={help lines, dashed, color=black}}
+\tikzset{>=stealth}
+\usetikzlibrary{arrows.meta}
+
+% pgf layers
+\pgfdeclarelayer{topspecial}
+\pgfdeclarelayer{plot}
+\pgfdeclarelayer{setting}
+\pgfdeclarelayer{label}
+\pgfdeclarelayer{botspecial}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial}
+
+% sections & subsections
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+% figure names
+% CHANGE THIS WHEN YOU GET TO NEW LESSON
+\captionsetup[figure]{labelsep=period, labelfont=bf, justification=centering}
+\renewcommand{\thefigure}{2.\arabic{figure}}
+
+% tables
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% aboveline
+\newcommand{\aboveline}[1]{\overline{\rule{0pt}{3.1mm}#1}}
+
+% boxes
+\newlength\templength
+\newsavebox\tempbox
+\makeatletter
+\newcommand\custombox{%
+	\@ifnextchar[%]
+		{\@custombox}%
+		{\@custombox[0pt]}}
+\def\@custombox[#1]{%
+	\@ifnextchar[%]
+		{\@@custombox[#1]}%
+		{\@@custombox[#1][0pt]}}
+\def\@@custombox[#1][#2]#3{%
+	\sbox\tempbox{#3}%
+	\templength\ht\tempbox
+	\advance\templength #1\relax
+	\ht\tempbox\templength
+	\templength\dp\tempbox
+	\advance\templength #2\relax
+	\dp\tempbox\templength
+	\fbox{\usebox{\tempbox}}}%
+\makeatother
+
+% BEGIN DOCUMENT
+\begin{document}
+\begin{titlepage}
+\centering
+{\large\bfseries Lớp 11} \\
+\vspace{9pt}
+{\large\bfseries Chương I: Dao động} \\
+\vspace{9pt}
+{\large\bfseries Bài 3} \\
+\vspace{13.5pt}
+{\LARGE\bfseries Mô tả dao động điều hoà} \\
+\vspace{10.5pt}
+{\Large\bfseries\itshape kufern} \\
+\vspace{7cm}
+\includegraphics{logo.png}
+\end{titlepage}
+
+\section{Vận tốc}
+	\subsection{Phương trình vận tốc}
+\end{document}
