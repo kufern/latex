@@ -21,12 +21,13 @@
 \usetikzlibrary{arrows.meta}
 
 % pgf layers
+\pgfdeclarelayer{center}
 \pgfdeclarelayer{topspecial}
 \pgfdeclarelayer{plot}
 \pgfdeclarelayer{setting}
 \pgfdeclarelayer{label}
 \pgfdeclarelayer{botspecial}
-\pgfsetlayers{botspecial,label,setting,main,plot,topspecial}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,center}
 
 % sections & subsections
 \renewcommand{\thesection}{\Roman{section}}
@@ -99,7 +100,7 @@
 	\subsection{Đồ thị dao động điều hoà}
 		\vspace{3pt}
 		\begin{itemize}
-			\item Đồ thị cho biết vị trí trên trục \( x \) tại những điểm khác nhau
+			\item Đồ thị cho biết vị trí trên trục \(x\) tại những điểm khác nhau
 			\item Đường cong này có dạng hình sin
 		\end{itemize}
 		\vspace{-12pt}
@@ -107,20 +108,20 @@
 			\centering
 			\begin{tikzpicture}[scale=0.8]
 				\begin{pgfonlayer}{setting}
-					\draw [bsetting, ->] (-pi/2,-2) -- (-pi/2,2) node [left] {\small $x$ (cm)};
-					\draw [bsetting, ->] (-pi/2,0) node [left] {$0$} -- (11.5,0) node [right] {\small $t$ (s)};
+					\draw [bsetting, ->] (-pi/2,-2) -- (-pi/2,2) node [left] {\small \(x\) (cm)};
+					\draw [bsetting, ->] (-pi/2,0) node [left] {\(0\)} -- (11.5,0) node [right] {\small \(t\) (s)};
 				\end{pgfonlayer}
 				\begin{pgfonlayer}{plot}
 					\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=100] (\x, {sin(\x r)});
 				\end{pgfonlayer}
 				\begin{pgfonlayer}{label}
-					\draw [normdash, color=black] (-pi/2,1) node [left] {$A$} -- (5*pi/2,1);
+					\draw [normdash, color=black] (-pi/2,1) node [left] {\(A\)} -- (5*pi/2,1);
 					\draw [<->, color=blue] (pi/2,1) -- (pi/2,0);
 					\draw [<->, color=blue] (3*pi/2,0) -- (3*pi/2,-1);
 					\draw [<->, color=blue] (5*pi/2,1) -- (5*pi/2,0);
-					\draw [<-] (-pi/2.1,-1.2) -- (pi/2,-1.2) node [below] {$T$};
+					\draw [<-] (-pi/2.1,-1.2) -- (pi/2,-1.2) node [below] {\(T\)};
 					\draw [->] (pi/2,-1.2) -- (3*pi/2,-1.2);
-					\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [below] {$T$};
+					\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [below] {\(T\)};
 					\draw [->] (5*pi/2,-1.2) -- (7*pi/2,-1.2);
 				\end{pgfonlayer}
 			\end{tikzpicture}
@@ -149,26 +150,29 @@
 		\begin{figure}[h]
 			\centering
 			\begin{tikzpicture}[scale=0.9]
+				\begin{pgfonlayer}{center}
+					\filldraw [color=gray] (0,0) circle [radius=1.75pt] node [below left] {\(O\)};
+				\end{pgfonlayer}
+
 				\begin{pgfonlayer}{topspecial}
-					\filldraw [color=gray] (0,0) circle [radius=1.75pt] node [below left] {$O$};
-					\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=65, radius=10pt] node [below=18pt, right=-4.5pt] {$\phi$};
+					\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=65, radius=10pt] node [below=18pt, right=-4.5pt] {\(\phi\)};
 				\end{pgfonlayer}
 
 				\begin{pgfonlayer}{setting}
-					\draw [gsetting, ->] (-4,0) -- (4,0) node [below=3pt] {$x$};
-					\draw [gsetting, ->] (0,-4) -- (0,4) node [below=3pt, right=3pt] {$y$};
+					\draw [gsetting, ->] (-4,0) -- (4,0) node [below=3pt] {\(x\)};
+					\draw [gsetting, ->] (0,-4) -- (0,4) node [below=3pt, right=3pt] {\(y\)};
 					\draw [gsetting] (0,0) circle [radius=3cm];
 				\end{pgfonlayer}
 			
 				\begin{pgfonlayer}{label}
-					\draw [<-] (-29.7mm,0.15) -- (-14.8mm,0.15) node [above] {\footnotesize $A \: (= R)$};
+					\draw [<-] (-29.7mm,0.15) -- (-14.8mm,0.15) node [above=-1.5pt] {\footnotesize \(A \: (= R)\)};
 					\draw [->] (-14.8mm,0.15) -- (-0.2mm,0.15);
 					% angle varphi
-					\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above=-2.5pt, right] {$\varphi$};
+					\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above=-2.5pt, right] {\(\varphi\)};
 					\draw [normdash, color=black] (30:3cm) -- (30:3cm |- 0,5pt);
 					\draw [color=black] (30:3cm |- 0,0) rectangle +(-5pt,5pt);
 					% angle alpha
-					\draw [focus, color=blue] (30:19pt) arc [start angle=30, end angle=65, radius=19pt] node [above=1.5pt, right] {$\alpha$};
+					\draw [focus, color=blue] (30:18pt) arc [start angle=30, end angle=65, radius=18pt] node [above=1.5pt, right] {\(\alpha\)};
 					% angle phi
 					\draw [normdash, color=red] (65:3cm) -- (65:3cm |- 0,5pt);
 					\draw [color=red] (65:3cm |- 0,0) rectangle +(-5pt,5pt);
@@ -177,12 +181,12 @@
 				\begin{pgfonlayer}{plot}
 					% angle varphi
 					\draw [focus, ->] (0,0) -- (30:3cm);
-					\filldraw [color=black] (30:3cm) circle [radius=1.25pt] node [above=2pt, right] {\footnotesize $M \, (t=0)$};
-					\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below=10pt, right=-15pt] {\footnotesize $P \, (t=0)$};
+					\filldraw [color=black] (30:3cm) circle [radius=1.25pt] node [above=2pt, right] {\footnotesize \(M \, (t=0)\)};
+					\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below=8pt, right=-15pt] {\scriptsize \(P \, (t=0)\)};
 					% angle phi
 					\draw [focus, color=red, ->] (0,0) -- (65:3cm);
-					\filldraw [color=red] (65:3cm) circle [radius=1.25pt] node [above=5pt, right] {\footnotesize $M \, (t \neq 0)$};
-					\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below=10pt, left=-25pt] {\footnotesize $P \, (t \neq 0)$};
+					\filldraw [color=red] (65:3cm) circle [radius=1.25pt] node [above=5pt, right] {\footnotesize \(M \, (t \neq 0)\)};
+					\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below=8pt, right=-20pt] {\scriptsize \(P \, (t \neq 0)\)};
 				\end{pgfonlayer}
 			\end{tikzpicture}
 			\vspace{5pt}

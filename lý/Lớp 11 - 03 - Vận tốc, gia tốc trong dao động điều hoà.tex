@@ -13,20 +13,22 @@
 \graphicspath{{../images/}}
 
 % tikz
+\usetikzlibrary{arrows.meta}
 \tikzset{focus/.style={help lines, very thick, color=black}}
 \tikzset{bsetting/.style={help lines, thick, color=black}}
 \tikzset{gsetting/.style={help lines, thick, color=gray}}
 \tikzset{normdash/.style={help lines, dashed, color=black}}
-\tikzset{>=stealth}
-\usetikzlibrary{arrows.meta}
+\tikzset{smarrow/.style={help lines, >=Latex[]}}
+\tikzset{>=Stealth[]}
 
 % pgf layers
+\pgfdeclarelayer{center}
 \pgfdeclarelayer{topspecial}
 \pgfdeclarelayer{plot}
 \pgfdeclarelayer{setting}
 \pgfdeclarelayer{label}
 \pgfdeclarelayer{botspecial}
-\pgfsetlayers{botspecial,label,setting,main,plot,topspecial}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,center}
 
 % sections & subsections
 \renewcommand{\thesection}{\Roman{section}}
@@ -85,4 +87,24 @@
 
 \section{Vận tốc}
 	\subsection{Phương trình vận tốc}
+		\vspace{15pt}
+		\begin{minipage}[t]{0.59\textwidth}
+			\centering
+			\begin{tikzpicture}
+				\begin{pgfonlayer}{center}
+					\filldraw (0,0) circle [radius=1.5pt] node [above left] {\(O\)};
+				\end{pgfonlayer}
+
+				% point 1
+				\draw [->] (0,-3.5) -- (0,3.5) node [right=2pt] {\(y\)};
+				\draw [->] (-3.5,0) -- (3.5,0) node [below=3pt] {\(x\)};
+				\draw (0,0) circle [radius=2.75];
+				\draw [semithick, dashed, smarrow, color=blue][->] (0,0) -- (55:2.75);
+				\filldraw [blue] (55:2.75) circle [radius=1.5pt] node [above=5pt, right] {\(M\)};
+				\draw [smarrow, very thick, blue][-{Stealth[scale=0.5]}] (55:2.75) -- +(145:20pt);
+			\end{tikzpicture}
+		\end{minipage}
+		\begin{minipage}[t]{0.4\textwidth}
+			
+		\end{minipage}
 \end{document}
