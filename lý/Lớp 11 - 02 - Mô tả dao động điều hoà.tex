@@ -13,21 +13,24 @@
 \graphicspath{{../images/}}
 
 % tikz
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
 \tikzset{focus/.style={help lines, very thick, color=black}}
 \tikzset{bsetting/.style={help lines, thick, color=black}}
 \tikzset{gsetting/.style={help lines, thick, color=gray}}
 \tikzset{normdash/.style={help lines, dashed, color=black}}
-\tikzset{>=stealth}
-\usetikzlibrary{arrows.meta}
+\tikzset{darrow/.style={help lines, >=Latex[]}}
+\tikzset{smarrow/.style={help lines, >={Stealth[scale=0.5]}}}
+\tikzset{>=Stealth[]}
 
 % pgf layers
-\pgfdeclarelayer{center}
+\pgfdeclarelayer{points}
 \pgfdeclarelayer{topspecial}
 \pgfdeclarelayer{plot}
 \pgfdeclarelayer{setting}
 \pgfdeclarelayer{label}
 \pgfdeclarelayer{botspecial}
-\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,center}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,points}
 
 % sections & subsections
 \renewcommand{\thesection}{\Roman{section}}

@@ -14,21 +14,23 @@
 
 % tikz
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
 \tikzset{focus/.style={help lines, very thick, color=black}}
 \tikzset{bsetting/.style={help lines, thick, color=black}}
 \tikzset{gsetting/.style={help lines, thick, color=gray}}
 \tikzset{normdash/.style={help lines, dashed, color=black}}
-\tikzset{smarrow/.style={help lines, >=Latex[]}}
+\tikzset{darrow/.style={help lines, >=Latex[]}}
+\tikzset{smarrow/.style={help lines, >={Stealth[scale=0.5]}}}
 \tikzset{>=Stealth[]}
 
 % pgf layers
-\pgfdeclarelayer{center}
+\pgfdeclarelayer{points}
 \pgfdeclarelayer{topspecial}
 \pgfdeclarelayer{plot}
 \pgfdeclarelayer{setting}
 \pgfdeclarelayer{label}
 \pgfdeclarelayer{botspecial}
-\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,center}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,points}
 
 % sections & subsections
 \renewcommand{\thesection}{\Roman{section}}
@@ -91,17 +93,34 @@
 		\begin{minipage}[t]{0.59\textwidth}
 			\centering
 			\begin{tikzpicture}
-				\begin{pgfonlayer}{center}
+				\begin{pgfonlayer}{points}
 					\filldraw (0,0) circle [radius=1.5pt] node [above left] {\(O\)};
+					% vt1
+					\filldraw [blue] (60:2.75) circle [radius=1.5pt] node [above=5pt, right] {\(M\)};
 				\end{pgfonlayer}
-
-				% point 1
+				
+				% setting
 				\draw [->] (0,-3.5) -- (0,3.5) node [right=2pt] {\(y\)};
 				\draw [->] (-3.5,0) -- (3.5,0) node [below=3pt] {\(x\)};
 				\draw (0,0) circle [radius=2.75];
-				\draw [semithick, dashed, smarrow, color=blue][->] (0,0) -- (55:2.75);
-				\filldraw [blue] (55:2.75) circle [radius=1.5pt] node [above=5pt, right] {\(M\)};
-				\draw [smarrow, very thick, blue][-{Stealth[scale=0.5]}] (55:2.75) -- +(145:20pt);
+
+				% vt1
+				\draw [darrow, semithick, dashed, color=blue][->] (0,0) -- (60:2.75);
+				\coordinate (vt1) at ($(60:2.75)+(150:30pt)$);
+				\coordinate (vt1sqx) at ($(60:2.75)+(0,4pt)$);
+				\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(90+60:30pt) node [above=5pt, right=1pt] {\(\vec{v}_t\)};
+				\draw [dashed, color=blue] (vt1) -- (vt1 |- vt1sqx);
+				\draw [color=blue] (vt1 |- vt1sqx) rectangle +(4pt,-4pt);
+				\draw [smarrow, very thick, color=red][->] (60:2.75) -- (vt1 |- 60:2.75) node [below] {\(\vec{v}\)};
+
+				% vt2
+				\draw [darrow, semithick, dashed, color=blue][->] (0,0) -- (210:2.75);
+				\coordinate (vt2) at ($(210:2.75)+(-60:30pt)$);
+				\coordinate (vt2sqx) at ($(210:2.75)+(0,4pt)$);
+				\draw [smarrow, very thick, color=blue][->] (210:2.75) -- +(-60:30pt) node [above=5pt, right=1pt] {\(\vec{v}_t\)};
+				\draw [dashed, color=blue] (vt2) -- (vt2 |- vt2sqx);
+				\draw [color=blue] (vt2 |- vt2sqx) rectangle +(4pt,-4pt);
+				\draw [smarrow, very thick, color=red][->] (60:2.75) -- (vt2 |- 60:2.75) node [below] {\(\vec{v}\)};
 			\end{tikzpicture}
 		\end{minipage}
 		\begin{minipage}[t]{0.4\textwidth}

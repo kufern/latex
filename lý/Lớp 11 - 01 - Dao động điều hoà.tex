@@ -13,21 +13,24 @@
 \graphicspath{{../images/}}
 
 % tikz
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
 \tikzset{focus/.style={help lines, very thick, color=black}}
 \tikzset{bsetting/.style={help lines, thick, color=black}}
 \tikzset{gsetting/.style={help lines, thick, color=gray}}
 \tikzset{normdash/.style={help lines, dashed, color=black}}
-\tikzset{>=stealth}
-\usetikzlibrary{arrows.meta}
+\tikzset{darrow/.style={help lines, >=Latex[]}}
+\tikzset{smarrow/.style={help lines, >={Stealth[scale=0.5]}}}
+\tikzset{>=Stealth[]}
 
 % pgf layers
-\pgfdeclarelayer{center}
+\pgfdeclarelayer{points}
 \pgfdeclarelayer{topspecial}
 \pgfdeclarelayer{plot}
 \pgfdeclarelayer{setting}
 \pgfdeclarelayer{label}
 \pgfdeclarelayer{botspecial}
-\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,center}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,points}
 
 % sections & subsections
 \renewcommand{\thesection}{\Roman{section}}
@@ -36,7 +39,7 @@
 % figure names
 % CHANGE THIS WHEN YOU GET TO NEW LESSON
 \captionsetup[figure]{labelsep=period, labelfont=bf, justification=centering}
-\renewcommand{\thefigure}{1.\arabic{figure}}
+\renewcommand{\thefigure}{2.\arabic{figure}}
 
 % tables
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
@@ -150,7 +153,7 @@
 		\begin{figure}[h]
 			\centering
 			\begin{tikzpicture}[scale=0.9]
-				\begin{pgfonlayer}{center}
+				\begin{pgfonlayer}{points}
 					\filldraw [color=gray] (0,0) circle [radius=1.75pt] node [below left] {\(O\)};
 				\end{pgfonlayer}
 
