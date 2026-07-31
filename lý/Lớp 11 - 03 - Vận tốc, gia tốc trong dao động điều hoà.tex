@@ -89,14 +89,16 @@
 
 \section{Vận tốc}
 	\subsection{Phương trình vận tốc}
-		\vspace{15pt}
+		\vspace{-3pt}
 		\begin{minipage}[t]{0.59\textwidth}
 			\centering
-			\begin{tikzpicture}
+			\begin{tikzpicture}[baseline={(current bounding box.north)}]
 				\begin{pgfonlayer}{points}
 					\filldraw (0,0) circle [radius=1.5pt] node [above left] {\(O\)};
 					% vt1
 					\filldraw [blue] (60:2.75) circle [radius=1.5pt] node [above=5pt, right] {\(M\)};
+					% vt2
+					\filldraw [blue] (215:2.75) circle [radius=1.5pt] node [below=5pt, left] {\(M\)};
 				\end{pgfonlayer}
 				
 				% setting
@@ -105,25 +107,120 @@
 				\draw (0,0) circle [radius=2.75];
 
 				% vt1
-				\draw [darrow, semithick, dashed, color=blue][->] (0,0) -- (60:2.75);
+				\draw [darrow, semithick, dashed][->] (0,0) -- (60:2.75);
 				\coordinate (vt1) at ($(60:2.75)+(150:30pt)$);
-				\coordinate (vt1sqx) at ($(60:2.75)+(0,4pt)$);
-				\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(90+60:30pt) node [above=5pt, right=1pt] {\(\vec{v}_t\)};
-				\draw [dashed, color=blue] (vt1) -- (vt1 |- vt1sqx);
-				\draw [color=blue] (vt1 |- vt1sqx) rectangle +(4pt,-4pt);
+				\coordinate (vt1sqy) at ($(60:2.75)+(0,4pt)$);
+				\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(150:30pt) node [above=5pt, right=1pt] {\(\vec{v}_t\)};
+				\draw [dashed, color=blue] (vt1) -- (vt1 |- vt1sqy);
+				\draw [color=blue] (vt1 |- vt1sqy) rectangle +(4pt,-4pt);
 				\draw [smarrow, very thick, color=red][->] (60:2.75) -- (vt1 |- 60:2.75) node [below] {\(\vec{v}\)};
 
 				% vt2
-				\draw [darrow, semithick, dashed, color=blue][->] (0,0) -- (210:2.75);
-				\coordinate (vt2) at ($(210:2.75)+(-60:30pt)$);
-				\coordinate (vt2sqx) at ($(210:2.75)+(0,4pt)$);
-				\draw [smarrow, very thick, color=blue][->] (210:2.75) -- +(-60:30pt) node [above=5pt, right=1pt] {\(\vec{v}_t\)};
-				\draw [dashed, color=blue] (vt2) -- (vt2 |- vt2sqx);
-				\draw [color=blue] (vt2 |- vt2sqx) rectangle +(4pt,-4pt);
-				\draw [smarrow, very thick, color=red][->] (60:2.75) -- (vt2 |- 60:2.75) node [below] {\(\vec{v}\)};
+				\draw [darrow, semithick, dashed][->] (0,0) -- (215:2.75);
+				\coordinate (vt2) at ($(215:2.75)+(-55:30pt)$);
+				\coordinate (vt2sqy) at ($(215:2.75)+(0,-4pt)$);
+				\draw [smarrow, very thick, color=blue][->] (215:2.75) -- +(-55:30pt) node [below=5pt, left=1pt] {\(\vec{v}_t\)};
+				\draw [dashed, color=blue] (vt2) -- (vt2 |- vt2sqy);
+				\draw [color=blue] (vt2 |- vt2sqy) rectangle +(-4pt,4pt);
+				\draw [smarrow, very thick, color=red][->] (215:2.75) -- (vt2 |- 215:2.75) node [right] {\(\vec{v}\)};
 			\end{tikzpicture}
 		\end{minipage}
 		\begin{minipage}[t]{0.4\textwidth}
-			
+			\centering
+			\[ \boxed{v = -\omega A \, \sin \left( \omega t + \varphi \right)} \]
+			\begin{empheq}[box={\custombox[2px][2px]}]{equation*}
+				\, v = \omega A \, \cos \left(\omega t + \varphi + \frac{\pi}{2} \right)
+			\end{empheq}
 		\end{minipage}
+		\vspace{5pt}
+	\subsection{Nhận xét}
+		\vspace{5pt}
+		\begin{itemize}
+			\item \(v\) biến thiên điều hoà theo \(t\), với tần số góc là \(\,\omega\)
+			\item \(v\) sớm pha hơn \(x\) một góc \( \, \dfrac{\pi}{2}\) \: (\( v \perp x \))
+			\item Giá trị vận tốc: \quad \( -\omega A \leq v \leq \omega A \)
+				\begin{itemize}[label=\textopenbullet]
+					\item \( v_\text{max} = \omega A \) khi vật qua VTCB theo chiều dương (\(+\))
+					\item \( v_\text{min} = - \omega A \) khi vật qua VTCB theo chiều âm (\(-\))
+				\end{itemize}
+			\item Độ lớn vận tốc (Tốc độ): \quad \( 0 \leq \lvert v \rvert \leq \omega A \)
+				\begin{itemize}[label=\textopenbullet]
+					\item \( {\lvert v \rvert}_\text{max} = \omega A \) khi vật qua VTCB
+					\item \( {\lvert v \rvert}_\text{min} = 0 \) khi vật qua VTB
+				\end{itemize}
+		\end{itemize}
+
+\newpage
+\section{Gia tốc}
+	\subsection{Phương trình gia tốc}
+		\vspace{-3pt}
+		\begin{minipage}[t]{0.59\textwidth}
+			\centering
+			\begin{tikzpicture}[baseline={(current bounding box.north)}]
+				\begin{pgfonlayer}{points}
+					\filldraw (0,0) circle [radius=1.5pt] node [above left] {\(O\)};
+					% ant1
+					\filldraw [blue] (60:2.75) circle [radius=1.5pt] node [above=5pt, right] {\(M\)};
+					% ant2
+					\filldraw [blue] (215:2.75) circle [radius=1.5pt] node [below=5pt, left] {\(M\)};
+				\end{pgfonlayer}
+				
+				% setting
+				\draw [->] (0,-3.5) -- (0,3.5) node [right=2pt] {\(y\)};
+				\draw [->] (-3.5,0) -- (3.5,0) node [below=3pt] {\(x\)};
+				\draw (0,0) circle [radius=2.75];
+
+				% ant1
+				\draw [darrow, semithick, dashed][->] (0,0) -- (60:2.75);
+				\coordinate (ant1) at ($(60:2.75)+(-120:30pt)$);
+				\coordinate (ant1sqy) at ($(ant1)+(0,4pt)$);
+				\coordinate (ant1sqytemp) at ($(ant1sqy)+(0,1.8pt)$);
+				\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(-120:30pt) node [above=12pt, left=-4pt] {\(\vec{a}_{nt}\)};
+				\draw [dashed, color=blue] (60:2.75) -- (60:2.75 |- ant1sqytemp);
+				\draw [color=blue] (60:2.75 |- ant1sqy) rectangle +(-4pt,-4pt);
+				\draw [smarrow, very thick, color=red][->] (60:2.75 |- ant1) -- (ant1) node [below=8pt, right=-3pt] {\(\vec{a}\)};
+
+				% ant2
+				\draw [darrow, semithick, dashed][->] (0,0) -- (215:2.75);
+				\coordinate (ant2) at ($(215:2.75)+(35:30pt)$);
+				\coordinate (ant2sqy) at ($(ant2)+(0,-4pt)$);
+				\draw [smarrow, very thick, color=blue][->] (215:2.75) -- +(35:30pt) node [below=10pt, right=-7pt] {\(\vec{a}_{nt}\)};
+				\draw [dashed, color=blue] (215:2.75) -- (215:2.75 |- ant2sqy);
+				\draw [color=blue] (215:2.75 |- ant2sqy) rectangle +(4pt,4pt);
+				\draw [smarrow, very thick, color=red][->] (215:2.75 |- ant2) -- (ant2) node [above=9pt, left=-4pt] {\(\vec{a}\)};
+			\end{tikzpicture}
+		\end{minipage}
+		\begin{minipage}[t]{0.4\textwidth}
+			\centering
+			\[\boxed{a = -\omega^2 A \, \cos \left( \omega t + \varphi \right)}\]
+			\[\boxed{a = \omega^2 A \, \cos \left(\omega t + \varphi + \pi \right)}\]
+		\end{minipage}
+		\vspace{5pt}
+	\subsection{Nhận xét}
+		\vspace{5pt}
+		\begin{itemize}
+			\item \(a\) biến thiên điều hoà theo \(t\), với tần số góc là \(\,\omega\)
+			\item \(a\) ngược pha với \(x\)
+			\item Giá trị gia tốc: \quad \( -\omega^2 A \leq a \leq \omega^2 A \)
+				\begin{itemize}[label=\textopenbullet]
+					\item \( a_\text{max} = \omega^2 A \) khi vật qua VTB\(+\)
+					\item \( a_\text{min} = - \omega^2 A \) khi vật qua VTB\(-\)
+				\end{itemize}
+			\item Độ lớn gia tốc (Tốc độ): \quad \( 0 \leq a \leq \omega^2 A \)
+				\begin{itemize}[label=\textopenbullet]
+					\item \( {\lvert a \rvert}_\text{max} = \omega^2 A \) khi vật qua VTB
+					\item \( {\lvert a \rvert}_\text{min} = 0 \) khi vật qua VTCB
+				\end{itemize}
+			\item Vectơ gia tốc luôn hướng về VTCB
+		\end{itemize}
+	\newpage
+	\subsection{Sự nhanh chậm của chuyển động}
+		\vspace{5pt}
+		\begin{itemize}
+			\item Chuyển động chậm dần: Vật đi từ VTCB đến VTB \\ (\(\vec{v}\) và \(\vec{a}\) ngược chiều)
+			\item Chuyển động nhanh dần: Vật đi từ VTB đến VTCB \\ (\(\vec{v}\) và \(\vec{a}\) cùng chiều)
+		\end{itemize}
+
+\vspace{4pt}
+\section{Hệ thức độc lập thời gian}
 \end{document}

@@ -137,16 +137,16 @@
 		\begin{minipage}[t]{0.59\textwidth}
 			\vspace{-21pt}
 			\centering
-			\[ \boxed{x = A \cos \, (\omega t + \varphi)} \]
+			\[ \boxed{x = A \cos \left( \omega t + \varphi \right)} \]
 		\end{minipage}
 		\begin{minipage}[t]{0.4\textwidth}
 			\(x\): Li độ dao động (m) \\
 			\(A\): Biên độ dao động (m) \\
-			\((\omega t + \varphi)\): Pha dao động (rad) \\
+			\(\left(\omega t + \varphi\right)\): Pha dao động (rad) \\
 			\(\varphi\): Pha ban đầu (rad)
 		\end{minipage}
 
-\pagebreak
+\newpage
 \section{Mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
 	\vspace{-15pt}
 	\begin{center}
@@ -168,7 +168,7 @@
 				\end{pgfonlayer}
 			
 				\begin{pgfonlayer}{label}
-					\draw [<-] (-29.7mm,0.15) -- (-14.8mm,0.15) node [above=-1.5pt] {\footnotesize \(A \: (= R)\)};
+					\draw [<-] (-29.7mm,0.15) -- (-14.8mm,0.15) node [above=-1.5pt] {\footnotesize \(A \left(= R\right)\)};
 					\draw [->] (-14.8mm,0.15) -- (-0.2mm,0.15);
 					% angle varphi
 					\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above=-2.5pt, right] {\(\varphi\)};
@@ -184,12 +184,12 @@
 				\begin{pgfonlayer}{plot}
 					% angle varphi
 					\draw [focus, ->] (0,0) -- (30:3cm);
-					\filldraw [color=black] (30:3cm) circle [radius=1.25pt] node [above=2pt, right] {\footnotesize \(M \, (t=0)\)};
-					\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below=8pt, right=-15pt] {\scriptsize \(P \, (t=0)\)};
+					\filldraw [color=black] (30:3cm) circle [radius=1.25pt] node [above=2pt, right] {\footnotesize \(M \left(t=0\right)\)};
+					\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below=8pt, right=-15pt] {\scriptsize \(P \left(t=0\right)\)};
 					% angle phi
 					\draw [focus, color=red, ->] (0,0) -- (65:3cm);
-					\filldraw [color=red] (65:3cm) circle [radius=1.25pt] node [above=5pt, right] {\footnotesize \(M \, (t \neq 0)\)};
-					\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below=8pt, right=-20pt] {\scriptsize \(P \, (t \neq 0)\)};
+					\filldraw [color=red] (65:3cm) circle [radius=1.25pt] node [above=5pt, right] {\footnotesize \(M \left(t \neq 0\right)\)};
+					\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below=8pt, right=-20pt] {\scriptsize \(P \left(t \neq 0\right)\)};
 				\end{pgfonlayer}
 			\end{tikzpicture}
 			\vspace{5pt}
@@ -200,24 +200,24 @@
 			\hline
 			& \vspace{2pt} \textbf{Chất điểm \(M\) chuyển động tròn đều} & \textbf{Hình chiếu \(P\) trên \(Ox\)} \\
 			\hline
-			\vspace{4pt} \textbf{Vị trí} \(t_0 = 0\) & \Large \(\varphi\) &
-				\vspace{-2pt}
+			\textbf{Vị trí} \(t_0 = 0\) & \Large \(\varphi\) &
+				\vspace{4pt}
 				\(\begin{aligned}
 					x &= \aboveline{OP}=R \cos \varphi \\
 					&= A \cos \varphi
-				\end{aligned}\) \\
+				\end{aligned}\) \vspace{3pt} \\
 			\hline
-			\vspace{4pt} \textbf{Vị trí} \(t \neq 0\) &
-				\vspace{-2pt}
+			\textbf{Vị trí} \(t \neq 0\) &
+				\vspace{4pt}
 				\(\begin{aligned}
 					\phi &= \textcolor{blue}{\alpha} + \varphi \\
 					&= \textcolor{blue}{\omega t} + \varphi
-				\end{aligned}\) &
-				\vspace{-2pt}
+				\end{aligned}\) \vspace{3pt} &
+				\vspace{4pt}
 				\(\begin{aligned}
 					x &= \aboveline{OP}=R \cos \phi \\
-					&= \textcolor{red}{A \cos \, (\omega t + \varphi)}
-				\end{aligned}\) \\
+					&= \textcolor{red}{A \cos \left(\omega t + \varphi\right)}
+				\end{aligned}\) \vspace{3pt} \\
 			\hline
 		\end{tabular}
 	\end{center}
