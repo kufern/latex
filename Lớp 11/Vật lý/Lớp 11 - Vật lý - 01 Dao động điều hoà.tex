@@ -15,6 +15,7 @@
 % tikz
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
+\usetikzlibrary{positioning}
 \tikzset{focus/.style={help lines, very thick, color=black}}
 \tikzset{bsetting/.style={help lines, thick, color=black}}
 \tikzset{gsetting/.style={help lines, thick, color=gray}}
@@ -160,7 +161,7 @@
 				\end{pgfonlayer}
 
 				\begin{pgfonlayer}{topspecial}
-					\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=65, radius=10pt] node [below=18pt, right=-4.5pt] {\(\phi\)};
+					\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=65, radius=10pt] node [below right=7pt and -4.5pt] {\(\phi\)};
 				\end{pgfonlayer}
 
 				\begin{pgfonlayer}{setting}
@@ -187,11 +188,11 @@
 					% angle varphi
 					\draw [focus, ->] (0,0) -- (30:3cm);
 					\filldraw [color=black] (30:3cm) circle [radius=1.25pt] node [above=2pt, right] {\footnotesize \(M \left(t=0\right)\)};
-					\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below=8pt, right=-15pt] {\scriptsize \(P \left(t=0\right)\)};
+					\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below right = 2pt and -15pt] {\scriptsize \(P \left(t=0\right)\)};
 					% angle phi
 					\draw [focus, color=red, ->] (0,0) -- (65:3cm);
 					\filldraw [color=red] (65:3cm) circle [radius=1.25pt] node [above=5pt, right] {\footnotesize \(M \left(t \neq 0\right)\)};
-					\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below=8pt, right=-20pt] {\scriptsize \(P \left(t \neq 0\right)\)};
+					\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below right = 2pt and -20pt] {\scriptsize \(P \left(t \neq 0\right)\)};
 				\end{pgfonlayer}
 			\end{tikzpicture}
 			\vspace{5pt}

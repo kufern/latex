@@ -15,6 +15,7 @@
 % tikz
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
+\usetikzlibrary{positioning}
 \tikzset{focus/.style={help lines, very thick, color=black}}
 \tikzset{bsetting/.style={help lines, thick, color=black}}
 \tikzset{gsetting/.style={help lines, thick, color=gray}}
@@ -39,7 +40,7 @@
 % figure names
 % CHANGE THIS WHEN YOU GET TO NEW LESSON
 \captionsetup[figure]{labelsep=period, labelfont=bf, justification=centering}
-\renewcommand{\thefigure}{2.\arabic{figure}}
+\renewcommand{\thefigure}{3.\arabic{figure}}
 
 % tables
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
@@ -112,7 +113,7 @@
 				\draw [darrow, semithick, dashed][->] (0,0) -- (60:2.75);
 				\coordinate (vt1) at ($(60:2.75)+(150:30pt)$);
 				\coordinate (vt1sqy) at ($(60:2.75)+(0,4pt)$);
-				\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(150:30pt) node [above=5pt, right=1pt] {\(\vec{v}_t\)};
+				\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(150:30pt) node [above right = -5pt and 1pt] {\(\vec{v}_t\)};
 				\draw [dashed, color=blue] (vt1) -- (vt1 |- vt1sqy);
 				\draw [color=blue] (vt1 |- vt1sqy) rectangle +(4pt,-4pt);
 				\draw [smarrow, very thick, color=red][->] (60:2.75) -- (vt1 |- 60:2.75) node [below] {\(\vec{v}\)};
@@ -223,10 +224,10 @@
 			\item Chuyển động nhanh dần: Vật đi từ VTB đến VTCB \\ (\(\vec{v}\) và \(\vec{a}\) cùng chiều)
 		\end{itemize}
 
-\vspace{4pt}
+\vspace{1pt}
 \section{Hệ thức độc lập thời gian}
 	\subsection{Giữa vận tốc và li độ}
-		\vspace{-8pt}
+		\vspace{-5pt}
 		\begin{align*}
 			\text{Tại thời điểm } t \text{ có} & \:
 			\begin{cases}
@@ -241,10 +242,35 @@
 			\Rightarrow & \enspace \frac{x^2}{A^2} + \frac{v^2}{\omega^2 A^2} = \cos^2 \left( \omega t + \varphi \right) + \sin^2 \left( \omega t + \varphi \right) = 1
 		\end{align*}
 
+		\vspace{-0.1cm}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[scale=0.85]
+				\draw [->] (-3.15,0) -- (3.15,0) node [below=3pt] {\(x\)};
+				\draw [->] (0,-3.15) -- (0,3.15) node [right=3pt] {\(v\)};
+				\draw [focus, color=blue] (0,0) ellipse [x radius=1.45, y radius=2.25];
+				\node at (0,2.25) [above right, color=blue] {\( \omega A \)};
+				\node at (0,-2.25) [below right, color=blue] {\( - \omega A \)};
+				\node at (1.45,0) [below right, color=blue] {\(A\)};
+				\node at (-1.45,0) [below left, color=blue] {\(-A\)};
+			\end{tikzpicture}
+			\caption{Đồ thị biểu diễn sự biến thiên của vận tốc theo li độ \\ là một \textbf{đường elip}}
+		\end{figure}
+
+		\newpage
 		\centering
-		\vspace{0.4cm}
 		\begin{tikzpicture}
-			\draw [->] (-3,0) -- (3,0);
-			\draw [->] (0,-3) -- (0,3);
+			\node (original) at (0,0) [draw, rectangle, inner sep=5pt] {\( \dfrac{x^2}{A^2} + \dfrac{v^2}{\omega^2 A^2} = 1 \)};
+			\node (simplified) at (0,2.5) [draw, rectangle, inner sep=5pt] {\( x^2 + \dfrac{v^2}{\omega^2} = A^2 \)};
+			\draw [->] (original) -- (simplified);
+			\coordinate [left=of simplified] (left);
+			\draw (simplified) -- (left);
+			\coordinate [above=of left] (lefttop);
+			\coordinate [below=of left] (leftbot);
+			\draw (lefttop) -- (leftbot);
+			\node (omega) [left=of lefttop, draw, rectangle, inner sep=5pt] {\( \omega = \dfrac{\lvert v \rvert}{\rule[0pt]{0pt}{12pt} \sqrt{A^2 - x^2}} \)};
+			\draw [->] (lefttop) -- (omega);
+			\node (x) [left=of leftbot, draw, rectangle, inner sep=5pt] {\( x = \pm \sqrt{A^2 - \dfrac{v^2}{\omega^2}} \)};
+			\draw [->] (leftbot) -- (x);
 		\end{tikzpicture}
 \end{document}
