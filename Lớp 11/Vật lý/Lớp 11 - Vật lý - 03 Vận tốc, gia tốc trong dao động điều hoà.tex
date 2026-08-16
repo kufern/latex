@@ -73,295 +73,297 @@
 
 % BEGIN DOCUMENT
 \begin{document}
-\begin{titlepage}
-\centering
-{\large\bfseries Lớp 11} \\
-\vspace{9pt}
-{\Large\bfseries Vật lý} \\
-\vspace{9pt}
-{\large\bfseries Chương I: Dao động} \\
-\vspace{9pt}
-{\large\bfseries Bài 3} \\
-\vspace{13.5pt}
-{\LARGE\bfseries Mô tả dao động điều hoà} \\
-\vspace{10.5pt}
-{\Large\bfseries\itshape kufern} \\
-\vspace{7cm}
-\includegraphics{logo.png}
-\end{titlepage}
+	\begin{titlepage}
+	\centering
+	{\large\bfseries Lớp 11} \\
+	\vspace{9pt}
+	{\Large\bfseries Vật lý} \\
+	\vspace{9pt}
+	{\large\bfseries Chương I: Dao động} \\
+	\vspace{9pt}
+	{\large\bfseries Bài 3} \\
+	\vspace{13.5pt}
+	{\LARGE\bfseries Mô tả dao động điều hoà} \\
+	\vspace{10.5pt}
+	{\Large\bfseries\itshape kufern} \\
+	\vspace{7cm}
+	\includegraphics{logo.png}
+	\end{titlepage}
 
-\section{Vận tốc}
-	\subsection{Phương trình vận tốc}
-		\vspace{-3pt}
-		\begin{minipage}[t]{0.59\textwidth}
-			\centering
-			\begin{tikzpicture}[baseline={(current bounding box.north)}]
-				\begin{pgfonlayer}{points}
-					\filldraw (0,0) circle [radius=1.5pt] node [above left] {\(O\)};
+	\section{Vận tốc}
+		\subsection{Phương trình vận tốc}
+			\vspace{-3pt}
+			\begin{minipage}[t]{0.59\textwidth}
+				\centering
+				\begin{tikzpicture}[baseline={(current bounding box.north)}]
+					\begin{pgfonlayer}{points}
+						\filldraw (0,0) circle [radius=1.5pt] node [above left] {\(O\)};
+						% vt1
+						\filldraw [blue] (60:2.75) circle [radius=1.5pt] node [above=5pt, right] {\(M\)};
+						% vt2
+						\filldraw [blue] (215:2.75) circle [radius=1.5pt] node [below=5pt, left] {\(M\)};
+					\end{pgfonlayer}
+					
+					% setting
+					\draw [->] (0,-3.5) -- (0,3.5) node [right=2pt] {\(y\)};
+					\draw [->] (-3.5,0) -- (3.5,0) node [below=3pt] {\(x\)};
+					\draw (0,0) circle [radius=2.75];
+
 					% vt1
-					\filldraw [blue] (60:2.75) circle [radius=1.5pt] node [above=5pt, right] {\(M\)};
+					\draw [darrow, semithick, dashed][->] (0,0) -- (60:2.75);
+					\coordinate (vt1) at ($(60:2.75)+(150:30pt)$);
+					\coordinate (vt1sqy) at ($(60:2.75)+(0,4pt)$);
+					\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(150:30pt) node [above right = -5pt and 1pt] {\(\vec{v}_t\)};
+					\draw [dashed, color=blue] (vt1) -- (vt1 |- vt1sqy);
+					\draw [color=blue] (vt1 |- vt1sqy) rectangle +(4pt,-4pt);
+					\draw [smarrow, very thick, color=red][->] (60:2.75) -- (vt1 |- 60:2.75) node [below] {\(\vec{v}\)};
+
 					% vt2
-					\filldraw [blue] (215:2.75) circle [radius=1.5pt] node [below=5pt, left] {\(M\)};
-				\end{pgfonlayer}
-				
-				% setting
-				\draw [->] (0,-3.5) -- (0,3.5) node [right=2pt] {\(y\)};
-				\draw [->] (-3.5,0) -- (3.5,0) node [below=3pt] {\(x\)};
-				\draw (0,0) circle [radius=2.75];
+					\draw [darrow, semithick, dashed][->] (0,0) -- (215:2.75);
+					\coordinate (vt2) at ($(215:2.75)+(-55:30pt)$);
+					\coordinate (vt2sqy) at ($(215:2.75)+(0,-4pt)$);
+					\draw [smarrow, very thick, color=blue][->] (215:2.75) -- +(-55:30pt) node [below left = -6pt and 1pt] {\(\vec{v}_t\)};
+					\draw [dashed, color=blue] (vt2) -- (vt2 |- vt2sqy);
+					\draw [color=blue] (vt2 |- vt2sqy) rectangle +(-4pt,4pt);
+					\draw [smarrow, very thick, color=red][->] (215:2.75) -- (vt2 |- 215:2.75) node [right] {\(\vec{v}\)};
+				\end{tikzpicture}
+			\end{minipage}
+			\begin{minipage}[t]{0.4\textwidth}
+				\centering
+				\[ \boxed{v = -\omega A \, \sin \left( \omega t + \varphi \right)} \]
+				\begin{empheq}[box={\custombox[2px][2px]}]{equation*}
+					\, v = \omega A \, \cos \left(\omega t + \varphi + \frac{\pi}{2} \right)
+				\end{empheq}
+			\end{minipage}
+			\vspace{5pt}
+		\subsection{Nhận xét}
+			\vspace{5pt}
+			\begin{itemize}
+				\item \(v\) biến thiên điều hoà theo \(t\), với tần số góc là \(\,\omega\)
+				\item \(v\) sớm pha hơn \(x\) một góc \( \, \dfrac{\pi}{2}\) \: (\( v \perp x \))
+				\item Giá trị vận tốc: \quad \( -\omega A \leq v \leq \omega A \)
+					\begin{itemize}[label=\textopenbullet]
+						\item \( v_\text{max} = \omega A \) khi vật qua VTCB theo chiều dương (\(+\))
+						\item \( v_\text{min} = -\omega A \) khi vật qua VTCB theo chiều âm (\(-\))
+					\end{itemize}
+				\item Độ lớn vận tốc (Tốc độ): \quad \( 0 \leq \lvert v \rvert \leq \omega A \)
+					\begin{itemize}[label=\textopenbullet]
+						\item \( {\lvert v \rvert}_\text{max} = \omega A \) khi vật qua VTCB
+						\item \( {\lvert v \rvert}_\text{min} = 0 \) khi vật qua VTB
+					\end{itemize}
+			\end{itemize}
 
-				% vt1
-				\draw [darrow, semithick, dashed][->] (0,0) -- (60:2.75);
-				\coordinate (vt1) at ($(60:2.75)+(150:30pt)$);
-				\coordinate (vt1sqy) at ($(60:2.75)+(0,4pt)$);
-				\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(150:30pt) node [above right = -5pt and 1pt] {\(\vec{v}_t\)};
-				\draw [dashed, color=blue] (vt1) -- (vt1 |- vt1sqy);
-				\draw [color=blue] (vt1 |- vt1sqy) rectangle +(4pt,-4pt);
-				\draw [smarrow, very thick, color=red][->] (60:2.75) -- (vt1 |- 60:2.75) node [below] {\(\vec{v}\)};
-
-				% vt2
-				\draw [darrow, semithick, dashed][->] (0,0) -- (215:2.75);
-				\coordinate (vt2) at ($(215:2.75)+(-55:30pt)$);
-				\coordinate (vt2sqy) at ($(215:2.75)+(0,-4pt)$);
-				\draw [smarrow, very thick, color=blue][->] (215:2.75) -- +(-55:30pt) node [below left = -6pt and 1pt] {\(\vec{v}_t\)};
-				\draw [dashed, color=blue] (vt2) -- (vt2 |- vt2sqy);
-				\draw [color=blue] (vt2 |- vt2sqy) rectangle +(-4pt,4pt);
-				\draw [smarrow, very thick, color=red][->] (215:2.75) -- (vt2 |- 215:2.75) node [right] {\(\vec{v}\)};
-			\end{tikzpicture}
-		\end{minipage}
-		\begin{minipage}[t]{0.4\textwidth}
-			\centering
-			\[ \boxed{v = -\omega A \, \sin \left( \omega t + \varphi \right)} \]
-			\begin{empheq}[box={\custombox[2px][2px]}]{equation*}
-				\, v = \omega A \, \cos \left(\omega t + \varphi + \frac{\pi}{2} \right)
-			\end{empheq}
-		\end{minipage}
-		\vspace{5pt}
-	\subsection{Nhận xét}
-		\vspace{5pt}
-		\begin{itemize}
-			\item \(v\) biến thiên điều hoà theo \(t\), với tần số góc là \(\,\omega\)
-			\item \(v\) sớm pha hơn \(x\) một góc \( \, \dfrac{\pi}{2}\) \: (\( v \perp x \))
-			\item Giá trị vận tốc: \quad \( -\omega A \leq v \leq \omega A \)
-				\begin{itemize}[label=\textopenbullet]
-					\item \( v_\text{max} = \omega A \) khi vật qua VTCB theo chiều dương (\(+\))
-					\item \( v_\text{min} = -\omega A \) khi vật qua VTCB theo chiều âm (\(-\))
-				\end{itemize}
-			\item Độ lớn vận tốc (Tốc độ): \quad \( 0 \leq \lvert v \rvert \leq \omega A \)
-				\begin{itemize}[label=\textopenbullet]
-					\item \( {\lvert v \rvert}_\text{max} = \omega A \) khi vật qua VTCB
-					\item \( {\lvert v \rvert}_\text{min} = 0 \) khi vật qua VTB
-				\end{itemize}
-		\end{itemize}
-
-\newpage
-\section{Gia tốc}
-	\subsection{Phương trình gia tốc}
-		\vspace{-3pt}
-		\begin{minipage}[t]{0.59\textwidth}
-			\centering
-			\begin{tikzpicture}[baseline={(current bounding box.north)}]
-				\begin{pgfonlayer}{points}
-					\filldraw (0,0) circle [radius=1.5pt] node [above left] {\(O\)};
-					% ant1
-					\filldraw [blue] (60:2.75) circle [radius=1.5pt] node [above=5pt, right] {\(M\)};
-					% ant2
-					\filldraw [blue] (215:2.75) circle [radius=1.5pt] node [below=5pt, left] {\(M\)};
-				\end{pgfonlayer}
-				
-				% setting
-				\draw [->] (0,-3.5) -- (0,3.5) node [right=2pt] {\(y\)};
-				\draw [->] (-3.5,0) -- (3.5,0) node [below=3pt] {\(x\)};
-				\draw (0,0) circle [radius=2.75];
-
-				% ant1
-				\draw [darrow, semithick, dashed][->] (0,0) -- (60:2.75);
-				\coordinate (ant1) at ($(60:2.75)+(-120:30pt)$);
-				\coordinate (ant1sqy) at ($(ant1)+(0,4pt)$);
-				\coordinate (ant1sqytemp) at ($(ant1sqy)+(0,1.8pt)$);
-				\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(-120:30pt) node [above left = 1pt and -4pt] {\(\vec{a}_{nt}\)};
-				\draw [dashed, color=blue] (60:2.75) -- (60:2.75 |- ant1sqytemp);
-				\draw [color=blue] (60:2.75 |- ant1sqy) rectangle +(-4pt,-4pt);
-				\draw [smarrow, very thick, color=red][->] (60:2.75 |- ant1) -- (ant1) node [below right = -1pt and -3pt] {\(\vec{a}\)};
-
-				% ant2
-				\draw [darrow, semithick, dashed][->] (0,0) -- (215:2.75);
-				\coordinate (ant2) at ($(215:2.75)+(35:30pt)$);
-				\coordinate (ant2sqy) at ($(ant2)+(0,-4pt)$);
-				\draw [smarrow, very thick, color=blue][->] (215:2.75) -- +(35:30pt) node [below right = 1pt and -7pt] {\(\vec{a}_{nt}\)};
-				\draw [dashed, color=blue] (215:2.75) -- (215:2.75 |- ant2sqy);
-				\draw [color=blue] (215:2.75 |- ant2sqy) rectangle +(4pt,4pt);
-				\draw [smarrow, very thick, color=red][->] (215:2.75 |- ant2) -- (ant2) node [above left = 1pt and -4pt] {\(\vec{a}\)};
-			\end{tikzpicture}
-		\end{minipage}
-		\begin{minipage}[t]{0.4\textwidth}
-			\centering
-			\[\boxed{a = -\omega^2 A \, \cos \left( \omega t + \varphi \right)}\]
-			\[\boxed{a = \omega^2 A \, \cos \left(\omega t + \varphi + \pi \right)}\]
-		\end{minipage}
-		\vspace{5pt}
-	\subsection{Nhận xét}
-		\vspace{5pt}
-		\begin{itemize}
-			\item \(a\) biến thiên điều hoà theo \(t\), với tần số góc là \(\,\omega\)
-			\item \(a\) ngược pha với \(x\)
-			\item Giá trị gia tốc: \quad \( -\omega^2 A \leq a \leq \omega^2 A \)
-				\begin{itemize}[label=\textopenbullet]
-					\item \( a_\text{max} = \omega^2 A \) khi vật qua VTB\(+\)
-					\item \( a_\text{min} = -\omega^2 A \) khi vật qua VTB\(-\)
-				\end{itemize}
-			\item Độ lớn gia tốc (Tốc độ): \quad \( 0 \leq a \leq \omega^2 A \)
-				\begin{itemize}[label=\textopenbullet]
-					\item \( {\lvert a \rvert}_\text{max} = \omega^2 A \) khi vật qua VTB
-					\item \( {\lvert a \rvert}_\text{min} = 0 \) khi vật qua VTCB
-				\end{itemize}
-			\item Vectơ gia tốc luôn hướng về VTCB
-		\end{itemize}
 	\newpage
-	\subsection{Sự nhanh chậm của chuyển động}
-		\vspace{5pt}
-		\begin{itemize}
-			\item Chuyển động chậm dần: Vật đi từ VTCB đến VTB \\ (\(\vec{v}\) và \(\vec{a}\) ngược chiều)
-			\item Chuyển động nhanh dần: Vật đi từ VTB đến VTCB \\ (\(\vec{v}\) và \(\vec{a}\) cùng chiều)
-		\end{itemize}
+	\section{Gia tốc}
+		\subsection{Phương trình gia tốc}
+			\vspace{-3pt}
+			\begin{minipage}[t]{0.59\textwidth}
+				\centering
+				\begin{tikzpicture}[baseline={(current bounding box.north)}]
+					\begin{pgfonlayer}{points}
+						\filldraw (0,0) circle [radius=1.5pt] node [above left] {\(O\)};
+						% ant1
+						\filldraw [blue] (60:2.75) circle [radius=1.5pt] node [above=5pt, right] {\(M\)};
+						% ant2
+						\filldraw [blue] (215:2.75) circle [radius=1.5pt] node [below=5pt, left] {\(M\)};
+					\end{pgfonlayer}
+					
+					% setting
+					\draw [->] (0,-3.5) -- (0,3.5) node [right=2pt] {\(y\)};
+					\draw [->] (-3.5,0) -- (3.5,0) node [below=3pt] {\(x\)};
+					\draw (0,0) circle [radius=2.75];
 
-\vspace{1pt}
-\section{Hệ thức độc lập thời gian}
-	\subsection{Giữa vận tốc và li độ}
-		\vspace{-5pt}
-		\begin{align*}
-			\text{Tại thời điểm } t \text{ có} & \:
-			\begin{cases}
-				x = A \cos \left( \omega t + \varphi \right) \\
-				v = -\omega A \hspace{1.5pt} \sin \left( \omega t + \varphi \right)
-			\end{cases} \\[3pt]
-			\Leftrightarrow & \:
-			\begin{cases}
-				\dfrac{x}{\rule[0pt]{0pt}{11pt} A} = \cos \left( \omega t + \varphi \right) \\[10pt]
-				\dfrac{v}{\rule[0pt]{0pt}{11pt} -\omega A} = \sin \left( \omega t + \varphi \right)
-			\end{cases} \\[3pt]
-			\Rightarrow & \enspace \frac{x^2}{\rule[0pt]{0pt}{12pt} A^2} + \frac{v^2}{\rule[0pt]{0pt}{12pt} \omega^2 A^2} = \cos^2 \left( \omega t + \varphi \right) + \sin^2 \left( \omega t + \varphi \right) = 1
-		\end{align*}
+					% ant1
+					\draw [darrow, semithick, dashed][->] (0,0) -- (60:2.75);
+					\coordinate (ant1) at ($(60:2.75)+(-120:30pt)$);
+					\coordinate (ant1sqy) at ($(ant1)+(0,4pt)$);
+					\coordinate (ant1sqytemp) at ($(ant1sqy)+(0,1.8pt)$);
+					\draw [smarrow, very thick, color=blue][->] (60:2.75) -- +(-120:30pt) node [above left = 1pt and -4pt] {\(\vec{a}_{nt}\)};
+					\draw [dashed, color=blue] (60:2.75) -- (60:2.75 |- ant1sqytemp);
+					\draw [color=blue] (60:2.75 |- ant1sqy) rectangle +(-4pt,-4pt);
+					\draw [smarrow, very thick, color=red][->] (60:2.75 |- ant1) -- (ant1) node [below right = -1pt and -3pt] {\(\vec{a}\)};
 
-		\vspace{-0.2cm}
-		\begin{figure}[h]
-			\centering
-			\begin{tikzpicture}[scale=0.85]
-				\draw [->] (-3.15,0) -- (3.15,0) node [below=3pt] {\(x\)};
-				\draw [->] (0,-3.15) -- (0,3.15) node [right=3pt] {\(v\)};
-				\draw [focus, color=blue] (0,0) ellipse [x radius=1.45, y radius=2.25];
-				\node at (0,2.25) [above right, color=blue] {\( \omega A \)};
-				\node at (0,-2.25) [below right, color=blue] {\( -\omega A \)};
-				\node at (1.45,0) [below right, color=blue] {\(A\)};
-				\node at (-1.45,0) [below left, color=blue] {\(-A\)};
-			\end{tikzpicture}
-			\caption{Đồ thị biểu diễn sự biến thiên của vận tốc theo li độ \\ là một \textbf{đường elip}}
-		\end{figure}
-
+					% ant2
+					\draw [darrow, semithick, dashed][->] (0,0) -- (215:2.75);
+					\coordinate (ant2) at ($(215:2.75)+(35:30pt)$);
+					\coordinate (ant2sqy) at ($(ant2)+(0,-4pt)$);
+					\draw [smarrow, very thick, color=blue][->] (215:2.75) -- +(35:30pt) node [below right = 1pt and -7pt] {\(\vec{a}_{nt}\)};
+					\draw [dashed, color=blue] (215:2.75) -- (215:2.75 |- ant2sqy);
+					\draw [color=blue] (215:2.75 |- ant2sqy) rectangle +(4pt,4pt);
+					\draw [smarrow, very thick, color=red][->] (215:2.75 |- ant2) -- (ant2) node [above left = 1pt and -4pt] {\(\vec{a}\)};
+				\end{tikzpicture}
+			\end{minipage}
+			\begin{minipage}[t]{0.4\textwidth}
+				\centering
+				\[\boxed{a = -\omega^2 A \, \cos \left( \omega t + \varphi \right)}\]
+				\[\boxed{a = \omega^2 A \, \cos \left(\omega t + \varphi + \pi \right)}\]
+			\end{minipage}
+			\vspace{5pt}
+		\subsection{Nhận xét}
+			\vspace{5pt}
+			\begin{itemize}
+				\item \(a\) biến thiên điều hoà theo \(t\), với tần số góc là \(\,\omega\)
+				\item \(a\) ngược pha với \(x\)
+				\item Giá trị gia tốc: \quad \( -\omega^2 A \leq a \leq \omega^2 A \)
+					\begin{itemize}[label=\textopenbullet]
+						\item \( a_\text{max} = \omega^2 A \) khi vật qua VTB\(+\)
+						\item \( a_\text{min} = -\omega^2 A \) khi vật qua VTB\(-\)
+					\end{itemize}
+				\item Độ lớn gia tốc (Tốc độ): \quad \( 0 \leq a \leq \omega^2 A \)
+					\begin{itemize}[label=\textopenbullet]
+						\item \( {\lvert a \rvert}_\text{max} = \omega^2 A \) khi vật qua VTB
+						\item \( {\lvert a \rvert}_\text{min} = 0 \) khi vật qua VTCB
+					\end{itemize}
+				\item Vectơ gia tốc luôn hướng về VTCB
+			\end{itemize}
 		\newpage
-		\begin{center}
-			\begin{tikzpicture}
-				\node (original) at (0,0) [draw, rectangle, inner sep=5pt] {\( \dfrac{x^2}{\rule[0pt]{0pt}{11pt} A^2} + \dfrac{v^2}{\rule[0pt]{0pt}{11pt} \omega^2 A^2 \rule[-1pt]{0pt}{11pt}} = 1 \)};
-				\node (originaltext) [right = 4pt of original] {\textbf{Tổng quát}};
-				\node (simplified) at (0,2.75) [draw, rectangle, inner sep=5pt] {\( x^2 + \dfrac{v^2}{\rule[0pt]{0pt}{11pt} \omega^2} = A^2 \)};
-				\node (simplifiedtext) [above = 4pt of simplified] {\textbf{Rút gọn}};
-				\draw [->] (original) -- (simplified);
-				
-				\coordinate [left = 0.8cm of simplified] (left);
-				\draw (simplified) -- (left);
-				\coordinate [above = of left] (lefttop);
-				\coordinate [below = of left] (leftbot);
-				\draw (lefttop) -- (leftbot);
-				\node (omega) [left = 0.8cm of lefttop, draw, rectangle, inner sep=5pt] {\( \omega = \dfrac{\lvert v \rvert}{\rule[0pt]{0pt}{12pt} \sqrt{A^2 - x^2}} \)};
-				\draw [->] (lefttop) -- (omega);
-				\node (x) [left = 0.8cm of leftbot, draw, rectangle, inner sep=5pt] {\( x = \pm \, \sqrt{A^2 - \dfrac{\rule[0pt]{0pt}{10pt} v^2}{\rule[0pt]{0pt}{11pt} \omega^2}} \)};
-				\draw [->] (leftbot) -- (x);
+		\subsection{Sự nhanh chậm của chuyển động}
+			\vspace{5pt}
+			\begin{itemize}
+				\item Chuyển động chậm dần: Vật đi từ VTCB đến VTB \\ (\(\vec{v}\) và \(\vec{a}\) ngược chiều)
+				\item Chuyển động nhanh dần: Vật đi từ VTB đến VTCB \\ (\(\vec{v}\) và \(\vec{a}\) cùng chiều)
+			\end{itemize}
 
-				\coordinate [right = 0.8cm of simplified] (right);
-				\draw (simplified) -- (right);
-				\coordinate [above = of right] (righttop);
-				\coordinate [below = of right] (rightbot);
-				\draw (righttop) -- (rightbot);
-				\node (A) [right = 0.8cm of righttop, draw, rectangle, inner sep=5pt] {\( A = \sqrt{x^2 + \dfrac{\rule[0pt]{0pt}{10pt} v^2}{\rule[0pt]{0pt}{11pt} \omega^2}} \)};
-				\draw [->] (righttop) -- (A);
-				\node (v) [right = 0.8cm of rightbot, draw, rectangle, inner sep=5pt] {\( v = \pm \, \omega \sqrt{\rule[0pt]{0pt}{10pt} A^2 - x^2} \)};
-				\draw [->] (rightbot) -- (v);
+	\vspace{1pt}
+	\section{Hệ thức độc lập thời gian}
+		\subsection{Giữa vận tốc và li độ}
+			\vspace{-5pt}
+			\begin{align*}
+				\text{Tại thời điểm } t \text{ có} & \:
+				\begin{cases}
+					x = A \cos \left( \omega t + \varphi \right) \\
+					v = -\omega A \hspace{1.5pt} \sin \left( \omega t + \varphi \right)
+				\end{cases} \\[3pt]
+				\Leftrightarrow & \:
+				\begin{cases}
+					\dfrac{x}{\rule[0pt]{0pt}{11pt} A} = \cos \left( \omega t + \varphi \right) \\[10pt]
+					\dfrac{v}{\rule[0pt]{0pt}{11pt} -\omega A} = \sin \left( \omega t + \varphi \right)
+				\end{cases} \\[3pt]
+				\Rightarrow & \enspace \frac{x^2}{\rule[0pt]{0pt}{12pt} A^2} + \frac{v^2}{\rule[0pt]{0pt}{12pt} \omega^2 A^2} = \cos^2 \left( \omega t + \varphi \right) + \sin^2 \left( \omega t + \varphi \right) = 1
+			\end{align*}
 
-				\node (max) at (0,-2.5) [draw, rectangle, inner sep=5pt] {\( \left( \dfrac{x}{x_\text{max}} \right)^2 + \left( \dfrac{v}{v_\text{max}} \right)^2 = 1 \)};
-				\draw [->] (original) -- (max);
-			\end{tikzpicture}
-		\end{center}
+			\vspace{-0.2cm}
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}[scale=0.85]
+					\draw [->] (-3.15,0) -- (3.15,0) node [below=3pt] {\(x\)};
+					\draw [->] (0,-3.15) -- (0,3.15) node [right=3pt] {\(v\)};
+					\draw [focus, color=blue] (0,0) ellipse [x radius=1.45, y radius=2.25];
+					\node at (0,2.25) [above right, color=blue] {\( \omega A \)};
+					\node at (0,-2.25) [below right, color=blue] {\( -\omega A \)};
+					\node at (1.45,0) [below right, color=blue] {\(A\)};
+					\node at (-1.45,0) [below left, color=blue] {\(-A\)};
+				\end{tikzpicture}
+				\caption{Đồ thị biểu diễn sự biến thiên của vận tốc theo li độ \\ là một \textbf{đường elip}}
+			\end{figure}
 
-	\vspace{0.1cm}
-	\subsection{Giữa gia tốc và vận tốc}
-		\vspace{0.7cm}
-		\begin{center}
-			\begin{tikzpicture}
-				\node (original) at (0,0) [draw, rectangle, inner sep=5pt] {\( \dfrac{v^2}{\rule[0pt]{0pt}{11pt} \omega^2} + \dfrac{a^2}{\rule[0pt]{0pt}{11pt} \omega^4} = A^2 \)};
+			\newpage
+			\begin{center}
+				\begin{tikzpicture}
+					\node (original) at (0,0) [draw, rectangle, inner sep=5pt] {\( \dfrac{x^2}{\rule[0pt]{0pt}{11pt} A^2} + \dfrac{v^2}{\rule[0pt]{0pt}{11pt} \omega^2 A^2 \rule[-1pt]{0pt}{11pt}} = 1 \)};
+					\node (originaltext) [right = 4pt of original] {\textbf{Tổng quát}};
+					\node (simplified) at (0,2.75) [draw, rectangle, inner sep=5pt] {\( x^2 + \dfrac{v^2}{\rule[0pt]{0pt}{11pt} \omega^2} = A^2 \)};
+					\node (simplifiedtext) [above = 4pt of simplified] {\textbf{Rút gọn}};
+					\draw [->] (original) -- (simplified);
+					
+					\coordinate [left = 0.8cm of simplified] (left);
+					\draw (simplified) -- (left);
+					\coordinate [above = of left] (lefttop);
+					\coordinate [below = of left] (leftbot);
+					\draw (lefttop) -- (leftbot);
+					\node (omega) [left = 0.8cm of lefttop, draw, rectangle, inner sep=5pt] {\( \omega = \dfrac{\lvert v \rvert}{\rule[0pt]{0pt}{12pt} \sqrt{A^2 - x^2}} \)};
+					\draw [->] (lefttop) -- (omega);
+					\node (x) [left = 0.8cm of leftbot, draw, rectangle, inner sep=5pt] {\( x = \pm \, \sqrt{A^2 - \dfrac{\rule[0pt]{0pt}{10pt} v^2}{\rule[0pt]{0pt}{11pt} \omega^2}} \)};
+					\draw [->] (leftbot) -- (x);
 
-				\node (A) [left = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( A = \sqrt{\dfrac{\rule[0pt]{0pt}{11pt} v^2}{\rule[0pt]{0pt}{11pt} \omega^2} + \dfrac{\rule[0pt]{0pt}{11pt} a^2}{\rule[0pt]{0pt}{11pt} \omega^4}} \)};
-				\draw [->] (original) -- (A);
+					\coordinate [right = 0.8cm of simplified] (right);
+					\draw (simplified) -- (right);
+					\coordinate [above = of right] (righttop);
+					\coordinate [below = of right] (rightbot);
+					\draw (righttop) -- (rightbot);
+					\node (A) [right = 0.8cm of righttop, draw, rectangle, inner sep=5pt] {\( A = \sqrt{x^2 + \dfrac{\rule[0pt]{0pt}{10pt} v^2}{\rule[0pt]{0pt}{11pt} \omega^2}} \)};
+					\draw [->] (righttop) -- (A);
+					\node (v) [right = 0.8cm of rightbot, draw, rectangle, inner sep=5pt] {\( v = \pm \, \omega \sqrt{\rule[0pt]{0pt}{10pt} A^2 - x^2} \)};
+					\draw [->] (rightbot) -- (v);
 
-				\node (a) [above = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( a = \pm \, \omega \sqrt{\rule[0pt]{0pt}{11pt} \omega^2 A^2 - v^2} \)};
-				\draw [->] (original) -- (a);
-				
-				\node (v) [right = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( v = \pm \, \sqrt{\omega^2 A^2 - \dfrac{\rule[0pt]{0pt}{11pt} a^2}{\rule[0pt]{0pt}{11pt} \omega^2}} \)};
-				\draw [->] (original) -- (v);
+					\node (max) at (0,-2.5) [draw, rectangle, inner sep=5pt] {\( \left( \dfrac{x}{x_\text{max}} \right)^2 + \left( \dfrac{v}{v_\text{max}} \right)^2 = 1 \)};
+					\draw [->] (original) -- (max);
+				\end{tikzpicture}
+			\end{center}
 
-				\node (omega) [below = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( \omega = \dfrac{1}{\rule[0pt]{0pt}{11pt} A} \sqrt{\dfrac{\rule[0pt]{0pt}{11pt} v^2 + \sqrt{\rule[0pt]{0pt}{11pt}v^4 + 4 A^2 a^2}}{\rule[0pt]{0pt}{11pt} 2}} \)};
-				\draw [->] (original) -- (omega);
-			\end{tikzpicture}
-		\end{center}
+		\vspace{0.1cm}
+		\subsection{Giữa gia tốc và vận tốc}
+			\vspace{0.7cm}
+			\begin{center}
+				\begin{tikzpicture}
+					\node (original) at (0,0) [draw, rectangle, inner sep=5pt] {\( \dfrac{v^2}{\rule[0pt]{0pt}{11pt} \omega^2} + \dfrac{a^2}{\rule[0pt]{0pt}{11pt} \omega^4} = A^2 \)};
 
-		\newpage
-		\begin{figure}[h]
-			\centering
-			\begin{tikzpicture}[scale=0.85]
-				\draw [->] (-3.15,0) -- (3.15,0) node [below=3pt] {\(v\)};
-				\draw [->] (0,-3.15) -- (0,3.35) node [right=3pt] {\(a\)};
-				\draw [focus, color=blue] (0,0) ellipse [x radius=1.45, y radius=2.25];
-				\node at (0,2.25) [above right, color=blue] {\( \omega^2 A \)};
-				\node at (0,-2.25) [below right, color=blue] {\( -\omega^2 A \)};
-				\node at (1.45,0) [below right, color=blue] {\( \omega A \)};
-				\node at (-1.45,0) [below left, color=blue] {\( -\omega A \)};
-			\end{tikzpicture}
-			\caption{Đồ thị biểu diễn sự biến thiên của gia tốc theo vận tốc \\ là một \textbf{đường elip}}
-		\end{figure}
-	
-	\subsection{Giữa gia tốc và li độ}
-		\vspace{0.5cm}
-		\begin{center}
-			\begin{tikzpicture}
-				\node (original) at (0,0) [draw, rectangle, inner sep=5pt] {\( a = -\omega^2 x\)};
+					\node (A) [left = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( A = \sqrt{\dfrac{\rule[0pt]{0pt}{11pt} v^2}{\rule[0pt]{0pt}{11pt} \omega^2} + \dfrac{\rule[0pt]{0pt}{11pt} a^2}{\rule[0pt]{0pt}{11pt} \omega^4}} \)};
+					\draw [->] (original) -- (A);
 
-				\node (omega) [left = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( \omega = \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} -a}{x}} \)};
-				\draw [->] (original) -- (omega);
-				
-				\node (x) [right = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( x = \dfrac{-a}{\rule[0pt]{0pt}{11pt} \omega^2} \)};
-				\draw [->] (original) -- (x);
-			\end{tikzpicture}
-		\end{center}
+					\node (a) [above = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( a = \pm \, \omega \sqrt{\rule[0pt]{0pt}{11pt} \omega^2 A^2 - v^2} \)};
+					\draw [->] (original) -- (a);
+					
+					\node (v) [right = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( v = \pm \, \sqrt{\omega^2 A^2 - \dfrac{\rule[0pt]{0pt}{11pt} a^2}{\rule[0pt]{0pt}{11pt} \omega^2}} \)};
+					\draw [->] (original) -- (v);
 
-		\vspace{-0.2cm}
-		\begin{figure}[h]
-			\centering
-			\begin{tikzpicture}[scale=0.83]
-				\draw [->] (-3,0) -- (3,0) node [below=3pt] {\(x\)};
-				\draw [->] (0,-3) -- (0,3.15) node [right=3pt] {\(a\)};
-				
-				\coordinate (point1) at (-2,2.25);
-				\node (a1) at (0,2.25) [right, color=blue] {\( \omega A \)};
-				\draw [normdash, color=blue] (point1) -- (a1);
-				\node (x1) at (-2,0) [below, color=blue] {\( -A \)};
-				\draw [normdash, color=blue] (point1) -- (x1);
+					\node (omega) [below = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( \omega = \dfrac{1}{\rule[0pt]{0pt}{11pt} A} \sqrt{\dfrac{\rule[0pt]{0pt}{11pt} v^2 + \sqrt{\rule[0pt]{0pt}{11pt}v^4 + 4 A^2 a^2}}{\rule[0pt]{0pt}{11pt} 2}} \)};
+					\draw [->] (original) -- (omega);
+				\end{tikzpicture}
+			\end{center}
 
-				\coordinate (point2) at (2,-2.25);
-				\node (a2) at (0,-2.25) [left, color=blue] {\( -\omega A \)};
-				\draw [normdash, color=blue] (point2) -- (a2);
-				\node (x2) at (2,0) [above, color=blue] {\( A \)};
-				\draw [normdash, color=blue] (point2) -- (x2);
+			\newpage
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}[scale=0.85]
+					\draw [->] (-3.15,0) -- (3.15,0) node [below=3pt] {\(v\)};
+					\draw [->] (0,-3.15) -- (0,3.35) node [right=3pt] {\(a\)};
+					\draw [focus, color=blue] (0,0) ellipse [x radius=1.45, y radius=2.25];
+					\node at (0,2.25) [above right, color=blue] {\( \omega^2 A \)};
+					\node at (0,-2.25) [below right, color=blue] {\( -\omega^2 A \)};
+					\node at (1.45,0) [below right, color=blue] {\( \omega A \)};
+					\node at (-1.45,0) [below left, color=blue] {\( -\omega A \)};
+				\end{tikzpicture}
+				\caption{Đồ thị biểu diễn sự biến thiên của gia tốc theo vận tốc \\ là một \textbf{đường elip}}
+			\end{figure}
+		
+		\subsection{Giữa gia tốc và li độ}
+			\vspace{0.5cm}
+			\begin{center}
+				\begin{tikzpicture}
+					\node (original) at (0,0) [draw, rectangle, inner sep=5pt] {\( a = -\omega^2 x\)};
 
-				\draw [focus, color=blue] (point1) -- (point2);
-			\end{tikzpicture}
-			\caption{Đồ thị biểu diễn sự biến thiên của gia tốc theo vận tốc \\ là một \textbf{đoạn thẳng}}
-		\end{figure}
+					\node (omega) [left = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( \omega = \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} -a}{x}} \)};
+					\draw [->] (original) -- (omega);
+					
+					\node (x) [right = 0.8cm of original, draw, rectangle, inner sep=5pt] {\( x = \dfrac{-a}{\rule[0pt]{0pt}{11pt} \omega^2} \)};
+					\draw [->] (original) -- (x);
+				\end{tikzpicture}
+			\end{center}
+
+			\vspace{-0.2cm}
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}[scale=0.83]
+					\draw [->] (-3,0) -- (3,0) node [below=3pt] {\(x\)};
+					\draw [->] (0,-3) -- (0,3.15) node [right=3pt] {\(a\)};
+					
+					\coordinate (point1) at (-1.75,2.25);
+					\node (a1) at (0,2.25) [right, color=blue] {\( \omega A \)};
+					\draw [normdash, color=blue] (point1) -- (a1);
+					\node (x1) at (-1.75,0) [below, color=blue] {\( -A \)};
+					\draw [normdash, color=blue] (point1) -- (x1);
+					\filldraw [color=blue] (point1) circle [radius=1.5pt];
+
+					\coordinate (point2) at (1.75,-2.25);
+					\node (a2) at (0,-2.25) [left, color=blue] {\( -\omega A \)};
+					\draw [normdash, color=blue] (point2) -- (a2);
+					\node (x2) at (1.75,0) [above, color=blue] {\( A \)};
+					\draw [normdash, color=blue] (point2) -- (x2);
+					\filldraw [color=blue] (point2) circle [radius=1.5pt];
+
+					\draw [focus, color=blue] (point1) -- (point2);
+				\end{tikzpicture}
+				\caption{Đồ thị biểu diễn sự biến thiên của gia tốc theo vận tốc \\ là một \textbf{đoạn thẳng}}
+			\end{figure}
 \end{document}

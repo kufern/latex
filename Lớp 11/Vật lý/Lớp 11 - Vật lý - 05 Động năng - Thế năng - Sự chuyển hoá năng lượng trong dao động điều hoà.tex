@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc} % unicode
+\usepackage[vietnamese=nohyphenation]{hyphsubst} % vietnamese
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, empheq} % math
+\usepackage{enumitem} % lists
+\usepackage{graphicx} % images
+\usepackage{tikz} % graphs
+\usepackage{caption} % captions
+\usepackage{array} % tables
+\usepackage{xcolor} % colors
+
+\graphicspath{{../../images/}}
+
+% tikz
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\tikzset{focus/.style={help lines, very thick, color=black}}
+\tikzset{bsetting/.style={help lines, thick, color=black}}
+\tikzset{gsetting/.style={help lines, thick, color=gray}}
+\tikzset{normdash/.style={help lines, dashed, color=black}}
+\tikzset{darrow/.style={help lines, >=Latex[]}}
+\tikzset{smarrow/.style={help lines, >={Stealth[scale=0.5]}}}
+\tikzset{>=Stealth[]}
+
+% pgf layers
+\pgfdeclarelayer{points}
+\pgfdeclarelayer{topspecial}
+\pgfdeclarelayer{plot}
+\pgfdeclarelayer{setting}
+\pgfdeclarelayer{label}
+\pgfdeclarelayer{botspecial}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,points}
+
+% sections & subsections
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+% figure names
+% CHANGE THIS WHEN YOU GET TO NEW LESSON
+\captionsetup[figure]{labelsep=period, labelfont=bf, justification=centering}
+\renewcommand{\thefigure}{5.\arabic{figure}}
+
+% tables
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% aboveline
+\newcommand{\aboveline}[1]{\overline{\rule{0pt}{3.1mm}#1}}
+
+% boxes
+\newlength\templength
+\newsavebox\tempbox
+\makeatletter
+\newcommand\custombox{%
+	\@ifnextchar[%]
+		{\@custombox}%
+		{\@custombox[0pt]}}
+\def\@custombox[#1]{%
+	\@ifnextchar[%]
+		{\@@custombox[#1]}%
+		{\@@custombox[#1][0pt]}}
+\def\@@custombox[#1][#2]#3{%
+	\sbox\tempbox{#3}%
+	\templength\ht\tempbox
+	\advance\templength #1\relax
+	\ht\tempbox\templength
+	\templength\dp\tempbox
+	\advance\templength #2\relax
+	\dp\tempbox\templength
+	\fbox{\usebox{\tempbox}}}%
+\makeatother
+
+% BEGIN DOCUMENT
+\begin{document}
+	\begin{titlepage}
+	\centering
+	{\large\bfseries Lớp 11} \\
+	\vspace{9pt}
+	{\Large\bfseries Vật lý} \\
+	\vspace{9pt}
+	{\large\bfseries Chương I: Dao động} \\
+	\vspace{9pt}
+	{\large\bfseries Bài 5} \\
+	\vspace{13.5pt}
+	{\LARGE\bfseries Động năng - Thế năng - Sự chuyển hoá năng lượng trong dao động điều hoà} \\
+	\vspace{17.5pt}
+	{\Large\bfseries\itshape kufern} \\
+	\vspace{7cm}
+	\includegraphics{logo.png}
+	\end{titlepage}
+
+	\section{Động năng}
+		\vspace{5pt}
+		\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+			W_\text{đ} = \frac{1}{2} \hspace{1pt} m \hspace{1pt} \omega^2 \hspace{-1pt} \left( A^2 - x^2 \right)
+		\end{empheq}
+		\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+			W_\text{đ} = \frac{1}{2} \hspace{1pt} m \hspace{1pt} \omega^2 A^2 \sin^2 \left( \omega t + \varphi \right)
+		\end{empheq}
+		\vspace{7pt}
+		\underline{\textbf{\large Nhận xét:}}
+		\begin{itemize}
+			\item \(W_\text{đ}\) biến thiên theo \(t\), với \( \hspace{1pt} \omega_\text{\hspace{1pt}đ} = 2 \hspace{1pt} \omega \) và \( \hspace{1pt} T_\text{\hspace{1pt}đ} = \dfrac{T}{2} \)
+			\item Giá trị: \( 0 \leq W_\text{đ} \leq \dfrac{1}{2} \hspace{1pt} m \hspace{1pt} \omega^2 A^2 \)
+		\end{itemize}
+
+	\vspace{3pt}
+	\section{Thế năng}
+		\vspace{5pt}
+		\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+			W_\text{t} = \frac{1}{2} \hspace{1pt} m \hspace{1pt} \omega^2 x^2
+		\end{empheq}
+		\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+			W_\text{t} = \frac{1}{2} \hspace{1pt} m \hspace{1pt} \omega^2 A^2 \cos^2 \left( \omega t + \varphi \right)
+		\end{empheq}
+		\vspace{7pt}
+		\underline{\textbf{\large Nhận xét:}}
+		\begin{itemize}
+			\item \(W_\text{t}\) biến thiên theo \(t\), với \( \hspace{1pt} \omega_\text{\hspace{1pt}t} = 2 \hspace{1pt} \omega \) và \( \hspace{1pt} T_\text{\hspace{1pt}t} = \dfrac{T}{2} \)
+			\item Giá trị: \( 0 \leq W_\text{t} \leq \dfrac{1}{2} \hspace{1pt} m \hspace{1pt} \omega^2 A^2 \)
+		\end{itemize}
+
+	\newpage
+	\section{Cơ năng}
+		\vspace{5pt}
+		\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+			W = \frac{1}{2} \hspace{1pt} m \hspace{1.25pt} \omega^2 A^2
+		\end{empheq}
+		\vspace{30pt}
+		\underline{\textbf{\large Nhận xét:}}
+		\( W = W_\text{đ} + W_\text{t} = W_\text{đ max} = W_\text{t max} \)
+\end{document}

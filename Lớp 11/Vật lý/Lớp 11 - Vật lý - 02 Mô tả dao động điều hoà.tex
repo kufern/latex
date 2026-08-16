@@ -73,141 +73,141 @@
 
 % BEGIN DOCUMENT
 \begin{document}
-\begin{titlepage}
-\centering
-{\large\bfseries Lớp 11} \\
-\vspace{9pt}
-{\Large\bfseries Vật lý} \\
-\vspace{9pt}
-{\large\bfseries Chương I: Dao động} \\
-\vspace{9pt}
-{\large\bfseries Bài 2} \\
-\vspace{13.5pt}
-{\LARGE\bfseries Mô tả dao động điều hoà} \\
-\vspace{10.5pt}
-{\Large\bfseries\itshape kufern} \\
-\vspace{7cm}
-\includegraphics{logo.png}
-\end{titlepage}
+	\begin{titlepage}
+	\centering
+	{\large\bfseries Lớp 11} \\
+	\vspace{9pt}
+	{\Large\bfseries Vật lý} \\
+	\vspace{9pt}
+	{\large\bfseries Chương I: Dao động} \\
+	\vspace{9pt}
+	{\large\bfseries Bài 2} \\
+	\vspace{13.5pt}
+	{\LARGE\bfseries Mô tả dao động điều hoà} \\
+	\vspace{10.5pt}
+	{\Large\bfseries\itshape kufern} \\
+	\vspace{7cm}
+	\includegraphics{logo.png}
+	\end{titlepage}
 
-\section{Các đại lượng đặc trưng của dao động \\ điều hoà}
-	\subsection{Biên độ}
-		\vspace{5pt}
-		\begin{itemize}
-			\item Độ dịch chuyển cực đại của vật tính từ vị trí cân bằng
-			\item Ký hiệu: \(A\)
-			\item Luôn dương
-			\item Không phụ thuộc vào \(t\)
-			\item Phụ thuộc vào điều kiện kích thích
-			\item Đơn vị: m, cm, mm,\,\ldots
-		\end{itemize}
+	\section{Các đại lượng đặc trưng của dao động \\ điều hoà}
+		\subsection{Biên độ}
+			\vspace{5pt}
+			\begin{itemize}
+				\item Độ dịch chuyển cực đại của vật tính từ vị trí cân bằng
+				\item Ký hiệu: \(A\)
+				\item Luôn dương
+				\item Không phụ thuộc vào \(t\)
+				\item Phụ thuộc vào điều kiện kích thích
+				\item Đơn vị: m, cm, mm,\,\ldots
+			\end{itemize}
 
-	\subsection{Tần số góc}
-		\vspace{5pt}
-		\begin{itemize}
-			\item Ký hiệu: \(\omega\)
-			\item Luôn dương
-			\item Không phụ thuộc vào \(t\)
-			\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
-			\item Đơn vị: rad/s
-		\end{itemize}
+		\subsection{Tần số góc}
+			\vspace{5pt}
+			\begin{itemize}
+				\item Ký hiệu: \(\omega\)
+				\item Luôn dương
+				\item Không phụ thuộc vào \(t\)
+				\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
+				\item Đơn vị: rad/s
+			\end{itemize}
 
-	\subsection{Chu kỳ}
-		\vspace{5pt}
-		\begin{itemize}
-			\item Khoảng thời gian để vật thực hiện một dao động toàn phần
-			\item Ký hiệu: \(T\)
-			\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
-			\item Đơn vị: s
-			\newpage
-			\item Công thức:
-		\end{itemize}
-			\begin{minipage}[t]{0.5\textwidth}
-				\vspace{-12pt}
-				\qquad\quad
-				\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-					T = \frac{\Delta t}{N} = \frac{2 \pi}{\omega}
-				\end{empheq}
-			\end{minipage}
-			\begin{minipage}[t]{0.49\textwidth}
-				\vspace{-10pt}
-				\(\Delta t\): Thời gian mà dao động xảy ra (s)
-				\\ \(N\): Số dao động mà xảy ra trong thời gian đó
-			\end{minipage}
-			\vspace{4pt}
-
-	\subsection{Tần số}
-		\vspace{5pt}
-		\begin{itemize}
-			\item Số dao động mà vật thực hiện trong một giây
-			\item Ký hiệu: \(f\)
-			\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
-			\item Đơn vị: Hz \( (= \dfrac{1}{s} = s^{-1}) \)
-			\item Công thức:
-				\vspace{7pt}
-				\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-					f = \frac{1}{T} = \frac{N}{\Delta t} = \frac{\omega}{2 \pi}
-				\end{empheq}
-		\end{itemize}
-	\vspace{4pt}
-
-\section{Pha dao động}
-	\vspace{-13pt}
-	\begin{center}
-		\[ \boxed{\phi = \omega t + \varphi} \]
-		\(\Rightarrow \phi\) là hàm số bậc nhất theo \(t\)
-		\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-			\: \omega = \tan \left( \frac{\phi}{t} \right)
-		\end{empheq}
-	\end{center}
-	\vspace{3pt}
-	\begin{center}
-		\textcolor{red}{\large \underline{\textbf{Chú ý:}} \( -\pi \leq \phi \leq \pi\)}
-	\end{center}
-
-\newpage
-\section{Độ lệch pha}
-	\subsection{Độ lệch pha của một dao động tại hai thời điểm}
-	\vspace{5pt}
-	\[\begin{aligned}
-		\Delta \phi &= \phi_2 - \phi_1 \\
-		&= (\omega t_2 + \varphi) - (\omega t_1 + \varphi) \\
-		&= \omega t_2 - \omega t_1 \\
-		&= \omega (t_2 - t_1) \\
-		&= \omega \times \Delta t
-	\end{aligned}\]
-	\[ \Rightarrow \boxed{\Delta \phi = \omega \times \Delta t} \qquad \]
-
-	\subsection{Độ lệch pha của hai dao động cùng phương, cùng tần số ở một thời điểm}
-	\vspace{5pt}
-	\[\begin{aligned}
-		\Delta \phi &= \phi_2 - \phi_1 \\
-		&= (\omega t + \varphi_2) - (\omega t + \varphi_1) \\
-		&= \varphi_2 - \varphi_1
-	\end{aligned}\]
-	\[ \Rightarrow \boxed{\Delta \phi = \varphi_2 - \varphi_1} \qquad \]
+		\subsection{Chu kỳ}
+			\vspace{5pt}
+			\begin{itemize}
+				\item Khoảng thời gian để vật thực hiện một dao động toàn phần
+				\item Ký hiệu: \(T\)
+				\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
+				\item Đơn vị: s
+				\newpage
+				\item Công thức:
+			\end{itemize}
+				\begin{minipage}[t]{0.5\textwidth}
+					\vspace{-12pt}
+					\qquad\quad
+					\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+						T = \frac{\Delta t}{N} = \frac{2 \pi}{\omega}
+					\end{empheq}
+				\end{minipage}
+				\begin{minipage}[t]{0.49\textwidth}
+					\vspace{-10pt}
+					\(\Delta t\): Thời gian mà dao động xảy ra (s)
+					\\ \(N\): Số dao động mà xảy ra trong thời gian đó
+				\end{minipage}
+		
+		\vspace{4pt}
+		\subsection{Tần số}
+			\vspace{5pt}
+			\begin{itemize}
+				\item Số dao động mà vật thực hiện trong một giây
+				\item Ký hiệu: \(f\)
+				\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
+				\item Đơn vị: Hz \( (= \dfrac{1}{s} = s^{-1}) \)
+				\item Công thức:
+					\vspace{7pt}
+					\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+						f = \frac{1}{T} = \frac{N}{\Delta t} = \frac{\omega}{2 \pi}
+					\end{empheq}
+			\end{itemize}
 	
-	\begin{center}
+	\vspace{4pt}
+	\section{Pha dao động}
+		\vspace{-13pt}
+		\begin{center}
+			\[ \boxed{\phi = \omega t + \varphi} \]
+			\(\Rightarrow \phi\) là hàm số bậc nhất theo \(t\)
+			\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+				\: \omega = \tan \left( \frac{\phi}{t} \right)
+			\end{empheq}
+		\end{center}
 		\vspace{3pt}
-		\textcolor{red}{\underline{\textbf{Chú ý:}}\hspace{5pt}
-			\(\begin{aligned}[t]
-				\varphi_1 &> \varphi_2 \Rightarrow \text{Dao động 1 sớm pha hơn dao động 2} \\
-				\varphi_1 &< \varphi_2 \Rightarrow \text{Dao động 1 trễ pha hơn dao động 2} \\
-				\varphi_1 &= \varphi_2 \Rightarrow \text{Hai dao động cùng pha (đồng pha)} \\
-				\varphi_1 &= \varphi_2 \pm \pi \Rightarrow \text{Dao động 1 ngược pha với dao động 2} \\
-			\end{aligned}\)}
-	\end{center}
+		\begin{center}
+			\textcolor{red}{\large \underline{\textbf{Chú ý:}} \( -\pi \leq \phi \leq \pi\)}
+		\end{center}
 
-	\vspace{-1.25cm}
-	\begin{center}
-		\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-			\: \varphi = \pm \arccos \left( \frac{x_0}{\rule[0pt]{0pt}{12pt} A} \right)
-		\end{empheq}
-	\end{center}
-	\vspace{0.25cm}
-	\[\text{Vị trí của vật} \; \begin{cases}
-		\varphi > 0, & \text{Vật chuyển động theo} \, - \! Ox \\
-		\varphi < 0, & \text{Vật chuyển động theo} \, + \! Ox \\
-		\varphi = 0, & \text{Vật ở điểm ban đầu}
-	\end{cases}\]
+	\newpage
+	\section{Độ lệch pha}
+		\subsection{Độ lệch pha của một dao động tại hai thời điểm}
+			\vspace{5pt}
+			\[\begin{aligned}
+				\Delta \phi &= \phi_2 - \phi_1 \\
+				&= (\omega t_2 + \varphi) - (\omega t_1 + \varphi) \\
+				&= \omega t_2 - \omega t_1 \\
+				&= \omega (t_2 - t_1) \\
+				&= \omega \times \Delta t
+			\end{aligned}\]
+			\[ \Rightarrow \boxed{\Delta \phi = \omega \times \Delta t} \qquad \]
+
+		\subsection{Độ lệch pha của hai dao động cùng phương, cùng tần số ở một thời điểm}
+			\vspace{5pt}
+			\[\begin{aligned}
+				\Delta \phi &= \phi_2 - \phi_1 \\
+				&= (\omega t + \varphi_2) - (\omega t + \varphi_1) \\
+				&= \varphi_2 - \varphi_1
+			\end{aligned}\]
+			\[ \Rightarrow \boxed{\Delta \phi = \varphi_2 - \varphi_1} \qquad \]
+			
+			\begin{center}
+				\vspace{3pt}
+				\textcolor{red}{\underline{\textbf{Chú ý:}}\hspace{5pt}
+					\(\begin{aligned}[t]
+						\varphi_1 &> \varphi_2 \Rightarrow \text{Dao động 1 sớm pha hơn dao động 2} \\
+						\varphi_1 &< \varphi_2 \Rightarrow \text{Dao động 1 trễ pha hơn dao động 2} \\
+						\varphi_1 &= \varphi_2 \Rightarrow \text{Hai dao động cùng pha (đồng pha)} \\
+						\varphi_1 &= \varphi_2 \pm \pi \Rightarrow \text{Dao động 1 ngược pha với dao động 2} \\
+					\end{aligned}\)}
+			\end{center}
+
+			\vspace{-1.25cm}
+			\begin{center}
+				\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+					\: \varphi = \pm \arccos \left( \frac{x_0}{\rule[0pt]{0pt}{12pt} A} \right)
+				\end{empheq}
+			\end{center}
+			\vspace{0.25cm}
+			\[\text{Vị trí của vật} \; \begin{cases}
+				\varphi > 0, & \text{Vật chuyển động theo} \, - \! Ox \\
+				\varphi < 0, & \text{Vật chuyển động theo} \, + \! Ox \\
+				\varphi = 0, & \text{Vật ở điểm ban đầu}
+			\end{cases}\]
 \end{document}

@@ -73,158 +73,158 @@
 
 % BEGIN DOCUMENT
 \begin{document}
-\begin{titlepage}
-\centering
-{\large\bfseries Lớp 11} \\
-\vspace{9pt}
-{\Large\bfseries Vật lý} \\
-\vspace{9pt}
-{\large\bfseries Chương I: Dao động} \\
-\vspace{9pt}
-{\large\bfseries Bài 1} \\
-\vspace{13.5pt}
-{\LARGE\bfseries Dao động điều hoà} \\
-\vspace{10.5pt}
-{\Large\bfseries\itshape kufern} \\
-\vspace{6.5cm}
-\includegraphics{logo.png}
-\end{titlepage}
+	\begin{titlepage}
+	\centering
+	{\large\bfseries Lớp 11} \\
+	\vspace{9pt}
+	{\Large\bfseries Vật lý} \\
+	\vspace{9pt}
+	{\large\bfseries Chương I: Dao động} \\
+	\vspace{9pt}
+	{\large\bfseries Bài 1} \\
+	\vspace{13.5pt}
+	{\LARGE\bfseries Dao động điều hoà} \\
+	\vspace{10.5pt}
+	{\Large\bfseries\itshape kufern} \\
+	\vspace{6.5cm}
+	\includegraphics{logo.png}
+	\end{titlepage}
 
-\section{Những đặc điểm của dao động cơ}
-	\begin{itemize}
-		\item Có một vị trí cân bằng xác định
-		\item Vật chuyển động qua lại quanh vị trí cân bằng đó
-		\item Dao động cơ của một vật có thể là \textit{tuần hoàn} hay \textit{không tuần hoàn}:
-		\begin{itemize}[label=\textopenbullet]
-			\item Dao động tuần hoàn: Sau những khoảng thời gian bằng nhau, vật trở lại vị trí cũ theo hướng cũ
-			\item Dao động không tuần hoàn
-	\end{itemize}
-\end{itemize}
-
-\vspace{3.75pt}
-\section{Dao động điều hoà}
-	\subsection{Đồ thị dao động điều hoà}
-		\vspace{3pt}
+	\section{Những đặc điểm của dao động cơ}
 		\begin{itemize}
-			\item Đồ thị cho biết vị trí trên trục \(x\) tại những điểm khác nhau
-			\item Đường cong này có dạng hình sin
+			\item Có một vị trí cân bằng xác định
+			\item Vật chuyển động qua lại quanh vị trí cân bằng đó
+			\item Dao động cơ của một vật có thể là \textit{tuần hoàn} hay \textit{không tuần hoàn}:
+			\begin{itemize}[label=\textopenbullet]
+				\item Dao động tuần hoàn: Sau những khoảng thời gian bằng nhau, vật trở lại vị trí cũ theo hướng cũ
+				\item Dao động không tuần hoàn
+			\end{itemize}
 		\end{itemize}
-		\vspace{-12pt}
-		\begin{figure}[h]
-			\centering
-			\begin{tikzpicture}[scale=0.8]
-				\begin{pgfonlayer}{setting}
-					\draw [bsetting, ->] (-pi/2,-2) -- (-pi/2,2) node [left] {\small \(x\) (cm)};
-					\draw [bsetting, ->] (-pi/2,0) node [left] {\(0\)} -- (11.5,0) node [right] {\small \(t\) (s)};
-				\end{pgfonlayer}
-				\begin{pgfonlayer}{plot}
-					\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=100] (\x, {sin(\x r)});
-				\end{pgfonlayer}
-				\begin{pgfonlayer}{label}
-					\draw [normdash, color=black] (-pi/2,1) node [left] {\(A\)} -- (5*pi/2,1);
-					\draw [<->, color=blue] (pi/2,1) -- (pi/2,0);
-					\draw [<->, color=blue] (3*pi/2,0) -- (3*pi/2,-1);
-					\draw [<->, color=blue] (5*pi/2,1) -- (5*pi/2,0);
-					\draw [<-] (-pi/2.1,-1.2) -- (pi/2,-1.2) node [below] {\(T\)};
-					\draw [->] (pi/2,-1.2) -- (3*pi/2,-1.2);
-					\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [below] {\(T\)};
-					\draw [->] (5*pi/2,-1.2) -- (7*pi/2,-1.2);
-				\end{pgfonlayer}
-			\end{tikzpicture}
-			\caption{Đồ thị dao động của một con lắc lò xo}
-		\end{figure}
+
+	\vspace{3.75pt}
+	\section{Dao động điều hoà}
+		\subsection{Đồ thị dao động điều hoà}
+			\vspace{3pt}
+			\begin{itemize}
+				\item Đồ thị cho biết vị trí trên trục \(x\) tại những điểm khác nhau
+				\item Đường cong này có dạng hình sin
+			\end{itemize}
+			\vspace{-12pt}
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}[scale=0.8]
+					\begin{pgfonlayer}{setting}
+						\draw [bsetting, ->] (-pi/2,-2) -- (-pi/2,2) node [left] {\small \(x\) (cm)};
+						\draw [bsetting, ->] (-pi/2,0) node [left] {\(0\)} -- (11.5,0) node [right] {\small \(t\) (s)};
+					\end{pgfonlayer}
+					\begin{pgfonlayer}{plot}
+						\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=100] (\x, {sin(\x r)});
+					\end{pgfonlayer}
+					\begin{pgfonlayer}{label}
+						\draw [normdash, color=black] (-pi/2,1) node [left] {\(A\)} -- (5*pi/2,1);
+						\draw [<->, color=blue] (pi/2,1) -- (pi/2,0);
+						\draw [<->, color=blue] (3*pi/2,0) -- (3*pi/2,-1);
+						\draw [<->, color=blue] (5*pi/2,1) -- (5*pi/2,0);
+						\draw [<-] (-pi/2.1,-1.2) -- (pi/2,-1.2) node [below] {\(T\)};
+						\draw [->] (pi/2,-1.2) -- (3*pi/2,-1.2);
+						\draw [<-] (3*pi/2,-1.2) -- (5*pi/2,-1.2) node [below] {\(T\)};
+						\draw [->] (5*pi/2,-1.2) -- (7*pi/2,-1.2);
+					\end{pgfonlayer}
+				\end{tikzpicture}
+				\caption{Đồ thị dao động của một con lắc lò xo}
+			\end{figure}
+		
 		\vspace{-13pt}
+		\subsection{Phương trình của dao động điều hoà}
+			\vspace{3pt}
+			\begin{minipage}[t]{0.59\textwidth}
+				\vspace{-21pt}
+				\centering
+				\[ \boxed{x = A \cos \left( \omega t + \varphi \right)} \]
+			\end{minipage}
+			\begin{minipage}[t]{0.4\textwidth}
+				\(x\): Li độ dao động (m) \\
+				\(A\): Biên độ dao động (m) \\
+				\(\left(\omega t + \varphi\right)\): Pha dao động (rad) \\
+				\(\varphi\): Pha ban đầu (rad)
+			\end{minipage}
 
-	\subsection{Phương trình của dao động điều hoà}
-		\vspace{3pt}
-		\begin{minipage}[t]{0.59\textwidth}
-			\vspace{-21pt}
-			\centering
-			\[ \boxed{x = A \cos \left( \omega t + \varphi \right)} \]
-		\end{minipage}
-		\begin{minipage}[t]{0.4\textwidth}
-			\(x\): Li độ dao động (m) \\
-			\(A\): Biên độ dao động (m) \\
-			\(\left(\omega t + \varphi\right)\): Pha dao động (rad) \\
-			\(\varphi\): Pha ban đầu (rad)
-		\end{minipage}
+	\newpage
+	\section{Mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
+		\vspace{-15pt}
+		\begin{center}
+			\begin{figure}[h]
+				\centering
+				\begin{tikzpicture}[scale=0.9]
+					\begin{pgfonlayer}{points}
+						\filldraw [color=gray] (0,0) circle [radius=1.75pt] node [below left] {\(O\)};
+					\end{pgfonlayer}
 
-\newpage
-\section{Mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
-	\vspace{-15pt}
-	\begin{center}
-		\begin{figure}[h]
-			\centering
-			\begin{tikzpicture}[scale=0.9]
-				\begin{pgfonlayer}{points}
-					\filldraw [color=gray] (0,0) circle [radius=1.75pt] node [below left] {\(O\)};
-				\end{pgfonlayer}
+					\begin{pgfonlayer}{topspecial}
+						\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=65, radius=10pt] node [below right=7pt and -4.5pt] {\(\phi\)};
+					\end{pgfonlayer}
 
-				\begin{pgfonlayer}{topspecial}
-					\draw [focus, color=red] (10pt,0) arc [start angle=0, end angle=65, radius=10pt] node [below right=7pt and -4.5pt] {\(\phi\)};
-				\end{pgfonlayer}
+					\begin{pgfonlayer}{setting}
+						\draw [gsetting, ->] (-4,0) -- (4,0) node [below=3pt] {\(x\)};
+						\draw [gsetting, ->] (0,-4) -- (0,4) node [below right = -7pt and 3pt] {\(y\)};
+						\draw [gsetting] (0,0) circle [radius=3cm];
+					\end{pgfonlayer}
+				
+					\begin{pgfonlayer}{label}
+						\draw [<-] (-29.7mm,0.15) -- (-14.8mm,0.15) node [above=-1.5pt] {\footnotesize \(A \left(= R\right)\)};
+						\draw [->] (-14.8mm,0.15) -- (-0.2mm,0.15);
+						% angle varphi
+						\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above=-2.5pt, right] {\(\varphi\)};
+						\draw [normdash, color=black] (30:3cm) -- (30:3cm |- 0,5pt);
+						\draw [color=black] (30:3cm |- 0,0) rectangle +(-5pt,5pt);
+						% angle alpha
+						\draw [focus, color=blue] (30:18pt) arc [start angle=30, end angle=65, radius=18pt] node [above=1.5pt, right] {\(\alpha\)};
+						% angle phi
+						\draw [normdash, color=red] (65:3cm) -- (65:3cm |- 0,5pt);
+						\draw [color=red] (65:3cm |- 0,0) rectangle +(-5pt,5pt);
+					\end{pgfonlayer}
 
-				\begin{pgfonlayer}{setting}
-					\draw [gsetting, ->] (-4,0) -- (4,0) node [below=3pt] {\(x\)};
-					\draw [gsetting, ->] (0,-4) -- (0,4) node [below right = -7pt and 3pt] {\(y\)};
-					\draw [gsetting] (0,0) circle [radius=3cm];
-				\end{pgfonlayer}
-			
-				\begin{pgfonlayer}{label}
-					\draw [<-] (-29.7mm,0.15) -- (-14.8mm,0.15) node [above=-1.5pt] {\footnotesize \(A \left(= R\right)\)};
-					\draw [->] (-14.8mm,0.15) -- (-0.2mm,0.15);
-					% angle varphi
-					\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above=-2.5pt, right] {\(\varphi\)};
-					\draw [normdash, color=black] (30:3cm) -- (30:3cm |- 0,5pt);
-					\draw [color=black] (30:3cm |- 0,0) rectangle +(-5pt,5pt);
-					% angle alpha
-					\draw [focus, color=blue] (30:18pt) arc [start angle=30, end angle=65, radius=18pt] node [above=1.5pt, right] {\(\alpha\)};
-					% angle phi
-					\draw [normdash, color=red] (65:3cm) -- (65:3cm |- 0,5pt);
-					\draw [color=red] (65:3cm |- 0,0) rectangle +(-5pt,5pt);
-				\end{pgfonlayer}
+					\begin{pgfonlayer}{plot}
+						% angle varphi
+						\draw [focus, ->] (0,0) -- (30:3cm);
+						\filldraw [color=black] (30:3cm) circle [radius=1.25pt] node [above=2pt, right] {\footnotesize \(M \left(t=0\right)\)};
+						\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below right = 2pt and -15pt] {\scriptsize \(P \left(t=0\right)\)};
+						% angle phi
+						\draw [focus, color=red, ->] (0,0) -- (65:3cm);
+						\filldraw [color=red] (65:3cm) circle [radius=1.25pt] node [above=5pt, right] {\footnotesize \(M \left(t \neq 0\right)\)};
+						\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below right = 2pt and -20pt] {\scriptsize \(P \left(t \neq 0\right)\)};
+					\end{pgfonlayer}
+				\end{tikzpicture}
+				\vspace{5pt}
+				\caption{Hình vẽ biểu diễn mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
+			\end{figure}
 
-				\begin{pgfonlayer}{plot}
-					% angle varphi
-					\draw [focus, ->] (0,0) -- (30:3cm);
-					\filldraw [color=black] (30:3cm) circle [radius=1.25pt] node [above=2pt, right] {\footnotesize \(M \left(t=0\right)\)};
-					\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below right = 2pt and -15pt] {\scriptsize \(P \left(t=0\right)\)};
-					% angle phi
-					\draw [focus, color=red, ->] (0,0) -- (65:3cm);
-					\filldraw [color=red] (65:3cm) circle [radius=1.25pt] node [above=5pt, right] {\footnotesize \(M \left(t \neq 0\right)\)};
-					\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below right = 2pt and -20pt] {\scriptsize \(P \left(t \neq 0\right)\)};
-				\end{pgfonlayer}
-			\end{tikzpicture}
-			\vspace{5pt}
-			\caption{Hình vẽ biểu diễn mối liên hệ giữa dao động điều hoà và chuyển động tròn đều}
-		\end{figure}
-
-		\begin{tabular}{|C{2cm}|C{4.5cm}|C{5.85cm}|}
-			\hline
-			& \vspace{2pt} \textbf{Chất điểm \(M\) chuyển động tròn đều} & \textbf{Hình chiếu \(P\) trên \(Ox\)} \\
-			\hline
-			\textbf{Vị trí} \(t_0 = 0\) & \Large \(\varphi\) &
-				\vspace{4pt}
-				\(\begin{aligned}
-					x &= \aboveline{OP}=R \cos \varphi \\
-					&= A \cos \varphi
-				\end{aligned}\) \vspace{3pt} \\
-			\hline
-			\textbf{Vị trí} \(t \neq 0\) &
-				\vspace{4pt}
-				\(\begin{aligned}
-					\phi &= \textcolor{blue}{\alpha} + \varphi \\
-					&= \textcolor{blue}{\omega t} + \varphi
-				\end{aligned}\) \vspace{3pt} &
-				\vspace{4pt}
-				\(\begin{aligned}
-					x &= \aboveline{OP}=R \cos \phi \\
-					&= \textcolor{red}{A \cos \left(\omega t + \varphi\right)}
-				\end{aligned}\) \vspace{3pt} \\
-			\hline
-		\end{tabular}
-	\end{center}
-	
-	\vspace{5pt}
-	\textbf{Kết luận:} Hình chiếu của chất điểm \(M\) chuyển động đều trên phương đường kính \(Ox\) dao động điều hoà
+			\begin{tabular}{|C{2cm}|C{4.5cm}|C{5.85cm}|}
+				\hline
+				& \vspace{2pt} \textbf{Chất điểm \(M\) chuyển động tròn đều} & \textbf{Hình chiếu \(P\) trên \(Ox\)} \\
+				\hline
+				\textbf{Vị trí} \(t_0 = 0\) & \Large \(\varphi\) &
+					\vspace{4pt}
+					\(\begin{aligned}
+						x &= \aboveline{OP}=R \cos \varphi \\
+						&= A \cos \varphi
+					\end{aligned}\) \vspace{3pt} \\
+				\hline
+				\textbf{Vị trí} \(t \neq 0\) &
+					\vspace{4pt}
+					\(\begin{aligned}
+						\phi &= \textcolor{blue}{\alpha} + \varphi \\
+						&= \textcolor{blue}{\omega t} + \varphi
+					\end{aligned}\) \vspace{3pt} &
+					\vspace{4pt}
+					\(\begin{aligned}
+						x &= \aboveline{OP}=R \cos \phi \\
+						&= \textcolor{red}{A \cos \left(\omega t + \varphi\right)}
+					\end{aligned}\) \vspace{3pt} \\
+				\hline
+			\end{tabular}
+		\end{center}
+		
+		\vspace{5pt}
+		\textbf{Kết luận:} Hình chiếu của chất điểm \(M\) chuyển động đều trên phương đường kính \(Ox\) dao động điều hoà
 \end{document}
