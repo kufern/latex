@@ -226,4 +226,29 @@
 				\end{itemize}
 			\item Với vật dao động điều hoà dọc theo trục \(Ox\):
 		\end{itemize}
+
+		\begin{minipage}[t]{0.2\textwidth}
+			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.9]
+				\shade [top color=white, bottom color=gray] (-1.25,0) rectangle (1.25,0.5);
+				\draw [color=gray, decorate, decoration={coil, segment length=4pt, post length=2pt}] (0,0) -- (0,-4) node [below=5pt] {\large \(k, l_0\)};
+			\end{tikzpicture}
+		\end{minipage}
+		\begin{minipage}[t]{0.2\textwidth}
+			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.9]
+				\shade [top color=white, bottom color=gray] (-1.25,0) rectangle (1.25,0.5);
+				\draw [color=gray, decorate, decoration={coil, segment length=6pt, post length=2pt}] (0,0) -- (0,-6);
+				\coordinate (center) at ($(0,-6)+(0,-7pt)$);
+				\filldraw [color=gray] (center) circle [radius=7pt];
+
+				\filldraw [color=blue] (center) circle [radius=2pt];
+				\draw [ultra thick, color=blue, ->] (center) -- +(0,2) node [right=1pt] {\(\vec{F}_\text{đàn hồi}\)};
+				\draw [ultra thick, color=blue, ->] (center) -- +(0,-2) node [right=-1pt] {\(\vec{P}\)};
+			\end{tikzpicture}
+		\end{minipage}
+		\begin{minipage}[t]{0.59\textwidth}
+			\centering
+			\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+				W_\text{t} = \frac{1}{2} 
+			\end{empheq}
+		\end{minipage}
 \end{document}
