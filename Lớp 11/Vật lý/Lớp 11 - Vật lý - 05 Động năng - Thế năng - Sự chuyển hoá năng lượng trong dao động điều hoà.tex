@@ -16,6 +16,7 @@
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
+\usetikzlibrary{decorations.pathmorphing}
 \tikzset{focus/.style={help lines, very thick, color=black}}
 \tikzset{bsetting/.style={help lines, thick, color=black}}
 \tikzset{gsetting/.style={help lines, thick, color=gray}}
@@ -105,7 +106,7 @@
 			\item Giá trị: \( 0 \leq W_\text{đ} \leq \dfrac{1}{2} \hspace{1pt} m \hspace{1pt} \omega^2 A^2 \)
 		\end{itemize}
 
-	\vspace{3pt}
+	\vspace{9pt}
 	\section{Thế năng}
 		\vspace{5pt}
 		\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
@@ -130,13 +131,99 @@
 		\underline{\textbf{\large Nhận xét:}}
 		\( \quad W = W_\text{đ} + W_\text{t} = W_\text{đ max} = W_\text{t max} \)
 	
-	\vspace{9pt}
+	\vspace{1cm}
 	\section{Đồ thị động năng, thế năng, cơ năng theo thời gian}
-		\vspace{10pt}
+		\vspace{11pt}
 		\begin{center}
 			\begin{tikzpicture}
-				\draw [->] (0,0) -- (0,4);
-				\draw [->] (0,0) -- (11,0);
+				\begin{pgfonlayer}{points}
+					\filldraw (0,0) circle [radius=1.5pt] node [below left] {\(O\)};
+				\end{pgfonlayer}
+
+				\begin{pgfonlayer}{setting}
+					\draw [focus, ->] (0,0) -- (0,4) node [left] {\(W\)};
+					\draw [focus, ->] (0,0) -- (11,0) node [below] {\(t\)};
+				\end{pgfonlayer}
+
+				\begin{pgfonlayer}{label}
+					\draw [focus, color=blue] plot [domain=0:10.5, samples=150] (\x, {1.5*sin(2*\x r + pi/2 r)+1.5});
+					\node at (pi,3) [above, color=blue] {\(W_\text{đ}\)};
+
+					\draw [focus, color=green!80!black] plot [domain=0:10.5, samples=150] (\x, {1.5*sin(2*\x r + 3*pi/2 r)+1.5});
+					\node at (pi/2,3) [above, color=green!80!black] {\(W_\text{t}\)};
+					
+					\draw [focus, color=red] (0,3) node [color=black, left] {\footnotesize \( \dfrac{1}{2} \hspace{1.25pt} m \hspace{1.25pt} \omega^2 A^2 \)} -- (10.5,3) node [above] {\(W\)};
+				\end{pgfonlayer}
 			\end{tikzpicture}
 		\end{center}
+		\vspace{7pt}
+		\underline{\textbf{\large Nhận xét:}}
+		\vspace{5pt}
+		\begin{itemize}
+			\item \(W_\text{đ}\) và \(W_\text{t}\) ngược pha
+			\item \(T = 2 \, T_\text{đ} = 2 \, T_\text{t}\)
+			\item \(\omega = \dfrac{1}{2} \, \omega_\text{\hspace{1pt}đ} = \dfrac{1}{2} \, \omega_\text{\hspace{1pt}t}\)
+		\end{itemize}
+	
+	\newpage
+	\section{Đồ thị động năng, thế năng, cơ năng theo li độ}
+		\vspace{11pt}
+		\begin{center}
+			\begin{tikzpicture}[scale=0.9]
+				\begin{pgfonlayer}{points}
+					\filldraw (0,0) circle [radius=1.5pt] node [below left] {\(O\)};
+				\end{pgfonlayer}
+
+				\begin{pgfonlayer}{topspecial}
+					\draw [focus, ->] (0,-1) -- (0,5.25) node [left] {\(W\)};
+					\draw [focus, ->] (-4.5,0) -- (4.5,0) node [below] {\(t\)};
+					\draw [normdash] (-3,4) -- (-3,0);
+					\draw [normdash] (3,4) -- (3,0);
+				\end{pgfonlayer}
+
+				\begin{pgfonlayer}{plot}
+					\draw [focus, color=blue] plot [domain=-3:3, samples=150] (\x, {(4/9)*((\x)^2)});
+					\node at (3,4) [right, color=blue] {\(W_\text{đ}\)};
+					
+					\draw [focus, color=green!80!black] plot [domain=-3:3, samples=150] (\x, {(-4/9)*((\x)^2)+4});
+					\node at (3,0) [above right, color=green!80!black] {\(W_\text{t}\)};
+
+					\node at (0,4) [above right = 3pt and 2pt] {\footnotesize \( \dfrac{1}{2} \hspace{1.25pt} m \hspace{1.25pt} \omega^2 A^2 \)};
+					\draw [focus, color=red] (-3,4) node [above] {\(W\)} -- (3,4);
+				\end{pgfonlayer}
+			\end{tikzpicture}
+		\end{center}
+		\vspace{5pt}
+		\underline{\textbf{\large Nhận xét:}}
+		\vspace{5pt}
+		\begin{itemize}
+			\item Động năng có giá trị:
+				\begin{itemize}[label=\textopenbullet]
+					\item \(W_\text{đ max} = W\) khi vật ở VTB
+					\item \(W_\text{đ min} = 0\) khi vật ở VTCB
+				\end{itemize}
+			\item Thế năng có giá trị:
+				\begin{itemize}[label=\textopenbullet]
+					\item \(W_\text{t max} = W\) khi vật ở VTCB
+					\item \(W_\text{t min} = 0\) khi vật ở VTB
+				\end{itemize}
+		\end{itemize}
+
+	\newpage
+	\section{Con lắc lò xo}
+		\vspace{6pt}
+		\begin{itemize}
+			\item Cấu tạo gồm:
+				\vspace{-5pt}
+				\begin{itemize}[label=\textopenbullet]
+					\item Lò xo nhẹ có:
+						\vspace{-2pt}
+						\begin{itemize}[label=\tiny\ensuremath{\blacksquare}]
+							\item Độ cứng \(k\) (N/m)
+							\item Chiều dài tự nhiên \(l_0\) (m)
+						\end{itemize}
+					\item Vật nặng có khối lượng \(m\) (kg)
+				\end{itemize}
+			\item Với vật dao động điều hoà dọc theo trục \(Ox\):
+		\end{itemize}
 \end{document}

@@ -16,6 +16,7 @@
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
+\usetikzlibrary{decorations.pathmorphing}
 \tikzset{focus/.style={help lines, very thick, color=black}}
 \tikzset{bsetting/.style={help lines, thick, color=black}}
 \tikzset{gsetting/.style={help lines, thick, color=gray}}
@@ -118,7 +119,7 @@
 						\draw [bsetting, ->] (-pi/2,0) node [left] {\(0\)} -- (11.5,0) node [right] {\small \(t\) (s)};
 					\end{pgfonlayer}
 					\begin{pgfonlayer}{plot}
-						\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=100] (\x, {sin(\x r)});
+						\draw [focus, color=blue] plot [domain=-pi/1.75:7*pi/2, samples=150] (\x, {sin(\x r)});
 					\end{pgfonlayer}
 					\begin{pgfonlayer}{label}
 						\draw [normdash, color=black] (-pi/2,1) node [left] {\(A\)} -- (5*pi/2,1);
