@@ -49,7 +49,7 @@
 % aboveline
 \newcommand{\aboveline}[1]{\overline{\rule{0pt}{3.1mm}#1}}
 
-% boxes
+% box
 \newlength\templength
 \newsavebox\tempbox
 \makeatletter
@@ -158,7 +158,7 @@
 				\centering
 				\begin{tikzpicture}[scale=0.9]
 					\begin{pgfonlayer}{points}
-						\filldraw [color=gray] (0,0) circle [radius=1.75pt] node [below left] {\(O\)};
+						\filldraw [color=gray] (0,0) circle [radius=2pt] node [below left] {\(O\)};
 					\end{pgfonlayer}
 
 					\begin{pgfonlayer}{topspecial}
@@ -175,7 +175,7 @@
 						\draw [<-] (-29.7mm,0.15) -- (-14.8mm,0.15) node [above=-1.5pt] {\footnotesize \(A \left(= R\right)\)};
 						\draw [->] (-14.8mm,0.15) -- (-0.2mm,0.15);
 						% angle varphi
-						\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above=-2.5pt, right] {\(\varphi\)};
+						\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above right = -9.8pt and 0pt] {\(\varphi\)};
 						\draw [normdash, color=black] (30:3cm) -- (30:3cm |- 0,5pt);
 						\draw [color=black] (30:3cm |- 0,0) rectangle +(-5pt,5pt);
 						% angle alpha
@@ -188,12 +188,12 @@
 					\begin{pgfonlayer}{plot}
 						% angle varphi
 						\draw [focus, ->] (0,0) -- (30:3cm);
-						\filldraw [color=black] (30:3cm) circle [radius=1.25pt] node [above=2pt, right] {\footnotesize \(M \left(t=0\right)\)};
-						\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.25pt] node [below right = 2pt and -15pt] {\scriptsize \(P \left(t=0\right)\)};
+						\filldraw [color=black] (30:3cm) circle [radius=1.5pt] node [above=2pt, right] {\footnotesize \(M \left(t=0\right)\)};
+						\filldraw [color=black] (30:3cm |- 0,0) circle [radius=1.5pt] node [below right = 2pt and -15pt] {\scriptsize \(P \left(t=0\right)\)};
 						% angle phi
 						\draw [focus, color=red, ->] (0,0) -- (65:3cm);
-						\filldraw [color=red] (65:3cm) circle [radius=1.25pt] node [above=5pt, right] {\footnotesize \(M \left(t \neq 0\right)\)};
-						\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.25pt] node [below right = 2pt and -20pt] {\scriptsize \(P \left(t \neq 0\right)\)};
+						\filldraw [color=red] (65:3cm) circle [radius=1.5pt] node [above=5pt, right] {\footnotesize \(M \left(t \neq 0\right)\)};
+						\filldraw [color=red] (65:3cm |- 0,0) circle [radius=1.5pt] node [below right = 2pt and -20pt] {\scriptsize \(P \left(t \neq 0\right)\)};
 					\end{pgfonlayer}
 				\end{tikzpicture}
 				\vspace{5pt}

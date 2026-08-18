@@ -49,7 +49,7 @@
 % aboveline
 \newcommand{\aboveline}[1]{\overline{\rule{0pt}{3.1mm}#1}}
 
-% boxes
+% box
 \newlength\templength
 \newsavebox\tempbox
 \makeatletter
@@ -62,7 +62,7 @@
 		{\@@custombox[#1]}%
 		{\@@custombox[#1][0pt]}}
 \def\@@custombox[#1][#2]#3{%
-	\sbox\tempbox{#3}%
+	\sbox\tempbox{\ensuremath{\displaystyle #3}}%
 	\templength\ht\tempbox
 	\advance\templength #1\relax
 	\ht\tempbox\templength
@@ -137,7 +137,7 @@
 		\begin{center}
 			\begin{tikzpicture}
 				\begin{pgfonlayer}{points}
-					\filldraw (0,0) circle [radius=1.5pt] node [below left] {\(O\)};
+					\filldraw (0,0) circle [radius=1.75pt] node [below left] {\(O\)};
 				\end{pgfonlayer}
 
 				\begin{pgfonlayer}{setting}
@@ -171,7 +171,7 @@
 		\begin{center}
 			\begin{tikzpicture}[scale=0.9]
 				\begin{pgfonlayer}{points}
-					\filldraw (0,0) circle [radius=1.5pt] node [below left] {\(O\)};
+					\filldraw (0,0) circle [radius=1.75pt] node [below left] {\(O\)};
 				\end{pgfonlayer}
 
 				\begin{pgfonlayer}{topspecial}
@@ -227,28 +227,149 @@
 			\item Với vật dao động điều hoà dọc theo trục \(Ox\):
 		\end{itemize}
 
-		\begin{minipage}[t]{0.2\textwidth}
-			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.9]
-				\shade [top color=white, bottom color=gray] (-1.25,0) rectangle (1.25,0.5);
+		\noindent
+		\begin{minipage}[t]{0.15\textwidth}
+			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.8]
+				\shade [top color=white, bottom color=gray] (-1.15,0) rectangle (1.15,0.5);
 				\draw [color=gray, decorate, decoration={coil, segment length=4pt, post length=2pt}] (0,0) -- (0,-4) node [below=5pt] {\large \(k, l_0\)};
 			\end{tikzpicture}
-		\end{minipage}
-		\begin{minipage}[t]{0.2\textwidth}
-			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.9]
-				\shade [top color=white, bottom color=gray] (-1.25,0) rectangle (1.25,0.5);
+		\end{minipage}%
+		\begin{minipage}[t]{0.29\textwidth}
+			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.8]
+				\shade [top color=white, bottom color=gray] (-1.15,0) rectangle (1.15,0.5);
 				\draw [color=gray, decorate, decoration={coil, segment length=6pt, post length=2pt}] (0,0) -- (0,-6);
 				\coordinate (center) at ($(0,-6)+(0,-7pt)$);
 				\filldraw [color=gray] (center) circle [radius=7pt];
 
-				\filldraw [color=blue] (center) circle [radius=2pt];
+				\coordinate (axiscenter) at ($(center)+(2.25,0)$);
+				\draw [normdash] (center) -- (axiscenter) node [midway, above] {\footnotesize VTCB} node [midway, below=2pt] {\large \(0\)};
+				\filldraw [color=black] (axiscenter) circle [radius=2.5pt];
+				\draw [ultra thick, color=black, ->] (2.25,-0.5) -- (2.25,-10) node [above left = -2pt and 0.18cm] {\(x \; (+)\)};
+
+				\filldraw [color=blue] (center) circle [radius=2.5pt];
 				\draw [ultra thick, color=blue, ->] (center) -- +(0,2) node [right=1pt] {\(\vec{F}_\text{đàn hồi}\)};
 				\draw [ultra thick, color=blue, ->] (center) -- +(0,-2) node [right=-1pt] {\(\vec{P}\)};
 			\end{tikzpicture}
-		\end{minipage}
-		\begin{minipage}[t]{0.59\textwidth}
+		\end{minipage}%
+		\begin{minipage}[t]{0.55\textwidth}
 			\centering
+			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.8]
+				\node (k) at (0,0) [draw, rectangle, inner sep=5pt] {\(k = m \hspace{1pt} \omega^2\)};
+				\node (omega) [below = 1cm of k, draw, rectangle, inner sep=5pt] {\(\omega = \sqrt{\dfrac{\rule[0pt]{0pt}{11pt} k}{m}}\)};
+				\draw [->] (k) -- (omega);
+				\coordinate [below = 0.75cm of omega] (bot);
+				\coordinate [left = 1.5cm of bot] (botleft);
+				\coordinate [right = 1.5cm of bot] (botright);
+				\draw (omega) -- (bot);
+				\draw (bot) -- (botleft);
+				\node (T) [below = 0.75cm of botleft, draw, rectangle, inner sep=5pt] {\(T = 2 \pi \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} m}{\rule[0pt]{0pt}{10pt} k}}\)};
+				\draw [->] (botleft) -- (T);
+				\draw (bot) -- (botright);
+				\node (f) [below = 0.75cm of botright, draw, rectangle, inner sep=5pt] {\(f = \dfrac{1}{\rule[0pt]{0pt}{10pt}2 \pi} \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} k}{\rule[0pt]{0pt}{10pt} m}}\)};
+				\draw [->] (botright) -- (f);
+			\end{tikzpicture}
+			\vspace{4pt}
 			\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-				W_\text{t} = \frac{1}{2} 
+				\, W_\text{t} = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} m \hspace{1pt} \omega^2 x^2 = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} k x^2 \,
 			\end{empheq}
-		\end{minipage}
+			\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+				\, W = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} m \hspace{1pt} \omega^2 A^2 = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} k A^2 \,
+			\end{empheq}
+			\vspace{5pt}
+			\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
+				\, W_\text{đ} = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{2pt} m \hspace{1pt} \omega^2 \hspace{-2pt} \left( A^2 - x^2 \right) = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{2pt} k \hspace{-1.5pt} \left( A^2 - x^2 \right) \,
+			\end{empheq}
+		\end{minipage}%
+
+		\newpage
+		\textcolor{red}{\underline{\textbf{\large Chú ý:}}} \; Con lắc lò xo treo theo phương thẳng đứng
+			\vspace{3pt}
+			\[ \begin{aligned}
+				F_\text{đàn hồi} = P \; & \Rightarrow \; k \times \lvert \hspace{1pt} \Delta l \hspace{1pt} \rvert = mg \\[5pt]
+				& \Rightarrow \; \custombox[2pt][2pt]{\, \frac{k}{\rule[0pt]{0pt}{11pt} m} = \frac{\rule[-5pt]{0pt}{11pt} g}{\rule[1pt]{0pt}{11pt}\lvert \hspace{1pt} \Delta l \hspace{1pt} \rvert} \,}\\[6pt]
+				& \Rightarrow \; \custombox[2pt][1pt]{\; \omega = \sqrt{\frac{\rule[-5pt]{0pt}{11pt} g}{\rule[1pt]{0pt}{11pt}\lvert \hspace{1pt} \Delta l \hspace{1pt} \rvert}} \;}
+			\end{aligned} \]
+
+	\vspace{0.3cm}
+	\section{Con lắc lò xo}
+		\vspace{6pt}
+		\begin{itemize}
+			\item Cấu tạo gồm:
+				\vspace{-3pt}
+				\begin{itemize}[label=\textopenbullet]
+					\item Dây treo nhẹ, không dãn, chiều dài \(l\) (m)
+					\item Vật nặng có khối lượng \(m\) (kg)
+				\end{itemize}
+		\end{itemize}
+		\noindent
+		\begin{minipage}[t]{0.63\textwidth}
+			\vspace{-5pt}
+			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.8]
+				\shade [top color=white, bottom color=gray] (-2,0) rectangle (2,0.5);
+				
+				\coordinate (left) at (-120:6);
+				\filldraw [color=gray] (left) circle [radius=7pt];
+				
+				\coordinate (middle) at (0,-6);
+				\filldraw [color=gray] (middle) circle [radius=7pt];
+				
+				\coordinate (right) at (-60:6);
+				\filldraw [color=gray] (right) circle [radius=7pt];
+				
+				\begin{pgfonlayer}{points}
+					\filldraw (0,0) circle [radius=2pt] node [above=3pt] {\(I\)};
+					\filldraw (left) circle [radius=2pt];
+					\filldraw (middle) circle [radius=2pt] node [below left = 2pt and 2pt]{\(O\)};
+					\filldraw (right) circle [radius=2pt];
+				\end{pgfonlayer}
+				
+				\draw [focus] (0,0) -- (middle);
+				\draw [focus] (0,0) -- (left);
+				\draw [focus] (0,0) -- (right) node [midway, above right] {\(l\)};
+
+				\draw [focus] (-60:15pt) arc [start angle=-60, end angle=-90, radius=15pt] node [below right = 1pt and -3.25pt] {\(\alpha\)};
+				\draw [normdash] (right) -- (4pt,0 |- right);
+				\draw (4pt,0 |- right) rectangle +(-4pt,4pt);
+				\filldraw (0,0 |- right) circle [radius=2pt] node [left=2pt] {\(H\)};
+
+				\draw [normdash, focus] (right) arc [start angle=-60, end angle=-90, radius=6] node [midway, below right = 1pt and -1pt] {\(s\)};
+				\draw [normdash] (middle) arc [start angle=-90, end angle=-120, radius=6];
+				
+				\draw [normdash] (middle) -- +(-3.35,0) node [very near end, below] {\(h_0 = 0\)};
+				\draw [>={Stealth[scale=0.75]}, focus, <->] (left) -- (left |- middle) node [midway, left] {\(h\)};
+
+				\draw [focus, color=blue, ->] (-3.8,-8) -- (4.5,-8) node [above left = 1pt and -14pt] {\(x \; (+)\)};
+				\draw [normdash, color=blue] (middle) -- (middle |- 0,-8);
+				\filldraw [color=blue] (middle |- 0,-8) circle [radius=1.5pt] node [below=2pt] {\(O\)};
+				\draw [normdash, color=blue] (right) -- (right |- 0,-8);
+				\filldraw [color=blue] (right |- 0,-8) circle [radius=1.5pt] node [below=4pt] {\(x\)};
+			\end{tikzpicture}
+		\end{minipage}%
+		\begin{minipage}[t]{0.36\textwidth}
+			\vspace{0.1cm}
+			\underline{\textbf{\large Chú thích:}}
+			\begin{itemize}
+				\item \(\alpha\): Li độ góc (rad)
+				\item 
+			\end{itemize}
+		\end{minipage}%
+
+		\newpage
+		\begin{center}
+			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.8]
+				\node (k) at (0,0) [draw, rectangle, inner sep=5pt] {\(k = m \hspace{1pt} \omega^2\)};
+				\node (omega) [below = 1cm of k, draw, rectangle, inner sep=5pt] {\(\omega = \sqrt{\dfrac{\rule[0pt]{0pt}{11pt} k}{m}}\)};
+				\draw [->] (k) -- (omega);
+				\coordinate [below = 0.75cm of omega] (bot);
+				\coordinate [left = 1.5cm of bot] (botleft);
+				\coordinate [right = 1.5cm of bot] (botright);
+				\draw (omega) -- (bot);
+				\draw (bot) -- (botleft);
+				\node (T) [below = 0.75cm of botleft, draw, rectangle, inner sep=5pt] {\(T = 2 \pi \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} m}{\rule[0pt]{0pt}{10pt} k}}\)};
+				\draw [->] (botleft) -- (T);
+				\draw (bot) -- (botright);
+				\node (f) [below = 0.75cm of botright, draw, rectangle, inner sep=5pt] {\(f = \dfrac{1}{\rule[0pt]{0pt}{10pt}2 \pi} \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} k}{\rule[0pt]{0pt}{10pt} m}}\)};
+				\draw [->] (botright) -- (f);
+			\end{tikzpicture}
+		\end{center}
 \end{document}
