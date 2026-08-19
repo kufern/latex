@@ -255,31 +255,26 @@
 			\centering
 			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.8]
 				\node (k) at (0,0) [draw, rectangle, inner sep=5pt] {\(k = m \hspace{1pt} \omega^2\)};
-				\node (omega) [below = 1cm of k, draw, rectangle, inner sep=5pt] {\(\omega = \sqrt{\dfrac{\rule[0pt]{0pt}{11pt} k}{m}}\)};
+				\node (omega) [below = 0.8cm of k, draw, rectangle, inner sep=5pt] {\(\omega = \sqrt{\dfrac{\rule[0pt]{0pt}{11pt} k}{m}}\)};
+				\node (m) [right = 0.8cm of k, draw, rectangle, inner sep=5pt] {\(m = \dfrac{k}{\rule[0pt]{0pt}{11pt} \omega^2}\)};
 				\draw [->] (k) -- (omega);
+				\draw [->] (k) -- (m);
 				\coordinate [below = 0.75cm of omega] (bot);
-				\coordinate [left = 1.5cm of bot] (botleft);
-				\coordinate [right = 1.5cm of bot] (botright);
+				\coordinate [left = 1.25cm of bot] (botleft);
+				\coordinate [right = 1.75cm of bot] (botright);
 				\draw (omega) -- (bot);
 				\draw (bot) -- (botleft);
 				\node (T) [below = 0.75cm of botleft, draw, rectangle, inner sep=5pt] {\(T = 2 \pi \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} m}{\rule[0pt]{0pt}{10pt} k}}\)};
 				\draw [->] (botleft) -- (T);
 				\draw (bot) -- (botright);
-				\node (f) [below = 0.75cm of botright, draw, rectangle, inner sep=5pt] {\(f = \dfrac{1}{\rule[0pt]{0pt}{10pt}2 \pi} \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} k}{\rule[0pt]{0pt}{10pt} m}}\)};
+				\node (f) [below = 0.75cm of botright, draw, rectangle, inner sep=5pt] {\(f = \dfrac{1}{\rule[0pt]{0pt}{10pt} 2 \pi} \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} k}{\rule[0pt]{0pt}{10pt} m}}\)};
 				\draw [->] (botright) -- (f);
 			\end{tikzpicture}
 			\vspace{4pt}
-			\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-				\, W_\text{t} = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} m \hspace{1pt} \omega^2 x^2 = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} k x^2 \,
-			\end{empheq}
-			\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-				\, W = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} m \hspace{1pt} \omega^2 A^2 = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} k A^2 \,
-			\end{empheq}
-			\vspace{5pt}
-			\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-				\, W_\text{đ} = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{2pt} m \hspace{1pt} \omega^2 \hspace{-2pt} \left( A^2 - x^2 \right) = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{2pt} k \hspace{-1.5pt} \left( A^2 - x^2 \right) \,
-			\end{empheq}
-		\end{minipage}%
+			\[ \custombox[2pt][2pt]{\, W_\text{t} = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} m \hspace{1pt} \omega^2 x^2 = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} k x^2 \,} \]
+			\[ \custombox[2pt][2pt]{\, W = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} m \hspace{1pt} \omega^2 A^2 = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} k A^2 \,} \] \\ [-7pt]
+			\[ \custombox[2pt][2pt]{\, W_\text{đ} = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{2pt} m \hspace{1pt} \omega^2 \hspace{-2pt} \left( A^2 - x^2 \right) = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{2pt} k \hspace{-1.5pt} \left( A^2 - x^2 \right) \,} \]
+		\end{minipage}
 
 		\newpage
 		\textcolor{red}{\underline{\textbf{\large Chú ý:}}} \; Con lắc lò xo treo theo phương thẳng đứng
@@ -302,7 +297,7 @@
 				\end{itemize}
 		\end{itemize}
 		\noindent
-		\begin{minipage}[t]{0.63\textwidth}
+		\begin{minipage}[t]{0.58\textwidth}
 			\vspace{-5pt}
 			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.8]
 				\shade [top color=white, bottom color=gray] (-2,0) rectangle (2,0.5);
@@ -319,18 +314,19 @@
 				\begin{pgfonlayer}{points}
 					\filldraw (0,0) circle [radius=2pt] node [above=3pt] {\(I\)};
 					\filldraw (left) circle [radius=2pt];
-					\filldraw (middle) circle [radius=2pt] node [below left = 2pt and 2pt]{\(O\)};
+					\filldraw [color=orange] (middle) circle [radius=2pt] node [below left = 2pt and 2pt]{\(O\)};
 					\filldraw (right) circle [radius=2pt];
 				\end{pgfonlayer}
 				
-				\draw [focus] (0,0) -- (middle);
+				\draw [focus] (0,0) -- (0,0 |- right);
 				\draw [focus] (0,0) -- (left);
 				\draw [focus] (0,0) -- (right) node [midway, above right] {\(l\)};
 
 				\draw [focus] (-60:15pt) arc [start angle=-60, end angle=-90, radius=15pt] node [below right = 1pt and -3.25pt] {\(\alpha\)};
 				\draw [normdash] (right) -- (4pt,0 |- right);
 				\draw (4pt,0 |- right) rectangle +(-4pt,4pt);
-				\filldraw (0,0 |- right) circle [radius=2pt] node [left=2pt] {\(H\)};
+				\filldraw [color=orange] (0,0 |- right) circle [radius=2pt] node [left=2pt] {\(H\)};
+				\draw [focus, color=orange] (middle) -- (0,0 |- right);
 
 				\draw [normdash, focus] (right) arc [start angle=-60, end angle=-90, radius=6] node [midway, below right = 1pt and -1pt] {\(s\)};
 				\draw [normdash] (middle) arc [start angle=-90, end angle=-120, radius=6];
@@ -345,31 +341,40 @@
 				\filldraw [color=blue] (right |- 0,-8) circle [radius=1.5pt] node [below=4pt] {\(x\)};
 			\end{tikzpicture}
 		\end{minipage}%
-		\begin{minipage}[t]{0.36\textwidth}
+		\begin{minipage}[t]{0.41\textwidth}
 			\vspace{0.1cm}
 			\underline{\textbf{\large Chú thích:}}
+			\vspace{7pt}
 			\begin{itemize}
 				\item \(\alpha\): Li độ góc (rad)
-				\item 
+					\[ \custombox[2pt][2pt]{\, \alpha = \frac{s}{l} \,} \]
+				\item \(s\): Li độ dài
+					\[ \custombox[2pt][2pt]{\, s = \alpha \times l \approx x \,} \]
+				\item \(h\): Độ cao của vật nặng
+					\[ \custombox[2pt][2pt]{\, h = \textcolor{orange}{OH} = l \left( 1 - \cos \alpha \right) \,} \]
 			\end{itemize}
 		\end{minipage}%
 
 		\newpage
 		\begin{center}
 			\begin{tikzpicture}[baseline={(current bounding box.north)}, scale=0.8]
-				\node (k) at (0,0) [draw, rectangle, inner sep=5pt] {\(k = m \hspace{1pt} \omega^2\)};
-				\node (omega) [below = 1cm of k, draw, rectangle, inner sep=5pt] {\(\omega = \sqrt{\dfrac{\rule[0pt]{0pt}{11pt} k}{m}}\)};
-				\draw [->] (k) -- (omega);
+				\node (omega) at (0,0) [draw, rectangle, inner sep=6pt] {\(\omega = \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} \hspace{1pt} g \hspace{1pt} \rule[-5pt]{0pt}{11pt}}{\rule[1pt]{0pt}{11pt} l}}\)};
+				\node (l) [right = 1.5cm of omega, draw, rectangle, inner sep=6pt] {\(l = \dfrac{g \rule[-5pt]{0pt}{11pt}}{\rule[1pt]{0pt}{11pt} \omega^2} \hspace{-1pt}\)};
+				\draw [->] (omega) -- (l);
 				\coordinate [below = 0.75cm of omega] (bot);
-				\coordinate [left = 1.5cm of bot] (botleft);
-				\coordinate [right = 1.5cm of bot] (botright);
+				\coordinate [left = 1.25cm of bot] (botleft);
+				\coordinate [right = 1.75cm of bot] (botright);
 				\draw (omega) -- (bot);
 				\draw (bot) -- (botleft);
-				\node (T) [below = 0.75cm of botleft, draw, rectangle, inner sep=5pt] {\(T = 2 \pi \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} m}{\rule[0pt]{0pt}{10pt} k}}\)};
+				\node (T) [below = 0.75cm of botleft, draw, rectangle, inner sep=6pt] {\(T = 2 \pi \hspace{2pt} \sqrt{\dfrac{\rule[1pt]{0pt}{12pt} l}{\rule[0pt]{0pt}{10pt} \hspace{1pt} g \hspace{1pt} \rule[-5pt]{0pt}{11pt}}}\)};
 				\draw [->] (botleft) -- (T);
 				\draw (bot) -- (botright);
-				\node (f) [below = 0.75cm of botright, draw, rectangle, inner sep=5pt] {\(f = \dfrac{1}{\rule[0pt]{0pt}{10pt}2 \pi} \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} k}{\rule[0pt]{0pt}{10pt} m}}\)};
+				\node (f) [below = 0.75cm of botright, draw, rectangle, inner sep=6pt] {\(f = \dfrac{1}{\rule[0pt]{0pt}{10pt} 2 \pi} \hspace{1pt} \sqrt{\dfrac{\rule[0pt]{0pt}{10pt} \hspace{1pt} g \hspace{1pt} \rule[-5pt]{0pt}{11pt}}{\rule[1pt]{0pt}{11pt} l}}\)};
 				\draw [->] (botright) -- (f);
 			\end{tikzpicture}
+			\vspace{10pt}
+			\[ \custombox[2pt][2pt]{\, W_\text{t} = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} m \hspace{0.5pt} g \hspace{0.5pt} l \hspace{0.5pt} \alpha^2 = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} m \hspace{0.5pt} g \hspace{1.5pt} \dfrac{s^2}{l} \,} \]
+			\[ \custombox[2pt][2pt]{\, W = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{1pt} m \hspace{0.5pt} g \hspace{0.5pt} l \hspace{0.5pt} \alpha^2 \,} \] \\ [-7pt]
+			\[ \custombox[2pt][2pt]{\, W_\text{đ} = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{2pt} m \hspace{1pt} \omega^2 \hspace{-2pt} \left( A^2 - x^2 \right) = \frac{1}{\rule[0pt]{0pt}{11pt} 2} \hspace{2pt} k \hspace{-1.5pt} \left( A^2 - x^2 \right) \,} \]
 		\end{center}
 \end{document}

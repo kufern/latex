@@ -62,7 +62,7 @@
 		{\@@custombox[#1]}%
 		{\@@custombox[#1][0pt]}}
 \def\@@custombox[#1][#2]#3{%
-	\sbox\tempbox{#3}%
+	\sbox\tempbox{\ensuremath{\displaystyle #3}}%
 	\templength\ht\tempbox
 	\advance\templength #1\relax
 	\ht\tempbox\templength
@@ -141,7 +141,7 @@
 			\vspace{5pt}
 			\begin{itemize}
 				\item \(v\) biến thiên điều hoà theo \(t\), với tần số góc là \(\,\omega\)
-				\item \(v\) sớm pha hơn \(x\) một góc \( \, \dfrac{\pi}{2}\) \: (\( v \perp x \))
+				\item \(v\) sớm pha hơn \(x\) một góc \( \, \dfrac{\pi}{2}\) \: \( \left( \hspace{1pt} v \perp x \hspace{1pt} \right) \)
 				\item Giá trị vận tốc: \quad \( -\omega A \leq v \leq \omega A \)
 					\begin{itemize}[label=\textopenbullet]
 						\item \( v_\text{max} = \omega A \) khi vật qua VTCB theo chiều dương (\(+\))
@@ -196,8 +196,8 @@
 			\end{minipage}
 			\begin{minipage}[t]{0.4\textwidth}
 				\centering
-				\[\boxed{a = -\omega^2 A \, \cos \left( \omega t + \varphi \right)}\]
-				\[\boxed{a = \omega^2 A \, \cos \left(\omega t + \varphi + \pi \right)}\]
+				\[ \custombox[2pt][2pt]{a = -\omega^2 A \, \cos \left( \omega t + \varphi \right)} \]
+				\[ \custombox[2pt][2pt]{a = \omega^2 A \, \cos \left( \omega t + \varphi + \pi \right)} \]
 			\end{minipage}
 			\vspace{5pt}
 		\subsection{Nhận xét}
@@ -219,13 +219,12 @@
 			\end{itemize}
 		\newpage
 		\subsection{Sự nhanh chậm của chuyển động}
-			\vspace{5pt}
+			\vspace{4pt}
 			\begin{itemize}
-				\item Chuyển động chậm dần: Vật đi từ VTCB đến VTB \\ (\(\vec{v}\) và \(\vec{a}\) ngược chiều)
-				\item Chuyển động nhanh dần: Vật đi từ VTB đến VTCB \\ (\(\vec{v}\) và \(\vec{a}\) cùng chiều)
+				\item Chuyển động chậm dần: Vật đi từ VTCB đến VTB \\ [1pt] (\(\vec{v}\) và \(\vec{a}\) ngược chiều)
+				\item Chuyển động nhanh dần: Vật đi từ VTB đến VTCB \\ [1pt] (\(\vec{v}\) và \(\vec{a}\) cùng chiều)
 			\end{itemize}
 
-	\vspace{1pt}
 	\section{Hệ thức độc lập thời gian}
 		\subsection{Giữa vận tốc và li độ}
 			\vspace{-5pt}
@@ -292,7 +291,7 @@
 				\end{tikzpicture}
 			\end{center}
 
-		\vspace{0.1cm}
+		\vspace{0.2cm}
 		\subsection{Giữa gia tốc và vận tốc}
 			\vspace{0.7cm}
 			\begin{center}

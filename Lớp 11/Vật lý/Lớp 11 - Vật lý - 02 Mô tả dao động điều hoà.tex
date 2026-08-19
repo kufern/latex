@@ -62,7 +62,7 @@
 		{\@@custombox[#1]}%
 		{\@@custombox[#1][0pt]}}
 \def\@@custombox[#1][#2]#3{%
-	\sbox\tempbox{#3}%
+	\sbox\tempbox{\ensuremath{\displaystyle #3}}%
 	\templength\ht\tempbox
 	\advance\templength #1\relax
 	\ht\tempbox\templength
@@ -126,9 +126,7 @@
 				\begin{minipage}[t]{0.5\textwidth}
 					\vspace{-12pt}
 					\qquad\quad
-					\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-						T = \frac{\Delta t}{N} = \frac{2 \pi}{\omega}
-					\end{empheq}
+					\[ \custombox[2pt][2pt]{\, T = \frac{\Delta t}{\rule[0pt]{0pt}{11pt} N} = \frac{2 \pi}{\omega} \hspace{1pt}} \]
 				\end{minipage}
 				\begin{minipage}[t]{0.49\textwidth}
 					\vspace{-10pt}
@@ -143,23 +141,19 @@
 				\item Số dao động mà vật thực hiện trong một giây
 				\item Ký hiệu: \(f\)
 				\item Phụ thuộc vào đặc tính của hệ, môi trường,\,\ldots
-				\item Đơn vị: Hz \( (= \dfrac{1}{s} = s^{-1}) \)
+				\item Đơn vị: Hz \( (\hspace{1pt} = \dfrac{1}{s} = s^{-1} \hspace{1pt}) \)
 				\item Công thức:
 					\vspace{7pt}
-					\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-						f = \frac{1}{T} = \frac{N}{\Delta t} = \frac{\omega}{2 \pi}
-					\end{empheq}
+					\[ \custombox[2pt][2pt]{\, f = \frac{1}{\rule[0pt]{0pt}{11pt} T} = \frac{N}{\rule[0pt]{0pt}{11pt} \Delta t} = \frac{\omega}{\rule[0pt]{0pt}{11pt} 2 \pi} \,} \]
 			\end{itemize}
 	
 	\vspace{4pt}
 	\section{Pha dao động}
 		\vspace{-13pt}
 		\begin{center}
-			\[ \boxed{\phi = \omega t + \varphi} \]
+			\[ \custombox[2pt][2pt]{\phi = \omega \hspace{0.25pt} t + \varphi \hspace{1pt}} \]
 			\(\Rightarrow \phi\) là hàm số bậc nhất theo \(t\)
-			\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-				\: \omega = \tan \left( \frac{\phi}{t} \right)
-			\end{empheq}
+			\[ \custombox[2pt][2pt]{\hspace{4pt} \omega = \tan \left( \frac{\phi}{t} \right)} \]
 		\end{center}
 		\vspace{3pt}
 		\begin{center}
@@ -172,21 +166,21 @@
 			\vspace{5pt}
 			\[\begin{aligned}
 				\Delta \phi &= \phi_2 - \phi_1 \\
-				&= (\omega t_2 + \varphi) - (\omega t_1 + \varphi) \\
-				&= \omega t_2 - \omega t_1 \\
-				&= \omega (t_2 - t_1) \\
-				&= \omega \times \Delta t
+				&= \left( \omega \hspace{0.25pt} t_2 + \varphi \right) - \left( \omega \hspace{0.25pt} t_1 + \varphi \right) \\
+				&= \omega \hspace{0.25pt} t_2 - \omega \hspace{0.25pt} t_1 \\
+				&= \omega \left( t_2 - t_1 \right) \\
+				&= \omega \times \Delta t \\
+				&\Rightarrow \; \custombox[2pt][1pt]{\Delta \phi = \omega \times \Delta t \hspace{1pt}}
 			\end{aligned}\]
-			\[ \Rightarrow \boxed{\Delta \phi = \omega \times \Delta t} \qquad \]
 
 		\subsection{Độ lệch pha của hai dao động cùng phương, cùng tần số ở một thời điểm}
 			\vspace{5pt}
 			\[\begin{aligned}
 				\Delta \phi &= \phi_2 - \phi_1 \\
-				&= (\omega t + \varphi_2) - (\omega t + \varphi_1) \\
-				&= \varphi_2 - \varphi_1
+				&= \left( \omega \hspace{0.25pt} t + \varphi_2 \right) - \left( \omega \hspace{0.25pt} t + \varphi_1 \right) \\
+				&= \varphi_2 - \varphi_1 \\
+				&\Rightarrow \custombox[2pt][1pt]{\Delta \phi = \varphi_2 - \varphi_1}
 			\end{aligned}\]
-			\[ \Rightarrow \boxed{\Delta \phi = \varphi_2 - \varphi_1} \qquad \]
 			
 			\begin{center}
 				\vspace{3pt}
@@ -195,15 +189,13 @@
 						\varphi_1 &> \varphi_2 \Rightarrow \text{Dao động 1 sớm pha hơn dao động 2} \\
 						\varphi_1 &< \varphi_2 \Rightarrow \text{Dao động 1 trễ pha hơn dao động 2} \\
 						\varphi_1 &= \varphi_2 \Rightarrow \text{Hai dao động cùng pha (đồng pha)} \\
-						\varphi_1 &= \varphi_2 \pm \pi \Rightarrow \text{Dao động 1 ngược pha với dao động 2} \\
+						\varphi_1 &= \varphi_2 \hspace{0.5pt} \pm \hspace{0.5pt} \pi \Rightarrow \text{Dao động 1 ngược pha với dao động 2} \\
 					\end{aligned}\)}
 			\end{center}
 
 			\vspace{-1.25cm}
 			\begin{center}
-				\begin{empheq}[box={\custombox[2pt][2pt]}]{equation*}
-					\: \varphi = \pm \arccos \left( \frac{x_0}{\rule[0pt]{0pt}{12pt} A} \right)
-				\end{empheq}
+				\[ \custombox[2pt][2pt]{\: \varphi = \pm \arccos \left( \frac{x_0}{\rule[0pt]{0pt}{12pt} A} \right)} \]
 			\end{center}
 			\vspace{0.25cm}
 			\[\text{Vị trí của vật} \; \begin{cases}

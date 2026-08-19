@@ -62,7 +62,7 @@
 		{\@@custombox[#1]}%
 		{\@@custombox[#1][0pt]}}
 \def\@@custombox[#1][#2]#3{%
-	\sbox\tempbox{#3}%
+	\sbox\tempbox{\ensuremath{\displaystyle #3}}%
 	\templength\ht\tempbox
 	\advance\templength #1\relax
 	\ht\tempbox\templength
@@ -141,7 +141,7 @@
 			\begin{minipage}[t]{0.59\textwidth}
 				\vspace{-21pt}
 				\centering
-				\[ \boxed{x = A \cos \left( \omega t + \varphi \right)} \]
+				\[ \custombox[2pt][2pt]{\, x = A \cos \left( \omega t + \varphi \right) \,} \]
 			\end{minipage}
 			\begin{minipage}[t]{0.4\textwidth}
 				\(x\): Li độ dao động (m) \\
@@ -175,7 +175,7 @@
 						\draw [<-] (-29.7mm,0.15) -- (-14.8mm,0.15) node [above=-1.5pt] {\footnotesize \(A \left(= R\right)\)};
 						\draw [->] (-14.8mm,0.15) -- (-0.2mm,0.15);
 						% angle varphi
-						\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above right = -9.8pt and 0pt] {\(\varphi\)};
+						\draw [focus, color=black] (15pt,0) arc [start angle=0, end angle=30, radius=15pt] node [above right = -9.9pt and 0pt] {\(\varphi\)};
 						\draw [normdash, color=black] (30:3cm) -- (30:3cm |- 0,5pt);
 						\draw [color=black] (30:3cm |- 0,0) rectangle +(-5pt,5pt);
 						% angle alpha
