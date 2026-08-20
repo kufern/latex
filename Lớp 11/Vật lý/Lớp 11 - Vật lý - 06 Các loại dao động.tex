@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc} % unicode
+\usepackage[vietnamese=nohyphenation]{hyphsubst} % vietnamese
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb, empheq} % math
+\usepackage{enumitem} % lists
+\usepackage{graphicx} % images
+\usepackage{tikz} % graphs
+\usepackage{caption} % captions
+\usepackage{array} % tables
+\usepackage{xcolor} % colors
+
+\graphicspath{{../../images/}}
+
+% tikz
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.pathmorphing}
+\tikzset{focus/.style={help lines, very thick, color=black}}
+\tikzset{bsetting/.style={help lines, thick, color=black}}
+\tikzset{gsetting/.style={help lines, thick, color=gray}}
+\tikzset{normdash/.style={help lines, dashed, color=black}}
+\tikzset{darrow/.style={help lines, >=Latex[]}}
+\tikzset{smarrow/.style={help lines, >={Stealth[scale=0.5]}}}
+\tikzset{>=Stealth[]}
+
+% pgf layers
+\pgfdeclarelayer{points}
+\pgfdeclarelayer{topspecial}
+\pgfdeclarelayer{plot}
+\pgfdeclarelayer{setting}
+\pgfdeclarelayer{label}
+\pgfdeclarelayer{botspecial}
+\pgfsetlayers{botspecial,label,setting,main,plot,topspecial,points}
+
+% sections & subsections
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+% figure names
+% CHANGE THIS WHEN YOU GET TO NEW LESSON
+\captionsetup[figure]{labelsep=period, labelfont=bf, justification=centering}
+\renewcommand{\thefigure}{5.\arabic{figure}}
+
+% tables
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% aboveline
+\newcommand{\aboveline}[1]{\overline{\rule{0pt}{3.1mm}#1}}
+
+% box
+\newlength\templength
+\newsavebox\tempbox
+\makeatletter
+\newcommand\custombox{%
+	\@ifnextchar[%]
+		{\@custombox}%
+		{\@custombox[0pt]}}
+\def\@custombox[#1]{%
+	\@ifnextchar[%]
+		{\@@custombox[#1]}%
+		{\@@custombox[#1][0pt]}}
+\def\@@custombox[#1][#2]#3{%
+	\sbox\tempbox{\ensuremath{\displaystyle #3}}%
+	\templength\ht\tempbox
+	\advance\templength #1\relax
+	\ht\tempbox\templength
+	\templength\dp\tempbox
+	\advance\templength #2\relax
+	\dp\tempbox\templength
+	\fbox{\usebox{\tempbox}}}%
+\makeatother
+
+% BEGIN DOCUMENT
+\begin{document}
+	\begin{titlepage}
+	\centering
+	{\large\bfseries Lớp 11} \\
+	\vspace{9pt}
+	{\Large\bfseries Vật lý} \\
+	\vspace{9pt}
+	{\large\bfseries Chương I: Dao động} \\
+	\vspace{9pt}
+	{\large\bfseries Bài 6} \\
+	\vspace{13.5pt}
+	{\LARGE\bfseries Các loại dao động} \\
+	\vspace{17.5pt}
+	{\Large\bfseries\itshape kufern} \\
+	\vspace{7cm}
+	\includegraphics{logo.png}
+	\end{titlepage}
+
+	\section{Dao động tự do}
+		\vspace{6pt}
+		\begin{itemize}
+			\item \(A\) không đổi
+			\item \(T\) và \(f\) không đổi
+		\end{itemize}
+
+	\vspace{-5pt}
+	\section{Dao động tắt dần}
+		\vspace{6pt}
+		\begin{itemize}
+			\item \(A\) giảm dần theo \(t\)
+			\item \(T\) và \(f\) không đổi
+			\item Nguyên nhân: Do sức cản, ma sát của môi trường
+			\item Ứng dụng:
+				\begin{itemize}[label=\textopenbullet]
+					\item Bộ phận giảm xóc của xe máy
+					\vspace{2pt}
+					\item Cánh cửa đóng tự động
+				\end{itemize}
+		\end{itemize}
+		\vspace{0.35cm}
+		\textcolor{red}{\underline{\textbf{\large Chú ý:}}} \qquad \quad \( \custombox[1pt][3pt]{\, W \sim A^2 \,} \qquad \custombox[3pt][1pt]{\, \Delta W = Q \,} \)
+
+	\vspace{0.6cm}
+	\section{Dao động cưỡng bức}
+		\vspace{0.4cm}
+		\centering
+		\begin{tikzpicture}
+			\node (NL) at (0,0) {\large Ngoại lực};
+			\node (plus) [right = -2pt of NL] {\large +};
+			\node (r) [right = -2pt of plus] {\large Dao động tự do};
+			\node (CB) [right = 5cm of plus] {\large Dao động cưỡng bức};
+			\draw [->] ($(r)+(2cm,0)$) -- ($(CB)+(-2.5cm,0)$);
+
+			\node (F_NL) [below = 0.3cm of NL] {\(F_\text{NL}\) \footnotesize (max)};
+			\node (T_NL) [below = 0.1cm of F_NL] {\(T_\text{NL}\)};
+			\node (f_NL) [below = 0.1cm of T_NL] {\(f_\text{NL}\)};
+
+			\node (F_r) [below = 0.3cm of r] {\(A_\text{r}\)};
+			\node (T_r) [below = 0.1cm of F_r] {\(T_\text{r}\)};
+			\node (f_r) [below = 0.1cm of T_r] {\(f_\text{r}\)};
+
+			\node (F_CB) [below = 0.3cm of CB] {\(A_\text{CB}\)};
+			\node (T_CB) [below = 0.1cm of F_CB] {\(T_\text{CB}\)};
+			\node (f_CB) [below = 0.1cm of T_CB] {\(f_\text{CB}\)};
+		\end{tikzpicture}
+
+		\newpage
+\end{document}
