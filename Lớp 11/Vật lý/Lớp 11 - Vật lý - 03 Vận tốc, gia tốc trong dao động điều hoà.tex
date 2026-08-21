@@ -131,10 +131,8 @@
 			\end{minipage}
 			\begin{minipage}[t]{0.4\textwidth}
 				\centering
-				\[ \boxed{v = -\omega A \, \sin \left( \omega t + \varphi \right)} \]
-				\begin{empheq}[box={\custombox[2px][2px]}]{equation*}
-					\, v = \omega A \, \cos \left(\omega t + \varphi + \frac{\pi}{2} \right)
-				\end{empheq}
+				\[ \custombox[2pt][2pt]{\, v = -\omega A \, \sin \left( \omega t + \varphi \right) \,} \]
+				\[ \custombox[2pt][2pt]{\, v = \omega A \, \cos \left(\omega t + \varphi + \frac{\pi}{2} \right)} \]
 			\end{minipage}
 			\vspace{5pt}
 		\subsection{Nhận xét}
@@ -147,6 +145,7 @@
 						\item \( v_\text{max} = \omega A \) khi vật qua VTCB theo chiều dương (\(+\))
 						\item \( v_\text{min} = -\omega A \) khi vật qua VTCB theo chiều âm (\(-\))
 					\end{itemize}
+				\vspace{1pt}
 				\item Độ lớn vận tốc (Tốc độ): \quad \( 0 \leq \lvert v \rvert \leq \omega A \)
 					\begin{itemize}[label=\textopenbullet]
 						\item \( {\lvert v \rvert}_\text{max} = \omega A \) khi vật qua VTCB
@@ -175,7 +174,7 @@
 					\draw (0,0) circle [radius=2.75];
 
 					% ant1
-					\draw [darrow, semithick, dashed][->] (0,0) -- (60:2.75);
+					\draw [>={Stealth[scale=0.8]}, semithick, dashed, color=gray][->] (0,0) -- (60:2.75);
 					\coordinate (ant1) at ($(60:2.75)+(-120:30pt)$);
 					\coordinate (ant1sqy) at ($(ant1)+(0,4pt)$);
 					\coordinate (ant1sqytemp) at ($(ant1sqy)+(0,1.8pt)$);
@@ -185,7 +184,7 @@
 					\draw [smarrow, very thick, color=red][->] (60:2.75 |- ant1) -- (ant1) node [below right = -1pt and -3pt] {\(\vec{a}\)};
 
 					% ant2
-					\draw [darrow, semithick, dashed][->] (0,0) -- (215:2.75);
+					\draw [>={Stealth[scale=0.8]}, semithick, dashed, color=gray][->] (0,0) -- (215:2.75);
 					\coordinate (ant2) at ($(215:2.75)+(35:30pt)$);
 					\coordinate (ant2sqy) at ($(ant2)+(0,-4pt)$);
 					\draw [smarrow, very thick, color=blue][->] (215:2.75) -- +(35:30pt) node [below right = 1pt and -7pt] {\(\vec{a}_{nt}\)};

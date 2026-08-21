@@ -98,7 +98,7 @@
 			\item \(T\) và \(f\) không đổi
 		\end{itemize}
 
-	\vspace{-5pt}
+	\vspace{0.1cm}
 	\section{Dao động tắt dần}
 		\vspace{6pt}
 		\begin{itemize}
@@ -115,29 +115,50 @@
 		\vspace{0.35cm}
 		\textcolor{red}{\underline{\textbf{\large Chú ý:}}} \qquad \quad \( \custombox[1pt][3pt]{\, W \sim A^2 \,} \qquad \custombox[3pt][1pt]{\, \Delta W = Q \,} \)
 
-	\vspace{0.6cm}
+	\vspace{0.9cm}
 	\section{Dao động cưỡng bức}
-		\vspace{0.4cm}
-		\centering
-		\begin{tikzpicture}
-			\node (NL) at (0,0) {\large Ngoại lực};
-			\node (plus) [right = -2pt of NL] {\large +};
-			\node (r) [right = -2pt of plus] {\large Dao động tự do};
-			\node (CB) [right = 5cm of plus] {\large Dao động cưỡng bức};
-			\draw [->] ($(r)+(2cm,0)$) -- ($(CB)+(-2.5cm,0)$);
+		\vspace{0.5cm}
+		\begin{center}
+			\begin{tikzpicture}
+				\node (NL) at (0,0) {\large Ngoại lực};
+				\node (plus) [right = -2pt of NL] {\large +};
+				\node (r) [right = -2pt of plus] {\large Dao động tự do};
+				\node (CB) [right = 5cm of plus] {\large Dao động cưỡng bức};
+				\draw [->] ($(r)+(2cm,0)$) -- ($(CB)+(-2.5cm,0)$);
 
-			\node (F_NL) [below = 0.3cm of NL] {\(F_\text{NL}\) \footnotesize (max)};
-			\node (T_NL) [below = 0.1cm of F_NL] {\(T_\text{NL}\)};
-			\node (f_NL) [below = 0.1cm of T_NL] {\(f_\text{NL}\)};
+				\node (F_NL) [below = 0.3cm of NL] {\(F_\text{NL (max)}\)};
+				\node (T_NL) [below = 0.1cm of F_NL] {\(T_\text{NL}\)};
+				\node (f_NL) [below = 0.1cm of T_NL] {\(f_\text{NL}\)};
 
-			\node (F_r) [below = 0.3cm of r] {\(A_\text{r}\)};
-			\node (T_r) [below = 0.1cm of F_r] {\(T_\text{r}\)};
-			\node (f_r) [below = 0.1cm of T_r] {\(f_\text{r}\)};
+				\node (F_r) [below = 0.3cm of r] {\(A_\text{r}\)};
+				\node (T_r) [below = 0.1cm of F_r] {\(T_\text{r}\)};
+				\node (f_r) [below = 0.1cm of T_r] {\(f_\text{r} \, \left( \hspace{1pt} f_0 \hspace{1pt} \right)\)};
 
-			\node (F_CB) [below = 0.3cm of CB] {\(A_\text{CB}\)};
-			\node (T_CB) [below = 0.1cm of F_CB] {\(T_\text{CB}\)};
-			\node (f_CB) [below = 0.1cm of T_CB] {\(f_\text{CB}\)};
-		\end{tikzpicture}
+				\node (F_CB) [below = 0.3cm of CB] {\(A_\text{CB}\)};
+				\node (T_CB) [below = 0.1cm of F_CB] {\(T_\text{CB}\)};
+				\node (f_CB) [below = 0.1cm of T_CB] {\(f_\text{CB}\)};
+			\end{tikzpicture}
 
-		\newpage
+			\newpage
+			\begin{itemize}
+				\item \( T_\text{CB} = T_\text{NL} \) và \( \hspace{1.5pt} f_\text{CB} = f_\text{NL} \)
+				\item \( A_\text{CB} \) là hằng số
+				\item Chiều của \( A_\text{CB} \hspace{0.5pt} \):
+					\begin{itemize}[label=\textopenbullet]
+						\item Cùng chiều với \(F_\text{NL (max)}\)
+						\item Ngược chiều với \(F_\text{cản}\)
+						\item Ngược chiều với \( \lvert \, T_\text{NL} - T_\text{r} \, \rvert \hspace{0.75pt} \) và \( \hspace{0.75pt} \lvert \, f_\text{NL} - f_\text{r} \, \rvert \)
+					\end{itemize}
+			\end{itemize}
+		\end{center}
+	
+	\vspace{0.2cm}
+	\section{Hiện tượng cộng hưởng}
+		\vspace{0.3cm}
+		\begin{itemize}
+			\item Hiện tượng cộng hưởng là hiện tượng biên độ dao động cưỡng bức \\[2pt] \( A_\text{CB} \) tăng đến giá trị cực đại khi tần số \( f_\text{CB} \) của lực cưỡng bức tiến đến \\[3pt] bằng tần số riêng \( f_\text{r} \) của hệ dao động
+				\vspace{4pt}
+				\[ \custombox[2pt][2pt]{\, f_\text{NL} = f_\text{r} \text{ hay } T_\text{NL} = T_\text{r} \, \Rightarrow \, A_\text{CB} \text{ đạt GTLN} \,} \]
+			\item Điều kiện \( f_\text{NL} = f_\text{r} \text{ hay } T_\text{NL} = T_\text{r} \) gọi là \underline{điều kiện cộng hưởng\rule[-3pt]{0pt}{14pt}}
+		\end{itemize}
 \end{document}
